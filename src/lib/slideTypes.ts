@@ -111,7 +111,17 @@ export interface QuoteSlide {
   attribution?: string
 }
 
-export type Slide = IntroSlide | ImageSlide | ColumnsSlide | BlankSlide | SplitSlide | TimelineSlide | TitleSlide | TocSlide | QuoteSlide
+export interface DualVideoSlide {
+  type: 'dual-video'
+  title: string
+  leftSrc: string
+  rightSrc: string
+  leftCaption?: string
+  rightCaption?: string
+  caption?: string
+}
+
+export type Slide = IntroSlide | ImageSlide | ColumnsSlide | BlankSlide | SplitSlide | TimelineSlide | TitleSlide | TocSlide | QuoteSlide | DualVideoSlide
 
 // --- Mini Project Block Types ---
 

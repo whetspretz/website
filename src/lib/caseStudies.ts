@@ -859,10 +859,10 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         entries: [
           { label: 'Context', slideIndex: 2 },
           { label: 'Idea to product', slideIndex: 7 },
-          { label: 'Branding', slideIndex: 15 },
-          { label: 'Onboarding the anonymous', slideIndex: 26 },
-          { label: 'Privacy Features', slideIndex: 47 },
-          { label: 'Design system', slideIndex: 47 },
+          { label: 'How branding weaves through the porduct.', slideIndex: 15 },
+          { label: 'Life of the rich and anonymous', slideIndex: 39 },
+          { label: 'Results & lessons learned', slideIndex: 53 },
+      
 
         ],
       },
@@ -957,16 +957,16 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       { type: 'quote', text: 'ketl leads with intrigue, but earns trust fast enough that the mystery feels intentional, not risky.', attribution: 'Design Principle.' },
       {
         type: 'split',
-        title: 'The Brand Tension.',
+        title: 'The brand tension',
         imagePosition: 'left',
         componentId: 'brand-tension',
         bullets: [
           'ketl needed to hold two opposing signals:',
           '1. Cryptic enough to feel insider (secret society vibe).',
-          '2. Credible enough to trust',
+          '2. Credible enough to trust.',
           '👇',
           'Too clear → feels like LinkedIn.',
-          'Too mysterious → feels like crypto = untrustworthy.',
+          'Too mysterious → feels like crypto (= untrustworthy.)',
         ],
         caption: 'The brand lives in the narrow space between.',
       },
@@ -975,7 +975,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         title: 'Balance is found in layers (Design onion).',
         componentId: 'brand-layers',
       },
-      { type: 'quote', text: 'Let\'s start with the logo.', attribution: 'A mark with meaning.' },
+      { type: 'quote', text: 'Intrigue.', attribution: 'The brand pull.' },
       {
         type: 'split',
         title: 'ketl logomark.',
@@ -988,18 +988,231 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         ],
         caption: 'Oh yeah, it\'s also the shape of a kettle.',
       },
-
-      
-
-
-
-
-
-
-      { type: 'title', title: 'Onboarding the anonymous', caption: 'Use your real name → credibility. Stay anonymous → honesty.' },
-      { type: 'quote', text: 'ketl asks, \'what if we could do both?\'.', attribution: 'Have honest conversations without the reputational risk.' },
-      
-      { type: 'quote', text: 'The original vision wasn\’t a social network.', attribution: 'It was infrastructure: What new products become possible with zero-knowledge proofs?' },
+      {
+        type: 'image',
+        title: 'There had been other explorations.',
+        imageSrc: '/projects/ketl/oldlogos.png',
+        imageAlt: 'ketllogos',
+      },
+      {
+        type: 'image',
+        title: 'A mysterious background.',
+        videoSrc: '/projects/ketl/login_s1.mp4',
+      },
+      {
+        type: 'image',
+        title: 'Our mascot: the exploration.',
+        videoSrc: '/projects/ketl/mascot-search.mp4',
+      },
+      {
+        type: 'image',
+        title: 'Our mascot. (the orb motif had represented \'zk proofs\' for us in the past). ',
+        imageSrc: '/projects/ketl/the-mascot.png',
+        imageAlt: 'ketllogos',
+      },
+      {
+        type: 'image',
+        title: 'How we come across in outward-facing media. ',
+        imageSrc: '/projects/ketl/slide-template14-1.png',
+        imageAlt: 'ketllogos',
+      },
+      {
+        type: 'image',
+        title: 'How we come across in outward-facing media Pt 2. ',
+        imageSrc: '/projects/ketl/slide-template14.png',
+        imageAlt: 'ketllogos',
+      },
+      {
+        type: 'dual-video',
+        title: 'Our login screen + tilt effect.',
+        leftSrc: '/projects/ketl/homescreen.mp4',
+        rightSrc: '/projects/ketl/reveal-tilt.MP4',
+        caption: 'Please excuse that rude spam caller!.',
+      },
+      { type: 'quote', text: 'Orientation.', attribution: 'Build a foundation.' },
+      {
+        type: 'image',
+        title: 'Access to content via clean typography. ',
+        imageSrc: '/projects/ketl/type-clarity.png',
+        imageAlt: 'ketlscreen',
+      },
+      {
+        type: 'image',
+        title: 'Simple and familiar information architecture and navigation.',
+        videoSrc: '/projects/ketl/complete.mp4',
+      },
+      {
+        type: 'image',
+        title: 'Badges to instill a sense of identity. ',
+        imageSrc: '/projects/ketl/badges.png',
+        imageAlt: 'ketlscreen',
+      },
+      {
+        type: 'image',
+        title: 'Your role embedded everywhere you go. ',
+        imageSrc: '/projects/ketl/role-label.png',
+        imageAlt: 'ketlscreen',
+      },
+      { type: 'quote', text: 'Proof.', attribution: 'Build a foundation.' },
+      {
+        type: 'image',
+        title: 'Everyone is verified. ',
+        imageSrc: '/projects/ketl/verify-yourself.png',
+        imageAlt: 'ketlscreen',
+      },
+      {
+        type: 'image',
+        title: 'Content with value. ',
+        imageSrc: '/projects/ketl/ketl-bank.png',
+        imageAlt: 'ketlscreen',
+      },
+      {
+        type: 'image',
+        title: 'Consistent privacy signals. ',
+        videoSrc: '/projects/ketl/consistentsignals.mp4',
+      },
+      {
+        type: 'image',
+        title: 'Transparent entanglment ledger. ',
+        imageSrc: '/projects/ketl/entanglement.png',
+        imageAlt: 'ketlscreen',
+      },
+      { type: 'quote', text: 'Questions before continuing?', attribution: 'Next, we\'ll talk about some anonymous features.' },
+      { type: 'title', title: 'Life of the rich and anonymous', caption: 'Desinging with a blindfold!' },
+      { type: 'quote', text: 'ketl operates in a fragile environment.', attribution: 'Users want to speak freely, but fear exposure.' },
+      {
+        type: 'split',
+        title: 'Anonymous Onboarding: The Core Challenge.',
+        imagePosition: 'left',
+        componentId: 'anonymous-onboarding',
+        bullets: [
+          'Onboarding anonymous users is fundamentally harder than traditional signup.',
+          'We needed to answer, immediately: Is this space credible? Am I safe to speak? Do others here actually belong?',
+          'WITHOUT overwhelming users with zk mechanics.',
+        ],
+        caption: 'Trust had to be felt fast.',
+      },
+      {
+        type: 'split',
+        title: 'Journey Brainstorm & Mapping.',
+        imagePosition: 'right',
+        videoSrc: '/projects/ketl/journeymap.mp4',
+        bullets: [
+          'We ran structured exercises to map the emotional journey',
+        ],
+      },
+      {
+        type: 'image',
+        title: 'Onboaridng wires to break it down. ',
+        imageSrc: '/projects/ketl/onboaridng_wires.png',
+        imageAlt: 'ketlscreen',
+      },
+      {
+        type: 'image',
+        title: 'Onboaridng wires to break it down. ',
+        videoSrc: '/projects/ketl/firstroundonboarding.mp4',
+      },
+      {
+        type: 'image',
+        title: 'Then the final breakdown. ',
+        videoSrc: '/projects/ketl/round2onboarid.mp4',
+      },
+      { type: 'quote', text: 'Shake to shadow.', attribution: 'Building IRL incognito.' },
+      {
+        type: 'split',
+        title: 'Shake to hide identity.',
+        imagePosition: 'right',
+        videoSrc: '/projects/ketl/shaketoshad.mov',
+        bullets: [
+          'You can shake your phone to hide your username and details.',
+          'It\'s fast under pressure. It\'s memorable. Satisfying.',
+        ],
+      },
+      { type: 'quote', text: 'Rephrase with AI.', attribution: 'Disguise my words, ser.' },
+      {
+        type: 'image',
+        title: 'We introduced AI-assisted rewriting to help users throw lurkers off their tail. ',
+        videoSrc: '/projects/ketl/Rephrase.mp4',
+        caption: 'Even in pseudonymous spaces, users self-censor.',
+      },
+      { type: 'quote', text: 'Rating VCs & Founders.', attribution: 'Uh-oh...' },
+      {
+        type: 'image',
+        title: 'Rating individuals: Expanding anonymous reputation (kred) beyond content. ',
+        videoSrc: '/projects/ketl/ratings.mp4',
+        caption: 'This was designed but never launched.',
+      },
+      { type: 'quote', text: 'Questions before continuing?', attribution: 'Next, we\'ll talk about results & lessons learned.' },
+      { type: 'title', title: 'Results and lessons learned', caption: 'Design Outcomes.' },
+      { type: 'quote', text: 'From a design standpoint, ketl validated the core bet.',  },
+      {
+        type: 'image',
+        title: 'Zk-verification can help a digital community thrive. ',
+        imageSrc: '/projects/ketl/socialengage.mov',
+        imageAlt: 'ketlscreen',
+      },
+      {
+        type: 'split',
+        title: 'Where the design worked.',
+        imagePosition: 'right',
+        videoSrc: '/projects/ketl/shaketoshad.mov',
+        bullets: [
+          'Users understood verification signals (insight from talking to users).',
+          'The environment felt serious and moderated (no racist tirads or inappropriate content).',
+          'Conversations moved beyond surface-level takes (early industry alpha bubbled up).',
+          'The cryptic → clarity sequencing held.',
+        ],
+      },
+      {
+        type: 'split',
+        title: 'Where the design fell short.',
+        imagePosition: 'left',
+        videoSrc: '/projects/ketl/shaketoshad.mov',
+        bullets: [
+          'Verification introduces unavoidable friction (sign-ups were slow coming. Testing with users showed many stresses).',
+          'Pseudonymity increases cognitive overhead (not every new person we spoke to understood ketl immediately).',
+          'Though it was only an MLP, much of the design never reached a state of polish or perfect UX.',
+        ],
+      },
+      {
+        type: 'split',
+        title: 'The tradeoff.',
+        imagePosition: 'right',
+        videoSrc: '/projects/ketl/shaketoshad.mov',
+        bullets: [
+          'ketl\’s design intentionally optimized for conversation quality per user and not raw user growth velocity.',
+        ],
+      },
+      {
+        type: 'split',
+        title: 'Signals of product design fit.',
+        imagePosition: 'left',
+        videoSrc: '/projects/ketl/shaketoshad.mov',
+        bullets: [
+          'Despite growth friction, qualitative feedback was strong among the target audience.',
+          'Users consistently responded to the credibility of verified cohorts.',
+          'Despite growth friction, qualitative feedback was strong among the target audience.',
+        ],
+      },
+      {
+        type: 'image',
+        title: 'This indicated the experience was landing correctly for the intended user.',
+        imageSrc: '/projects/ketl/praise.png',
+        imageAlt: 'ketlscreen',
+      },
+      {
+        type: 'split',
+        title: 'Design lessons.',
+        imagePosition: 'left',
+        videoSrc: '/projects/ketl/shaketoshad.mov',
+        bullets: [
+          'Trust systems behave differently from engagement systems.',
+          'Some friction is protective, not harmful.',
+          'The best privacy UX makes complex guarantees feel obvious.',
+        ],
+      },
+      { type: 'title', title: 'Fin', caption: 'Questions?' },
+    
 
 
 

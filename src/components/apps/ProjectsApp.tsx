@@ -37,6 +37,7 @@ import { ChatToInterfaceGraphic } from './ChatToInterfaceGraphic'
 import { IntentToInterfaceGraphic } from './IntentToInterfaceGraphic'
 import { BrandTensionGraphic } from './BrandTensionGraphic'
 import { BrandLayersGraphic } from './BrandLayersGraphic'
+import { AnonymousOnboardingGraphic } from './AnonymousOnboardingGraphic'
 
 const COMPONENT_MAP = {
   'pigeon-layers': PigeonLayersSlide,
@@ -70,6 +71,7 @@ const COMPONENT_MAP = {
   'intent-to-interface': IntentToInterfaceGraphic,
   'brand-tension': BrandTensionGraphic,
   'brand-layers': BrandLayersGraphic,
+  'anonymous-onboarding': AnonymousOnboardingGraphic,
 }
 
 const PREVIEW_W = 360

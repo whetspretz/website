@@ -1,8 +1,15 @@
-import type { IntroSlide, ImageSlide, ColumnsSlide, BlankSlide, SplitSlide, TitleSlide, TocSlide, QuoteSlide, Slide, InlineDividerStyle } from '@/lib/slideTypes'
+import type { IntroSlide, ImageSlide, ColumnsSlide, BlankSlide, SplitSlide, TitleSlide, TocSlide, QuoteSlide, DualVideoSlide, Slide, InlineDividerStyle } from '@/lib/slideTypes'
 import { RichText } from './RichText'
 import { TimelineSlideView } from './TimelineSlide'
 
 export type BlankSlideComponentMap = Record<string, React.ComponentType>
+
+const VIDEO_EXTS = ['.mp4', '.mov', '.webm']
+function isVideoSrc(src: string | undefined): boolean {
+  if (!src) return false
+  const lower = src.toLowerCase()
+  return VIDEO_EXTS.some(ext => lower.endsWith(ext))
+}
 
 function InlineDivider({ style }: { style: InlineDividerStyle }): React.JSX.Element {
   if (style === 'rainbow') {
@@ -162,9 +169,9 @@ function ImageSlideView({ slide }: { slide: ImageSlide }): React.JSX.Element {
       <div
         className="flex-1 overflow-hidden min-h-0 flex items-center justify-center"
       >
-        {slide.videoSrc ? (
+        {slide.videoSrc || isVideoSrc(slide.imageSrc) ? (
           <video
-            src={slide.videoSrc}
+            src={slide.videoSrc ?? slide.imageSrc}
             className="w-full h-full object-contain"
             style={{ borderRadius: 24 }}
             autoPlay
@@ -275,7 +282,7 @@ function SplitSlideView({ slide, componentMap }: { slide: SplitSlide; componentM
         >
           {Component ? (
             <Component />
-          ) : slide.videoSrc || slide.imageSrc?.endsWith('.mp4') ? (
+          ) : slide.videoSrc || isVideoSrc(slide.imageSrc) ? (
             <video
               src={slide.videoSrc ?? slide.imageSrc}
               className="w-full h-full object-contain"
@@ -499,6 +506,63 @@ function QuoteSlideView({ slide }: { slide: QuoteSlide }): React.JSX.Element {
   )
 }
 
+function DualVideoSlideView({ slide }: { slide: DualVideoSlide }): React.JSX.Element {
+  return (
+    <div className="flex flex-col h-full p-8">
+      <h2
+        className="text-white mb-6 shrink-0"
+        style={{
+          fontFamily: "'Clash Display', Georgia, serif",
+          fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
+          fontWeight: 500,
+        }}
+      >
+        {slide.title}
+      </h2>
+      <div className="flex-1 min-h-0 overflow-hidden dual-video-grid">
+        <div className="dual-video-cell">
+          <video
+            src={slide.leftSrc}
+            style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 24 }}
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+          {slide.leftCaption && (
+            <p className="text-white/50 text-center font-mono mt-2 shrink-0" style={{ fontSize: '0.65rem' }}>
+              {slide.leftCaption}
+            </p>
+          )}
+        </div>
+        <div className="dual-video-cell">
+          <video
+            src={slide.rightSrc}
+            style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 24 }}
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+          {slide.rightCaption && (
+            <p className="text-white/50 text-center font-mono mt-2 shrink-0" style={{ fontSize: '0.65rem' }}>
+              {slide.rightCaption}
+            </p>
+          )}
+        </div>
+      </div>
+      {slide.caption && (
+        <p
+          className="text-white/50 text-center font-mono mt-3 shrink-0"
+          style={{ fontSize: '0.65rem' }}
+        >
+          {slide.caption}
+        </p>
+      )}
+    </div>
+  )
+}
+
 export function SlideContent({ slide, componentMap, onNavigate }: { slide: Slide; componentMap?: BlankSlideComponentMap; onNavigate?: (index: number) => void }): React.JSX.Element {
   switch (slide.type) {
     case 'intro':
@@ -519,5 +583,7 @@ export function SlideContent({ slide, componentMap, onNavigate }: { slide: Slide
       return <QuoteSlideView slide={slide} />
     case 'blank':
       return <BlankSlideView slide={slide} componentMap={componentMap} />
+    case 'dual-video':
+      return <DualVideoSlideView slide={slide} />
   }
 }
