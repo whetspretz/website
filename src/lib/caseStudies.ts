@@ -831,9 +831,9 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
     slug: 'Ketl',
     title: 'Ketl',
     tag: 'Social / Zero-knowledge proofs',
-    year: '2024',
+    year: '2023',
     description: 'A brief one-liner about this project.',
-    hero: '/projects/project-ketl/ketl.png',
+    hero: '/projects/ketl/ketl-hero.png',
     locked: true,
     slides: [
       {
@@ -845,7 +845,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         meta: [
           { label: 'When', value: '2023' },
           { label: 'Role', value: 'Designer' },
-          { label: 'Team', value: 'Core Team (6+ ENG & Me)' },
+          { label: 'Team', value: 'Core Team (6+ ENG, PM, & Me)' },
         ],
         tags: ['Product Design', 'Experience Design', 'Branding'],
         dividers: { afterSubtitle: 'rainbow' },
@@ -1117,6 +1117,11 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         title: 'Then the final breakdown. ',
         videoSrc: '/projects/ketl/round2onboarid.mp4',
       },
+      {
+        type: 'image',
+        title: 'While there are a lot of moving pieces, we keep decisions and user experience simple. ',
+        videoSrc: '/projects/ketl/simple-onboarding.MOV',
+      },
       { type: 'quote', text: 'Shake to shadow.', attribution: 'Building IRL incognito.' },
       {
         type: 'split',
@@ -1222,26 +1227,50 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
   /* ===================================
    LUNCHBREAK 
    =================================== */
-
-  {
+   {
     kind: 'project',
     slug: 'Lunchbreak',
     title: 'Lunchbreak',
     tag: 'Socialfi',
-    year: '2023',
+    year: '2024',
     description: 'A brief one-liner about this project.',
-    hero: '',
+    hero: '/projects/ketl/ketl-hero.png',
+    locked: true,
     slides: [
       {
         type: 'intro',
-        title: 'Lunchbreak: A socialfi place to bet on your friends',
-        subtitle: ['Placeholder \u2014 add your case study copy here.'],
-        avatarSrc: '/projects/project-gamma/hero.png',
+        title: 'Lunchbreak',
+        subtitle: [
+          'A pseudonymous social network for founders and VCs.',
+        ],
+        meta: [
+          { label: 'When', value: '2024' },
+          { label: 'Role', value: 'Designer' },
+          { label: 'Team', value: 'Core Team (2 ENG, PM, & Me)' },
+        ],
+        tags: ['Product Design', 'Experience Design', 'Branding'],
+        dividers: { afterSubtitle: 'rainbow' },
+        avatarSrc: '',
+        logoSrc: '/projects/ketl/ketl_logo.png',
       },
+  
+      {
+        type: 'toc',
+        title: 'Contents',
+        entries: [
+          { label: 'Context', slideIndex: 2 },
+          { label: 'Idea to product', slideIndex: 7 },
+          { label: 'How branding weaves through the porduct.', slideIndex: 15 },
+          { label: 'Life of the rich and anonymous', slideIndex: 39 },
+          { label: 'Results & lessons learned', slideIndex: 53 },
+      
+
+        ],
+      },
+      { type: 'title', title: 'Professional networks force a tradeoff...', caption: 'Use your real name → credibility. Stay anonymous → honesty.' },
+      { type: 'quote', text: 'ketl asks, \'what if we could do both?\'.', attribution: 'Have honest conversations without the reputational risk.' },
     ],
   },
-
-
 
 
 
