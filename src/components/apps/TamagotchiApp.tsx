@@ -191,7 +191,7 @@ export function TamagotchiApp(): React.JSX.Element {
   const [catPos, setCatPos] = useState({ x: 50, y: 50 })
   const [facingLeft, setFacingLeft] = useState(false)
 
-  const annoyedTimer = useRef<ReturnType<typeof setTimeout>>()
+  const annoyedTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const prevMaxRef = useRef(state.hearts >= 100)
 
   const addLog = useCallback((msg: string) => {
@@ -289,7 +289,7 @@ export function TamagotchiApp(): React.JSX.Element {
           return next
         })
         setAnnoyed(true)
-        clearTimeout(annoyedTimer.current)
+        if (annoyedTimer.current) clearTimeout(annoyedTimer.current)
         annoyedTimer.current = setTimeout(() => setAnnoyed(false), 2000)
         addLog(`Scratch! You lost ${dmg} HP. ${CAT_NAME} hisses.`)
       } else {
