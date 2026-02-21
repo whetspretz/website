@@ -220,7 +220,7 @@ export function Window({ windowState, title, children }: WindowProps): React.JSX
   if (isMobile) {
     return (
       <div
-        className="fixed inset-0 flex flex-col"
+        className="fixed top-10 left-0 right-0 bottom-0 flex flex-col"
         style={{
           zIndex: windowState.zIndex,
           background: '#1a1a1a',
