@@ -20,7 +20,7 @@ export function Desktop(): React.JSX.Element {
       <DesktopProvider>
         <PaintingsProvider>
         <div
-          className="w-screen h-screen relative overflow-hidden"
+          className="w-full h-dvh relative overflow-hidden"
         >
           {/* Background image */}
           <div
