@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import { useIsMobile } from '@/hooks/useIsMobile'
 import { verifyPassword } from '@/lib/passwordCheck'
 
 interface PasswordGateProps {
@@ -37,6 +38,7 @@ function getPupilOffset(
 }
 
 export function PasswordGate({ onUnlocked, onBack }: PasswordGateProps): React.JSX.Element {
+  const isMobile = useIsMobile()
   const [input, setInput] = useState('')
   const [error, setError] = useState(false)
   const [shaking, setShaking] = useState(false)
@@ -251,17 +253,17 @@ export function PasswordGate({ onUnlocked, onBack }: PasswordGateProps): React.J
             placeholder="enter password"
             className={`flex-1 font-mono text-white bg-white/5 px-3 py-2 outline-none transition-colors ${error ? 'guardian-input-error' : ''}`}
             style={{
-              fontSize: '0.8rem',
+              fontSize: isMobile ? '16px' : '0.8rem',
               borderRadius: 4,
               border: error ? '1px solid #fb7185' : '1px solid rgba(255,255,255,0.1)',
             }}
-            autoFocus
+            autoFocus={!isMobile}
             disabled={celebrating}
           />
           <button
             type="submit"
             className="font-mono text-black bg-white px-4 py-2 cursor-pointer hover:bg-white/90 transition-colors"
-            style={{ fontSize: '0.8rem', borderRadius: 4, border: 'none' }}
+            style={{ fontSize: isMobile ? '16px' : '0.8rem', borderRadius: 4, border: 'none' }}
             disabled={celebrating}
           >
             enter
