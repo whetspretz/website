@@ -78,7 +78,13 @@ export function Slideshow({ slides, componentMap, onNavigationReady }: Slideshow
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
       className="relative flex flex-col overflow-hidden font-mono outline-none"
-      style={{ margin: '-1.5rem', width: 'calc(100% + 3rem)', height: 'calc(100% + 3rem)' }}
+      style={{
+        margin: '-1.5rem',
+        width: 'calc(100% + 3rem)',
+        height: 'calc(100% + 3rem)',
+        touchAction: 'pan-y',
+        overscrollBehavior: 'contain',
+      }}
     >
       {/* Slide area */}
       <div className="flex-1 relative overflow-hidden min-h-0">

@@ -292,7 +292,7 @@ export function Window({ windowState, title, children }: WindowProps): React.JSX
       />
 
       <div
-        className="flex-1 overflow-y-auto p-6"
+        className="flex-1 overflow-x-hidden overflow-y-auto p-6"
         style={{ color: '#ffffff', fontSize: '0.85rem', lineHeight: 1.6 }}
       >
         <WindowControlsContext.Provider value={windowControls}>
