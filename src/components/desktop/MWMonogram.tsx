@@ -39,7 +39,7 @@ export function HeroText(): React.JSX.Element {
     cancelAnimationFrame(rafRef.current)
     const refs = letterRefs.current
     for (let i = 0; i < refs.length; i++) {
-      if (refs[i]) refs[i].style.transform = 'translate(0, 0)'
+      refs[i]?.style.setProperty('transform', 'translate(0, 0)')
     }
   }, [])
 
