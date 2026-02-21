@@ -1552,7 +1552,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
     kind: 'mini',
     slug: 'Icons & Illustrations',
     title: 'Icons & Illustrations',
-    tag: 'test',
+    tag: 'Visual',
     year: '2026',
     description: 'A test mini project to verify the scrollable page works.',
     blocks: [

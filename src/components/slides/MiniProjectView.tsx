@@ -1,3 +1,4 @@
+import { useIsMobile } from '@/hooks/useIsMobile'
 import type { MiniProjectBlock } from '@/lib/slideTypes'
 import type { BlankSlideComponentMap } from './SlideViews'
 import { ShimmerImage } from '@/components/ui/ShimmerImage'
@@ -8,18 +9,19 @@ interface MiniProjectViewProps {
 }
 
 export function MiniProjectView({ blocks, componentMap }: MiniProjectViewProps): React.JSX.Element {
+  const isMobile = useIsMobile()
   return (
-    <div className="h-full overflow-y-auto px-8 py-8">
-      <div className="flex flex-col" style={{ gap: '48px' }}>
+    <div className={isMobile ? 'h-full overflow-y-auto px-4 py-6' : 'h-full overflow-y-auto px-8 py-8'}>
+      <div className="flex flex-col" style={{ gap: isMobile ? '32px' : '48px' }}>
         {blocks.map((block, i) => (
-          <BlockRenderer key={i} block={block} componentMap={componentMap} />
+          <BlockRenderer key={i} block={block} componentMap={componentMap} isMobile={isMobile} />
         ))}
       </div>
     </div>
   )
 }
 
-function BlockRenderer({ block, componentMap }: { block: MiniProjectBlock; componentMap?: BlankSlideComponentMap }): React.JSX.Element {
+function BlockRenderer({ block, componentMap, isMobile }: { block: MiniProjectBlock; componentMap?: BlankSlideComponentMap; isMobile: boolean }): React.JSX.Element {
   switch (block.type) {
     case 'heading':
       return (
@@ -69,11 +71,12 @@ function BlockRenderer({ block, componentMap }: { block: MiniProjectBlock; compo
         </div>
       )
 
-    case 'image-grid':
+    case 'image-grid': {
+      const cols = isMobile ? Math.min(block.columns, 2) : block.columns
       return (
         <div
           className="grid"
-          style={{ gridTemplateColumns: `repeat(${block.columns}, 1fr)`, gap: '12px' }}
+          style={{ gridTemplateColumns: `repeat(${cols}, 1fr)`, gap: '12px' }}
         >
           {block.images.map((img, j) => (
             <div key={j}>
@@ -96,6 +99,7 @@ function BlockRenderer({ block, componentMap }: { block: MiniProjectBlock; compo
           ))}
         </div>
       )
+    }
 
     case 'component': {
       const Component = componentMap?.[block.componentId]

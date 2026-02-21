@@ -1,3 +1,4 @@
+import { useIsMobile } from '@/hooks/useIsMobile'
 import type { IntroSlide, ImageSlide, ColumnsSlide, BlankSlide, SplitSlide, TitleSlide, TocSlide, QuoteSlide, DualVideoSlide, SectionsSplitSlide, Slide, InlineDividerStyle } from '@/lib/slideTypes'
 import { RichText } from './RichText'
 import { TimelineSlideView } from './TimelineSlide'
@@ -70,16 +71,49 @@ function DotLeader({ label, value }: { label: string; value: string }): React.JS
   )
 }
 
+function SplitMedia({ slide, componentMap }: { slide: SplitSlide; componentMap?: BlankSlideComponentMap }): React.JSX.Element | null {
+  const Component = slide.componentId ? componentMap?.[slide.componentId] : undefined
+  if (Component) return <Component />
+  if (slide.videoSrc || isVideoSrc(slide.imageSrc)) {
+    return (
+      <ShimmerVideo
+        src={slide.videoSrc ?? slide.imageSrc}
+        className="w-full h-full object-contain"
+        style={{ borderRadius: 12 }}
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+    )
+  }
+  if (slide.imageSrc) {
+    return (
+      <ShimmerImage
+        src={slide.imageSrc}
+        alt={slide.imageAlt ?? ''}
+        className="w-full h-full object-contain"
+        loading="lazy"
+      />
+    )
+  }
+  return null
+}
+
 function IntroSlideView({ slide }: { slide: IntroSlide }): React.JSX.Element {
+  const isMobile = useIsMobile()
+  const avatarSize = isMobile ? 120 : 160
+  const logoMaxH = isMobile ? 60 : 80
+
   return (
-    <div className="flex flex-col items-center justify-center h-full px-12 py-8">
+    <div className="flex flex-col items-center justify-center h-full px-5 py-6 md:px-12 md:py-8">
       {slide.logoSrc && (
-        <div className="mb-6 shrink-0" style={{ maxHeight: 80, maxWidth: 300 }}>
+        <div className="mb-6 shrink-0" style={{ maxHeight: logoMaxH, maxWidth: 300 }}>
           <ShimmerImage
             src={slide.logoSrc}
             alt={`${slide.title} logo`}
             className="object-contain"
-            style={{ maxHeight: 80, maxWidth: 300 }}
+            style={{ maxHeight: logoMaxH, maxWidth: 300 }}
             loading="lazy"
           />
         </div>
@@ -88,8 +122,8 @@ function IntroSlideView({ slide }: { slide: IntroSlide }): React.JSX.Element {
         <div
           className="rounded-full mb-8 overflow-hidden slide-avatar-glow"
           style={{
-            width: 160,
-            height: 160,
+            width: avatarSize,
+            height: avatarSize,
             border: '2px solid rgba(223, 255, 0, 0.3)',
           }}
         >
@@ -155,7 +189,7 @@ function IntroSlideView({ slide }: { slide: IntroSlide }): React.JSX.Element {
 
 function ImageSlideView({ slide }: { slide: ImageSlide }): React.JSX.Element {
   return (
-    <div className="flex flex-col h-full p-8">
+    <div className="flex flex-col h-full p-4 md:p-8">
       <h2
         className="text-white mb-6 shrink-0"
         style={{
@@ -221,7 +255,7 @@ function ImageSlideView({ slide }: { slide: ImageSlide }): React.JSX.Element {
 
 function ColumnsSlideView({ slide }: { slide: ColumnsSlide }): React.JSX.Element {
   return (
-    <div className="flex flex-col h-full p-8 overflow-y-auto" style={{ containerType: 'inline-size' }}>
+    <div className="flex flex-col h-full p-4 md:p-8 overflow-y-auto" style={{ containerType: 'inline-size' }}>
       <h2
         className="text-white mb-6 shrink-0"
         style={{
@@ -273,7 +307,46 @@ function ColumnsSlideView({ slide }: { slide: ColumnsSlide }): React.JSX.Element
 }
 
 function SplitSlideView({ slide, componentMap }: { slide: SplitSlide; componentMap?: BlankSlideComponentMap }): React.JSX.Element {
-  const Component = slide.componentId ? componentMap?.[slide.componentId] : undefined
+  const isMobile = useIsMobile()
+
+  if (isMobile) {
+    return (
+      <div className="flex flex-col h-full p-4 overflow-y-auto">
+        <h2
+          className="text-white mb-4 shrink-0"
+          style={{
+            fontFamily: "'Author', Georgia, serif",
+            fontSize: 'clamp(1.3rem, 4vw, 2.4rem)',
+            fontWeight: 500,
+            lineHeight: 1.1,
+          }}
+        >
+          {slide.title}
+        </h2>
+        <div className="shrink-0 overflow-hidden flex items-center justify-center" style={{ maxHeight: '40vh' }}>
+          <SplitMedia slide={slide} componentMap={componentMap} />
+        </div>
+        <ul className="flex flex-col gap-3 list-none p-0 m-0 mt-4">
+          {slide.bullets.map((bullet, i) => (
+            <li
+              key={i}
+              className="text-white/70 font-mono flex gap-2.5"
+              style={{ fontSize: '0.85rem', lineHeight: 1.8 }}
+            >
+              <span className="text-white/30 shrink-0 select-none" aria-hidden="true">-</span>
+              <span><RichText paragraph={bullet} /></span>
+            </li>
+          ))}
+        </ul>
+        {slide.caption && (
+          <p className="text-white/60 font-mono mt-4" style={{ fontSize: '0.65rem' }}>
+            <RichText paragraph={slide.caption} />
+          </p>
+        )}
+      </div>
+    )
+  }
+
   return (
     <div className="flex flex-col h-full p-8" style={{ containerType: 'inline-size' }}>
       <div
@@ -283,26 +356,7 @@ function SplitSlideView({ slide, componentMap }: { slide: SplitSlide; componentM
         <div
           className="split-slide-image overflow-hidden flex items-center justify-center"
         >
-          {Component ? (
-            <Component />
-          ) : slide.videoSrc || isVideoSrc(slide.imageSrc) ? (
-            <ShimmerVideo
-              src={slide.videoSrc ?? slide.imageSrc}
-              className="w-full h-full object-contain"
-              style={{ borderRadius: 12 }}
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
-          ) : slide.imageSrc ? (
-            <ShimmerImage
-              src={slide.imageSrc}
-              alt={slide.imageAlt ?? ''}
-              className="w-full h-full object-contain"
-              loading="lazy"
-            />
-          ) : null}
+          <SplitMedia slide={slide} componentMap={componentMap} />
         </div>
         <div className={`split-slide-text ${slide.imagePosition === 'left' ? 'pl-6 pr-10' : 'pl-10 pr-6'}`}>
           <h2
@@ -345,7 +399,7 @@ function SplitSlideView({ slide, componentMap }: { slide: SplitSlide; componentM
 function BlankSlideView({ slide, componentMap }: { slide: BlankSlide; componentMap?: BlankSlideComponentMap }): React.JSX.Element {
   const Component = slide.componentId ? componentMap?.[slide.componentId] : undefined
   return (
-    <div className="flex flex-col h-full p-8">
+    <div className="flex flex-col h-full p-4 md:p-8">
       <h2
         className="text-white mb-4 shrink-0"
         style={{
@@ -367,7 +421,7 @@ function TocSlideView({ slide, onNavigate }: { slide: TocSlide; onNavigate?: (in
   const CX = 150
   const CY = 150
   return (
-    <div className="flex flex-col h-full p-8 relative process-dot-grid">
+    <div className="flex flex-col h-full p-4 md:p-8 relative process-dot-grid">
       {/* Corner brackets */}
       <div className="absolute top-3 left-3 w-3 h-3 border-t border-l border-white/10" />
       <div className="absolute top-3 right-3 w-3 h-3 border-t border-r border-white/10" />
@@ -455,7 +509,7 @@ function TocSlideView({ slide, onNavigate }: { slide: TocSlide; onNavigate?: (in
 
 function TitleSlideView({ slide }: { slide: TitleSlide }): React.JSX.Element {
   return (
-    <div className="flex flex-col items-center justify-center h-full px-20">
+    <div className="flex flex-col items-center justify-center h-full px-6 md:px-20">
       <h1
         className="text-white text-center"
         style={{
@@ -482,7 +536,7 @@ function TitleSlideView({ slide }: { slide: TitleSlide }): React.JSX.Element {
 
 function QuoteSlideView({ slide }: { slide: QuoteSlide }): React.JSX.Element {
   return (
-    <div className="flex flex-col items-center justify-center h-full px-16">
+    <div className="flex flex-col items-center justify-center h-full px-6 md:px-16">
       <p
         className="text-white text-center"
         style={{
@@ -508,8 +562,10 @@ function QuoteSlideView({ slide }: { slide: QuoteSlide }): React.JSX.Element {
 }
 
 function DualVideoSlideView({ slide }: { slide: DualVideoSlide }): React.JSX.Element {
+  const isMobile = useIsMobile()
+  const radius = isMobile ? 12 : 24
   return (
-    <div className="flex flex-col h-full p-8">
+    <div className="flex flex-col h-full p-4 md:p-8">
       <h2
         className="text-white mb-6 shrink-0"
         style={{
@@ -524,7 +580,7 @@ function DualVideoSlideView({ slide }: { slide: DualVideoSlide }): React.JSX.Ele
         <div className="dual-video-cell">
           <ShimmerVideo
             src={slide.leftSrc}
-            style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 24 }}
+            style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: radius }}
             autoPlay
             loop
             muted
@@ -539,7 +595,7 @@ function DualVideoSlideView({ slide }: { slide: DualVideoSlide }): React.JSX.Ele
         <div className="dual-video-cell">
           <ShimmerVideo
             src={slide.rightSrc}
-            style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 24 }}
+            style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: radius }}
             autoPlay
             loop
             muted
@@ -565,6 +621,64 @@ function DualVideoSlideView({ slide }: { slide: DualVideoSlide }): React.JSX.Ele
 }
 
 function SectionsSplitSlideView({ slide }: { slide: SectionsSplitSlide }): React.JSX.Element {
+  const isMobile = useIsMobile()
+
+  if (isMobile) {
+    return (
+      <div className="flex flex-col h-full p-4 overflow-y-auto">
+        <h2
+          className="text-white mb-4 shrink-0"
+          style={{
+            fontFamily: "'Author', Georgia, serif",
+            fontSize: 'clamp(1.3rem, 4vw, 2.4rem)',
+            fontWeight: 500,
+            lineHeight: 1.1,
+          }}
+        >
+          {slide.title}
+        </h2>
+        <div className="shrink-0 overflow-hidden flex items-center justify-center" style={{ maxHeight: '40vh' }}>
+          {slide.videoSrc || isVideoSrc(slide.imageSrc) ? (
+            <ShimmerVideo
+              src={slide.videoSrc ?? slide.imageSrc}
+              className="w-full h-full object-contain"
+              style={{ borderRadius: 12 }}
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          ) : slide.imageSrc ? (
+            <ShimmerImage
+              src={slide.imageSrc}
+              alt={slide.imageAlt ?? ''}
+              className="w-full h-full object-contain"
+              loading="lazy"
+            />
+          ) : null}
+        </div>
+        <div className="flex flex-col gap-4 mt-4">
+          {slide.sections.map((section, i) => (
+            <div key={i}>
+              <p
+                className="text-white font-mono font-bold mb-1"
+                style={{ fontSize: '0.8rem', letterSpacing: '0.02em' }}
+              >
+                {section.label}
+              </p>
+              <p
+                className="text-white/70 font-mono"
+                style={{ fontSize: '0.8rem', lineHeight: 1.7 }}
+              >
+                <RichText paragraph={section.text} />
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="flex flex-col h-full p-8" style={{ containerType: 'inline-size' }}>
       <div

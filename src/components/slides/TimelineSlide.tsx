@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
+import { useIsMobile } from '@/hooks/useIsMobile'
 import type { TimelineSlide, TimelineEntry } from '@/lib/slideTypes'
 
 function toMonths(entry: TimelineEntry, isEnd: boolean): number {
@@ -11,6 +12,7 @@ function toMonths(entry: TimelineEntry, isEnd: boolean): number {
 }
 
 export function TimelineSlideView({ slide }: { slide: TimelineSlide }): React.JSX.Element {
+  const isMobile = useIsMobile()
   const [activeIndex, setActiveIndex] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
   const [isNarrow, setIsNarrow] = useState(false)
@@ -369,13 +371,13 @@ export function TimelineSlideView({ slide }: { slide: TimelineSlide }): React.JS
             key={active.label}
             className="absolute z-10"
             style={{
-              top: 12,
-              right: 12,
+              ...(isMobile
+                ? { bottom: 12, left: 12, right: 12, maxWidth: 'none' }
+                : { top: 12, right: 12, maxWidth: 220 }),
               background: 'rgba(5,5,5,0.95)',
               border: '1px solid #222',
               borderRadius: 8,
               padding: '0.75rem 1rem',
-              maxWidth: 220,
               minWidth: 160,
             }}
           >

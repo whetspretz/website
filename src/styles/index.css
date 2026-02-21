@@ -208,29 +208,27 @@ html, body, #root {
   flex-shrink: 0;
 }
 
-/* Narrow: stacked rows with image left + text right */
+/* Narrow: stacked vertically, image on top, text below */
 @container (max-width: 700px) {
   .columns-slide-grid {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .columns-slide-item {
-    flex-direction: row;
-    gap: 1rem;
-    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
   .columns-slide-img {
     flex: none;
-    width: 80px;
-    height: 80px;
-    min-height: auto;
+    width: 100%;
+    max-height: 150px;
+    aspect-ratio: auto;
   }
 
   .columns-slide-text {
     margin-top: 0;
-    flex: 1;
   }
 }
 
@@ -265,19 +263,20 @@ html, body, #root {
   justify-content: center;
 }
 
-/* Narrow: stack vertically, text always on top */
+/* Narrow: stack vertically (handled by JSX on mobile, this is fallback) */
 @container (max-width: 500px) {
   .split-slide-grid {
     flex-direction: column !important;
   }
 
-  .split-slide-text {
-    order: -1;
-  }
-
   .split-slide-image {
     width: 100%;
-    max-height: 200px;
+    max-height: 40vh;
+  }
+
+  .split-slide-text {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
