@@ -41,6 +41,10 @@ import { AnonymousOnboardingGraphic } from './AnonymousOnboardingGraphic'
 import { EvolvingShapesGraphic } from './EvolvingShapesGraphic'
 import { ColdOutreachGraphic } from './ColdOutreachGraphic'
 import { LunchbreakPrinciplesGraphic } from './LunchbreakPrinciplesGraphic'
+import { WhyThisMattersGraphic } from './WhyThisMattersGraphic'
+import { DesignLessonsGraphic } from './DesignLessonsGraphic'
+import { ZkPromiseGraphic } from './ZkPromiseGraphic'
+import { UnderConstructionGraphic } from './UnderConstructionGraphic'
 
 const COMPONENT_MAP = {
   'pigeon-layers': PigeonLayersSlide,
@@ -78,6 +82,10 @@ const COMPONENT_MAP = {
   'evolving-shapes': EvolvingShapesGraphic,
   'cold-outreach': ColdOutreachGraphic,
   'lunchbreak-principles': LunchbreakPrinciplesGraphic,
+  'why-this-matters': WhyThisMattersGraphic,
+  'design-lessons': DesignLessonsGraphic,
+  'zk-promise': ZkPromiseGraphic,
+  'under-construction': UnderConstructionGraphic,
 }
 
 const PREVIEW_W = 360
@@ -243,6 +251,10 @@ export function ProjectsApp(): React.JSX.Element {
           </div>
         )
       })}
+
+      <div className="mt-6 pt-4 text-white/30 text-center" style={{ fontSize: '0.6rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+        If you'd like to see my old projects, check the trash bin
+      </div>
 
       {/* Hover preview — rendered via portal to escape window overflow */}
       {hoveredHero && createPortal(

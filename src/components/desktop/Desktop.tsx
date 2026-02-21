@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { CatProvider } from '@/lib/CatContext'
 import { DesktopProvider } from '@/lib/DesktopContext'
 import { PaintingsProvider } from '@/lib/PaintingsContext'
@@ -7,8 +8,11 @@ import { HeroText } from '@/components/desktop/MWMonogram'
 import { DesktopIconGrid } from '@/components/desktop/DesktopIconGrid'
 import { CatOverlay } from '@/components/cats/CatOverlay'
 import { WindowManager } from '@/components/desktop/WindowManager'
+import { StickyNote } from '@/components/desktop/StickyNote'
 
 export function Desktop(): React.JSX.Element {
+  const [noteOpen, setNoteOpen] = useState(true)
+
   return (
     <CatProvider>
       <DesktopProvider>
@@ -44,9 +48,11 @@ export function Desktop(): React.JSX.Element {
           <DesktopIconGrid />
           <WindowManager />
           <CatOverlay />
+          {/* Sticky note */}
+          {noteOpen && <StickyNote onClose={() => setNoteOpen(false)} />}
           {/* Spinning stamp */}
           <div
-            className="fixed flex items-center justify-center z-[3]"
+            className="fixed flex items-center justify-center z-[3] cursor-pointer"
             style={{
               bottom: '3.5rem',
               right: '3rem',
@@ -57,6 +63,7 @@ export function Desktop(): React.JSX.Element {
               backgroundColor: '#dfff00',
               animation: 'spin-slow 10s linear infinite',
             }}
+            onClick={() => setNoteOpen(true)}
           >
             <span
               className="font-sans uppercase text-ink text-center"

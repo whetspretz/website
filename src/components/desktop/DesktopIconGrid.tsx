@@ -27,9 +27,9 @@ export function DesktopIconGrid(): React.JSX.Element {
   const { openApp } = useDesktop()
   const { paintings, setViewingId, removePainting } = usePaintings()
 
-  const leftIcons: { id: AppId; icon: React.ReactNode; label: string }[] = [
-    { id: 'projects', icon: <FolderIcon />, label: 'projects' },
-    { id: 'about', icon: <AboutIcon />, label: 'about' },
+  const leftIcons: { id: AppId; icon: React.ReactNode; label: string; hint?: React.ReactNode }[] = [
+    { id: 'projects', icon: <FolderIcon />, label: 'projects', hint: <><span style={{ fontSize: '1rem' }}>{'\u2190'}</span> Or here</> },
+    { id: 'about', icon: <AboutIcon />, label: 'about', hint: <><span style={{ fontSize: '1rem' }}>{'\u2190'}</span> Start here</> },
     { id: 'tamagotchi', icon: <img src="/cat-running.gif" alt="meow" style={{ width: '48px', height: '48px' }} />, label: 'meow' },
   ]
 
@@ -75,6 +75,7 @@ export function DesktopIconGrid(): React.JSX.Element {
             key={item.id}
             icon={item.icon}
             label={item.label}
+            hint={item.hint}
             onClick={() => handleClick(item.id)}
           />
         ))}

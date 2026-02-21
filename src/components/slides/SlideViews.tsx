@@ -104,7 +104,7 @@ function IntroSlideView({ slide }: { slide: IntroSlide }): React.JSX.Element {
       <h1
         className="text-white text-center mb-4"
         style={{
-          fontFamily: "'Clash Display', Georgia, serif",
+          fontFamily: "'Author', Georgia, serif",
           fontSize: 'clamp(2rem, 5vw, 3.5rem)',
           fontWeight: 500,
           letterSpacing: '-0.02em',
@@ -159,7 +159,7 @@ function ImageSlideView({ slide }: { slide: ImageSlide }): React.JSX.Element {
       <h2
         className="text-white mb-6 shrink-0"
         style={{
-          fontFamily: "'Clash Display', Georgia, serif",
+          fontFamily: "'Author', Georgia, serif",
           fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
           fontWeight: 500,
         }}
@@ -199,7 +199,7 @@ function ImageSlideView({ slide }: { slide: ImageSlide }): React.JSX.Element {
         <h3
           className="text-white text-center mt-4 shrink-0"
           style={{
-            fontFamily: "'Clash Display', Georgia, serif",
+            fontFamily: "'Author', Georgia, serif",
             fontSize: 'clamp(1rem, 2.5vw, 1.4rem)',
             fontWeight: 400,
           }}
@@ -225,7 +225,7 @@ function ColumnsSlideView({ slide }: { slide: ColumnsSlide }): React.JSX.Element
       <h2
         className="text-white mb-6 shrink-0"
         style={{
-          fontFamily: "'Clash Display', Georgia, serif",
+          fontFamily: "'Author', Georgia, serif",
           fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
           fontWeight: 500,
         }}
@@ -308,7 +308,7 @@ function SplitSlideView({ slide, componentMap }: { slide: SplitSlide; componentM
           <h2
             className="text-white mb-5"
             style={{
-              fontFamily: "'Clash Display', Georgia, serif",
+              fontFamily: "'Author', Georgia, serif",
               fontSize: 'clamp(1.5rem, 4vw, 2.4rem)',
               fontWeight: 500,
               lineHeight: 1.1,
@@ -349,7 +349,7 @@ function BlankSlideView({ slide, componentMap }: { slide: BlankSlide; componentM
       <h2
         className="text-white mb-4 shrink-0"
         style={{
-          fontFamily: "'Clash Display', Georgia, serif",
+          fontFamily: "'Author', Georgia, serif",
           fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
           fontWeight: 500,
         }}
@@ -416,7 +416,7 @@ function TocSlideView({ slide, onNavigate }: { slide: TocSlide; onNavigate?: (in
         <h2
           className="text-white mb-8 text-center"
           style={{
-            fontFamily: "'Clash Display', Georgia, serif",
+            fontFamily: "'Author', Georgia, serif",
             fontSize: 'clamp(1.5rem, 4vw, 2.4rem)',
             fontWeight: 500,
             letterSpacing: '-0.02em',
@@ -459,7 +459,7 @@ function TitleSlideView({ slide }: { slide: TitleSlide }): React.JSX.Element {
       <h1
         className="text-white text-center"
         style={{
-          fontFamily: "'Clash Display', Georgia, serif",
+          fontFamily: "'Author', Georgia, serif",
           fontSize: 'clamp(3rem, 8vw, 6rem)',
           fontWeight: 500,
           letterSpacing: '-0.03em',
@@ -486,7 +486,7 @@ function QuoteSlideView({ slide }: { slide: QuoteSlide }): React.JSX.Element {
       <p
         className="text-white text-center"
         style={{
-          fontFamily: "'Clash Display', Georgia, serif",
+          fontFamily: "'Author', Georgia, serif",
           fontSize: 'clamp(1.8rem, 4vw, 3rem)',
           fontWeight: 400,
           letterSpacing: '-0.02em',
@@ -513,7 +513,7 @@ function DualVideoSlideView({ slide }: { slide: DualVideoSlide }): React.JSX.Ele
       <h2
         className="text-white mb-6 shrink-0"
         style={{
-          fontFamily: "'Clash Display', Georgia, serif",
+          fontFamily: "'Author', Georgia, serif",
           fontSize: 'clamp(1.2rem, 3vw, 1.8rem)',
           fontWeight: 500,
         }}
@@ -595,7 +595,7 @@ function SectionsSplitSlideView({ slide }: { slide: SectionsSplitSlide }): React
           <h2
             className="text-white mb-5"
             style={{
-              fontFamily: "'Clash Display', Georgia, serif",
+              fontFamily: "'Author', Georgia, serif",
               fontSize: 'clamp(1.5rem, 4vw, 2.4rem)',
               fontWeight: 500,
               lineHeight: 1.1,

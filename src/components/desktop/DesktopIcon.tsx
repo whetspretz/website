@@ -5,10 +5,11 @@ interface DesktopIconProps {
   label: string
   onClick: () => void
   iconId?: string
+  hint?: React.ReactNode
   onDragEnd?: (dropPos: { x: number; y: number }) => boolean | void
 }
 
-export function DesktopIcon({ icon, label, onClick, iconId, onDragEnd }: DesktopIconProps): React.JSX.Element {
+export function DesktopIcon({ icon, label, onClick, iconId, hint, onDragEnd }: DesktopIconProps): React.JSX.Element {
   const [offset, setOffset] = useState({ x: 0, y: 0 })
   const dragRef = useRef(false)
   const startPos = useRef({ x: 0, y: 0 })
@@ -59,7 +60,7 @@ export function DesktopIcon({ icon, label, onClick, iconId, onDragEnd }: Desktop
       onPointerDown={onPointerDown}
       onClick={handleClick}
       data-icon-id={iconId}
-      className="desktop-icon flex flex-col items-center gap-1 cursor-pointer bg-transparent border-none text-ink p-2 group transition-all duration-200 hover:bg-ink/5 select-none rounded-[12px]"
+      className="desktop-icon relative flex flex-col items-center gap-1 cursor-pointer bg-transparent border-none text-ink p-2 group transition-all duration-200 hover:bg-ink/5 select-none rounded-[12px]"
     >
       <div className="w-12 h-12 flex items-center justify-center transition-transform duration-200 group-hover:scale-110">
         {icon}
@@ -70,6 +71,14 @@ export function DesktopIcon({ icon, label, onClick, iconId, onDragEnd }: Desktop
       >
         {label}
       </span>
+      {hint && (
+        <span
+          className="absolute left-full top-1/2 -translate-y-1/2 ml-0.5 whitespace-nowrap font-mono text-ink hint-nudge pointer-events-none"
+          style={{ fontSize: '0.65rem', letterSpacing: '0.04em' }}
+        >
+          {hint}
+        </span>
+      )}
     </div>
   )
 }

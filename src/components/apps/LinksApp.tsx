@@ -1,10 +1,10 @@
 export function LinksApp(): React.JSX.Element {
   const links = [
-    { label: 'Simple Browser', url: '#' }, // TODO: replace with your live demo or repo URL
-    { label: 'GitHub', url: '#' },
-    { label: 'LinkedIn', url: '#' },
-    { label: 'Twitter / X', url: '#' },
-    { label: 'Dribbble', url: '#' },
+    { label: 'LinkedIn', url: 'https://www.linkedin.com/in/matt-whetsell-46b40736/?locale=en_US' }, // TODO: replace with your live demo or repo URL
+    { label: 'GitHub', url: 'https://github.com/whetspretz' },
+    { label: 'Substack', url: 'https://mattwhetsell.substack.com/' },
+    { label: 'My Author Site', url: 'https://mattwhetsell.com/' },
+    { label: 'Dribbble', url: 'https://dribbble.com/Whets' },
   ]
 
   return (
@@ -23,9 +23,6 @@ export function LinksApp(): React.JSX.Element {
           <span>{link.label}</span>
         </a>
       ))}
-      <div className="mt-4 text-white" style={{ fontSize: '0.6rem' }}>
-        placeholder — update links later
-      </div>
     </div>
   )
 }

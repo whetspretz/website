@@ -28,7 +28,17 @@ export interface MiniProject {
   locked?: boolean
 }
 
+export interface TrashItem {
+  kind: 'trash-item'
+  slug: string
+  title: string
+  tag: string
+  year: string
+  pdfSrc: string
+}
+
 export type CaseStudyEntry = CaseStudy | MiniProject | SectionDivider
+export type TrashEntry = TrashItem | SectionDivider
 
 /**
  * Case studies data.
@@ -572,7 +582,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         componentId: 'chat-simplicity',
         bullets: [
 
-          'AI turns sloppy human intent into a deterministic, auditable command graph.',
+          'How might users leverage AI (probabilistic models) to gain an edge in a high stakes environment where you need deterministic policy and action?',
           'AI is finally smart enough to trade real money.',
         ],
         caption: 'In July of 2025, this was very much and uncertain notion given how much models still hallucinated. When working with someone\'s money, you have to make sure AI acts without mistake.',
@@ -820,6 +830,8 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
           'AI builds the tool.',
         ],
       },
+      { type: 'quote', text: 'We grew from 0 -> 38k users and $100m+ real-dollar trading volume.', attribution: '' },
+
       { type: 'title', title: 'Fin', caption: 'Questions?' },
     ],
   },
@@ -875,8 +887,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'ketl runs on a difficult promise of proving you belong without revealing who you are.',
         imagePosition: 'right',
-        imageSrc: '/projects/pigeon/pigeonNFTs.webp',
-        imageAlt: 'Pigeon NFT',
+        componentId: 'zk-promise',
         bullets: [
           'Real-name networks are performative, reputation-constrained, and surface-level. (LinkedIn, Fishbowl...)',
           'Anonymous forums are noisey, lack trust, and it\'s hard to varify expertise.',
@@ -887,8 +898,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Why This Matters',
         imagePosition: 'left',
-        imageSrc: '/projects/pigeon/pigeonNFTs.webp',
-        imageAlt: 'Pigeon NFT',
+        componentId: 'why-this-matters',
         bullets: [
           'Founders and VCs can share real experiences (fundraising, deal dynamics, operator mistakes) without the performative pressure of real-name platforms.',
           ' Zero-knowledge verification ensures participants actually belong, raising discourse quality while preserving pseudonymity.',
@@ -1174,7 +1184,8 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Where the design fell short.',
         imagePosition: 'left',
-        videoSrc: '/projects/ketl/shaketoshad.mp4',
+        imageSrc: '/projects/ketl/moderation.webp',
+        imageAlt: 'ketlscreen',
         bullets: [
           'Verification introduces unavoidable friction (sign-ups were slow coming. Testing with users showed many stresses).',
           'Pseudonymity increases cognitive overhead (not every new person we spoke to understood ketl immediately).',
@@ -1183,18 +1194,10 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       },
       {
         type: 'split',
-        title: 'The tradeoff.',
-        imagePosition: 'right',
-        videoSrc: '/projects/ketl/shaketoshad.mp4',
-        bullets: [
-          'ketl\’s design intentionally optimized for conversation quality per user and not raw user growth velocity.',
-        ],
-      },
-      {
-        type: 'split',
         title: 'Signals of product design fit.',
         imagePosition: 'left',
-        videoSrc: '/projects/ketl/shaketoshad.mp4',
+        imageSrc: '/projects/ketl/goingwell.webp',
+        imageAlt: 'ketlscreen',
         bullets: [
           'Despite growth friction, qualitative feedback was strong among the target audience.',
           'Users consistently responded to the credibility of verified cohorts.',
@@ -1211,7 +1214,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Design lessons.',
         imagePosition: 'left',
-        videoSrc: '/projects/ketl/shaketoshad.mp4',
+        componentId: 'design-lessons',
         bullets: [
           'Trust systems behave differently from engagement systems.',
           'Some friction is protective, not harmful.',
@@ -1236,7 +1239,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
     tag: 'Socialfi',
     year: '2024',
     description: 'A brief one-liner about this project.',
-    hero: '/projects/lunchbreak/hero-lunch.png',
+    hero: '/projects/lunchbreak/hero-lunch.webp',
     locked: true,
     slides: [
       {
@@ -1284,7 +1287,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Enter Lunchbreak, the SocialFi network + expert marketplace.',
         imagePosition: 'right',
-        imageSrc: '/projects/lunchbreak/welcome.png',
+        imageSrc: '/projects/lunchbreak/welcome.webp',
         imageAlt: 'lunchbreakdesign',
         bullets: [
           'Set prices for replies and calls',
@@ -1332,7 +1335,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'How this shaped design.',
         imagePosition: 'right',
-        imageSrc: '/projects/lunchbreak/changedthedesign.png',
+        imageSrc: '/projects/lunchbreak/changedthedesign.webp',
         imageAlt: 'lunchbreakdesign',
         bullets: [
           'Rapid iteration and testing allowed us to pivot ideas quickly and gather feedback (no wasted tears over something we could grow attached to).',
@@ -1365,7 +1368,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Lunchbreak logo.',
         imagePosition: 'left',
-        imageSrc: '/projects/lunchbreak/logolunch.png',
+        imageSrc: '/projects/lunchbreak/logolunch.webp',
         imageAlt: 'lunchbreakdesign',
         bullets: [
           'Initials of the product.',
@@ -1376,21 +1379,21 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Seats.',
-        imageSrc: '/projects/lunchbreak/seats.png',
+        imageSrc: '/projects/lunchbreak/seats.webp',
         imageAlt: 'lunchbreakdesign',
         caption: 'Nostalgic. Speaks to the anme of lunchbreak). Piercings to show it\'s edgy (dang, that sounds cringe written out lol)',
       },
       {
         type: 'image',
         title: 'The signiture.',
-        imageSrc: '/projects/lunchbreak/signiture.png',
+        imageSrc: '/projects/lunchbreak/signiture.webp',
         imageAlt: 'lunchbreakdesign',
         caption: 'Adds humanity and fun to an otherwise expected profile (we aren\'t reinventing the wheel with profiles).',
       },
       {
         type: 'image',
         title: '3d assets',
-        imageSrc: '/projects/lunchbreak/vouched.png',
+        imageSrc: '/projects/lunchbreak/vouched.webp',
         imageAlt: 'lunchbreakdesign',
         caption: 'Unconventional landing.', 
       },
@@ -1423,7 +1426,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'The interface can be simple and refined.',
-        imageSrc: '/projects/lunchbreak/messages1.png',
+        imageSrc: '/projects/lunchbreak/messages1.webp',
         imageAlt: 'lunchbreakdesign',
         caption: 'It can be tame.', 
       },
@@ -1442,26 +1445,26 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'The old flow we launched with.',
-        imageSrc: '/projects/lunchbreak/onboarding_flow.png',
+        imageSrc: '/projects/lunchbreak/onboarding_flow.webp',
         imageAlt: 'lunchbreakdesign',
       },
       {
         type: 'image',
         title: 'The new flow part 1.',
-        imageSrc: '/projects/lunchbreak/bondoardingnew1.png',
+        imageSrc: '/projects/lunchbreak/bondoardingnew1.webp',
         imageAlt: 'lunchbreakdesign',
       },
       {
         type: 'image',
         title: 'The new flow part 2.',
-        imageSrc: '/projects/lunchbreak/bondoardingnew2.png',
+        imageSrc: '/projects/lunchbreak/bondoardingnew2.webp',
         imageAlt: 'lunchbreakdesign',
       },
       {
         type: 'sections-split',
         title: 'Progressive Web App',
         imagePosition: 'right',  // or 'right'
-        imageSrc: '/projects/lunchbreak/progressiveweb.png',
+        imageSrc: '/projects/lunchbreak/progressiveweb.webp',
         imageAlt: 'onboarding',
         sections: [
           { label: 'Problem', text: 'Lunchbreak runs as a Progressive Web App, which meant users had to manually add the site to their home screen — a high-friction, unfamiliar step. Most users don\’t naturally complete this flow, creating drop-off before they experienced the product as a native-like app.' },
@@ -1473,7 +1476,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'sections-split',
         title: 'Messaging',
         imagePosition: 'right',  // or 'right'
-        imageSrc: '/projects/lunchbreak/message-screen.png',
+        imageSrc: '/projects/lunchbreak/message-screen.webp',
         imageAlt: 'onboarding',
         sections: [
           { label: 'Problem', text: 'Charging for messages introduces immediate user friction and skepticism. If the flow feels too transactional, users hesitate to send. If it feels too casual, the value of paid access becomes unclear. We needed to normalize paid messaging without making it feel like spam or pay-to-play.' },
@@ -1484,7 +1487,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Message examples',
-        imageSrc: '/projects/lunchbreak/buy-message.png',
+        imageSrc: '/projects/lunchbreak/buy-message.webp',
         imageAlt: 'lunchbreakdesign',
   
       },
@@ -1492,7 +1495,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'sections-split',
         title: 'Tradable profiles',
         imagePosition: 'left',  // or 'right'
-        imageSrc: '/projects/lunchbreak/profiletrack.png',
+        imageSrc: '/projects/lunchbreak/profiletrack.webp',
         imageAlt: 'onboarding',
         sections: [
           { label: 'Problem', text: 'Lunchbreak\’s core mechanic treats access to people as something you can back and price — but standard social profiles didn\’t communicate that mental model. Users still read profiles as static identity pages, not dynamic assets whose value moves with demand.' },
@@ -1515,7 +1518,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'sections-split',
         title: 'Home + Discovery',
         imagePosition: 'left',  // or 'right'
-        imageSrc: '/projects/lunchbreak/directory.png',
+        imageSrc: '/projects/lunchbreak/directory.webp',
         imageAlt: 'onboarding',
         sections: [
           { label: 'Problem', text: 'Users were landing in the product without clear next steps. Two high-value actions — sharing their message link (to drive inbound demand) and discovering seats to buy (to drive engagement) — were buried or disconnected, slowing early momentum.' },
@@ -1553,6 +1556,8 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
     year: '2026',
     description: 'A test mini project to verify the scrollable page works.',
     blocks: [
+      { type: 'component', componentId: 'under-construction' },
+        /* ===================================
       { type: 'heading', title: 'This is a mini project', subtitle: 'A scrollable page with mixed content blocks' },
       { type: 'text', content: 'This is a paragraph of text. Mini projects render as scrollable pages instead of slideshows. You can mix images, text, headings, and custom components freely.' },
       { type: 'heading', title: 'Image Examples' },
@@ -1575,7 +1580,9 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
           { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 2' },
           { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 3' },
         ],
+          
       },
+      =================================== */
     ],
   },
 
@@ -1587,246 +1594,54 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
 
 ]
 
-export const TRASH_ENTRIES: CaseStudyEntry[] = [
- 
- 
-   /* ===================================
-   PX Workshop
-   =================================== */
 
-   {
-    kind: 'project',
+export const TRASH_ENTRIES: TrashEntry[] = [
+  {
+    kind: 'trash-item',
     slug: 'px-workshop',
     title: 'Ro Mobile App',
     tag: 'Design Thinking Workshop',
     year: 'Aug 2020',
-    description: 'A brief one-liner about this project.',
-    hero: '',
-    slides: [
-      {
-        type: 'intro',
-        title: 'Patient Experience Workshop to uncover Mobile JTBDs',
-        subtitle: ['Placeholder \u2014 add your case study copy here.'],
-        avatarSrc: '/projects/project-delta/hero.webp',
-      },
-    ],
+    pdfSrc: '/trash/ro-mobile-app.pdf',
   },
-
-    /* ===================================
-   Ro Checkin
-   =================================== */
-
-   {
-    kind: 'project',
+  {
+    kind: 'trash-item',
     slug: 'px-check-in',
     title: 'Ro Patient Check-in',
     tag: 'Design Thinking Workshop',
     year: 'Aug 2020',
-    description: 'A brief one-liner about this project.',
-    hero: '',
-    slides: [
-      {
-        type: 'intro',
-        title: 'Patient Experience Workshop to uncover Mobile JTBDs',
-        subtitle: ['Placeholder \u2014 add your case study copy here.'],
-        avatarSrc: '/projects/project-delta/hero.webp',
-      },
-    ],
+    pdfSrc: '/trash/ro-patient-checkin.pdf',
   },
   {
-    kind: 'mini',
-    slug: 'WeWork: User Intents',
+    kind: 'trash-item',
+    slug: 'wework-intents',
     title: 'WeWork: User Intents',
     tag: 'WeWork',
     year: '2019',
-    description: 'Investigating and solving for the ways WeWork Members utilize the network to get work done.',
-    blocks: [
-      { type: 'heading', title: 'The purpose of this exploration was to investigate and solve for the ways WeWork Members utilize the network to get work done.', subtitle: 'Role — Lead Designer' },
-
-      { type: 'image', src: '/projects/wework-intents/hero.webp', alt: 'WeWork community feed and User Intents header' },
-
-      { type: 'heading', title: `What are 'intents'?` },
-
-      { type: 'text', content: `For years the WeWork App had a single feed to connect members to others in their building, city, and around the world. A single feed might make sense for a member in their building, perhaps their city too, but it gets unwieldy and difficult to use when you have one post about a member looking for a Designer for a project, and the next an image of a cute dog curled up in the sunlight of an office.` },
-
-      { type: 'text', content: `Years of watching trends, and using data to break down what members are posting, we arrived at a point where we could start to make some decisions. After an outside (very-big-named) agency came in to assist us on the qualitative research end of things, we ended up with a list of 20+ actions that members take on the feed. From this list, there were common groups that fit into similar buckets. Mix in some real data, and we had a good picture of what buckets would be the most impactful to try an MVP on.` },
-
-      { type: 'text', content: `But, you can\u2019t just launch 20+ new actions and expect anything less than mayhem \u2013 and a long dev process. So, with research gathered, I whittled the choices down to 4 intents that touched upon each bucket of member behavior.` },
-
-      { type: 'image', src: '/projects/wework-intents/four-intents-whiteboard.webp', alt: 'Whiteboard showing the four chosen intents: Ask for Help, Host a Gathering, Give Away, and Promote Yourself', caption: 'The four chosen: Ask for Help, Host a Gathering, Give Away, and Promote Yourself (Introduce yourself)' },
-
-      { type: 'heading', title: 'Mapping out the intents' },
-
-      { type: 'text', content: `Now that we had the 4 intents chosen, and buy-in had been made with stakeholders, I needed to explore what an MVP experience of these would be. Before jumping into sketches or UI, I mapped out each flow. The point of this was to see what information and data the user would need to successfully post that particular intent. Success for us was defined by data points a member needed to communicate their need effectively. For example, if you\u2019re looking for help, it\u2019s helpful to structure the data to support \u2013 1. A title for what you\u2019re looking for . . . 2. A description of the nuances of your project . . . and 3. Applying skill tags to match with the appropriate member.` },
-
-      { type: 'text', content: `A secondary goal of this effort was to launch everything in a componentized way so that we could roll these out smoothly. So it was important for these flows to point out where each intent needed similar data to another intent. That way we could reuse views, components, and flows to make things easier to build \u2013 and to make things familiar and expected for the user.` },
-
-      {
-        type: 'image-grid',
-        columns: 2,
-        images: [
-          { src: '/projects/wework-intents/intent-map-overview.webp', alt: 'Intent map overview on wall' },
-          { src: '/projects/wework-intents/intent-map-detail.webp', alt: 'Detailed intent map with flow connections' },
-        ],
-      },
-
-      { type: 'heading', title: 'Early wires' },
-
-      { type: 'text', content: `I used the map to get buy in from engineering, product, and design leadership before jumping into the design. When everyone was on board, I moved to wires made from our library components. The goal was to see if we could reuse any existing components, so it seemed best to go down that route.` },
-
-      { type: 'image', src: '/projects/wework-intents/flows-whiteboard.webp', alt: 'Whiteboard showing Ask for Help, Give Something Away, Host a Gathering, and Promote/Introduction flows' },
-
-      { type: 'text', content: `Another approach I took was dividing the flows into separate sections at a higher level. Awareness, Intent, Discovery, and Response. These four sections represented the individual steps in this process where the context for the user may differ. Awareness, how a user discovers the intent; Intent, when a user is providing data; Discovery, how another user discovers their post; and Response, are there special ways to respond to a user\u2019s intent?` },
-
-      { type: 'image', src: '/projects/wework-intents/wireframe-wall.webp', alt: 'Wireframe wall showing all intent flows' },
-
-      {
-        type: 'image-grid',
-        columns: 2,
-        images: [
-          { src: '/projects/wework-intents/wireframes-closeup-1.webp', alt: 'Wireframes on wall close-up' },
-          { src: '/projects/wework-intents/wireframes-closeup-2.webp', alt: 'Wireframes on glass wall' },
-        ],
-      },
-
-      { type: 'heading', title: 'Next step' },
-
-      { type: 'text', content: `At this point, and after countless reviews, the team realized (in a good way) we needed to scale back the scope. So we removed two intents and focused on the remaining flows.` },
-
-      { type: 'text', content: `We also decided to add another column for \u2018follow-up and Satisfaction\u2019. That means we\u2019ll send messages or surveys asking if the user had their need solved. This way we can better track the success and impact of our MVP.` },
-
-      {
-        type: 'image-grid',
-        columns: 2,
-        images: [
-          { src: '/projects/wework-intents/mvp-easel-1.webp', alt: 'MVP reduced flow on easel' },
-          { src: '/projects/wework-intents/mvp-easel-2.webp', alt: 'MVP flow detail with follow-up column' },
-        ],
-      },
-
-      { type: 'heading', title: 'Exploration and final design' },
-
-      { type: 'text', content: `When everyone was bought in, it was time to roll and get development started. Since a lot of the wires used existing components in our library, it was painless moving to higher fidelity. There were explorations on card designs, data inputs, and using patterns already created in the app to repurpose for these flows.` },
-
-      { type: 'heading', title: 'Ask for Help' },
-
-      { type: 'image', src: '/projects/wework-intents/ask-for-help-creation.webp', alt: 'Ask for Help creation flow: Community feed, Create post, Begin creation, Content added, Adding skills', caption: 'The creation flow for the Ask for Help intent.' },
-
-      { type: 'image', src: '/projects/wework-intents/ask-for-help-discovery.webp', alt: 'Ask for Help discovery flow: Discovery in feed, Help post detail, Response from another user', caption: 'How another member discovers and responds to a help request.' },
-
-      { type: 'heading', title: 'Creation flow' },
-
-      { type: 'text', content: 'An example of the flow handed off to the devs over Zeplin.' },
-
-      { type: 'image', src: '/projects/wework-intents/creation-flow-zeplin.webp', alt: 'Full creation flow diagram showing Awareness, Intent, Discovery, and Response stages' },
-
-      { type: 'heading', title: 'Host a Gathering' },
-
-      { type: 'text', content: 'The second flow was to allow members a way to create their own gatherings. The flow is familiar to Ask For Help, using similar components.' },
-
-      { type: 'image', src: '/projects/wework-intents/give-away-creation.webp', alt: 'Give Something Away creation flow: Action Drawer, Content creation, Adding information', caption: 'Give Something Away creation flow.' },
-
-      { type: 'image', src: '/projects/wework-intents/give-away-discovery.webp', alt: 'Give Something Away discovery: Community feed and Post details', caption: 'How a giveaway post appears in the community feed.' },
-    ],
+    pdfSrc: '/trash/wework-user-intents.pdf',
   },
   {
-    kind: 'mini',
-    slug: 'test-mini',
+    kind: 'trash-item',
+    slug: 'wework-app-ia',
     title: 'WeWork App IA',
-    tag: 'test',
-    year: '2026',
-    description: 'A test mini project to verify the scrollable page works.',
-    blocks: [
-      { type: 'heading', title: 'This is a mini project', subtitle: 'A scrollable page with mixed content blocks' },
-      { type: 'text', content: 'This is a paragraph of text. Mini projects render as scrollable pages instead of slideshows. You can mix images, text, headings, and custom components freely.' },
-      { type: 'heading', title: 'Image Examples' },
-      { type: 'image', src: '/projects/shelfspace/moodring-img.webp', alt: 'Test image', caption: 'A full-width image with caption.' },
-      { type: 'text', content: 'Below is a 2-up image grid:' },
-      {
-        type: 'image-grid',
-        columns: 2,
-        images: [
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid image 1', caption: 'First image' },
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid image 2', caption: 'Second image' },
-        ],
-      },
-      { type: 'text', content: 'And a 3-up image grid:' },
-      {
-        type: 'image-grid',
-        columns: 3,
-        images: [
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 1' },
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 2' },
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 3' },
-        ],
-      },
-    ],
+    tag: 'WeWork',
+    year: '2019',
+    pdfSrc: '/trash/wework-app-ia.pdf',
   },
-
   {
-    kind: 'mini',
-    slug: 'Alto App Vision Prototype',
+    kind: 'trash-item',
+    slug: 'alto-vision',
     title: 'Alto App Vision Prototype',
-    tag: 'test',
-    year: '2026',
-    description: 'A test mini project to verify the scrollable page works.',
-    blocks: [
-      { type: 'heading', title: 'This is a mini project', subtitle: 'A scrollable page with mixed content blocks' },
-      { type: 'text', content: 'This is a paragraph of text. Mini projects render as scrollable pages instead of slideshows. You can mix images, text, headings, and custom components freely.' },
-      { type: 'heading', title: 'Image Examples' },
-      { type: 'image', src: '/projects/shelfspace/moodring-img.webp', alt: 'Test image', caption: 'A full-width image with caption.' },
-      { type: 'text', content: 'Below is a 2-up image grid:' },
-      {
-        type: 'image-grid',
-        columns: 2,
-        images: [
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid image 1', caption: 'First image' },
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid image 2', caption: 'Second image' },
-        ],
-      },
-      { type: 'text', content: 'And a 3-up image grid:' },
-      {
-        type: 'image-grid',
-        columns: 3,
-        images: [
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 1' },
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 2' },
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 3' },
-        ],
-      },
-    ],
+    tag: 'Alto',
+    year: '2020',
+    pdfSrc: '/trash/alto-vision.pdf',
   },
   {
-    kind: 'mini',
-    slug: 'WeLive',
+    kind: 'trash-item',
+    slug: 'welive',
     title: 'WeLive App',
-    tag: 'test',
-    year: '2026',
-    description: 'A test mini project to verify the scrollable page works.',
-    blocks: [
-      { type: 'heading', title: 'This is a mini project', subtitle: 'A scrollable page with mixed content blocks' },
-      { type: 'text', content: 'This is a paragraph of text. Mini projects render as scrollable pages instead of slideshows. You can mix images, text, headings, and custom components freely.' },
-      { type: 'heading', title: 'Image Examples' },
-      { type: 'image', src: '/projects/shelfspace/moodring-img.webp', alt: 'Test image', caption: 'A full-width image with caption.' },
-      { type: 'text', content: 'Below is a 2-up image grid:' },
-      {
-        type: 'image-grid',
-        columns: 2,
-        images: [
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid image 1', caption: 'First image' },
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid image 2', caption: 'Second image' },
-        ],
-      },
-      { type: 'text', content: 'And a 3-up image grid:' },
-      {
-        type: 'image-grid',
-        columns: 3,
-        images: [
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 1' },
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 2' },
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 3' },
-        ],
-      },
-    ],
+    tag: 'WeLive',
+    year: '2018',
+    pdfSrc: '/trash/welive-app.pdf',
   },
 ]
