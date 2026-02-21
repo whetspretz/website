@@ -13,8 +13,6 @@ const CARD_H = 160
 const CARD_Y = 70
 const LEFT_CX = CX - 76
 const RIGHT_CX = CX + 76
-const CARD_GAP = 14
-
 // Synthesis zone
 const SYNTH_Y = 380
 
