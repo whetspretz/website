@@ -74,7 +74,7 @@ export function DesktopIconGrid(): React.JSX.Element {
     ]
 
     return (
-      <div className="absolute bottom-14 left-0 right-0 z-[5] px-6">
+      <div className="absolute top-12 left-0 right-0 z-[5] px-6">
         <div className="grid grid-cols-4 gap-y-2 gap-x-2 justify-items-center">
           {allIcons.map(item => (
             <DesktopIcon
