@@ -189,7 +189,7 @@ function IntroSlideView({ slide }: { slide: IntroSlide }): React.JSX.Element {
 
 function ImageSlideView({ slide }: { slide: ImageSlide }): React.JSX.Element {
   return (
-    <div className="flex flex-col h-full p-4 md:p-8">
+    <div className="flex flex-col h-full px-5 py-4 md:p-8">
       <h2
         className="text-white mb-6 shrink-0"
         style={{
@@ -255,7 +255,7 @@ function ImageSlideView({ slide }: { slide: ImageSlide }): React.JSX.Element {
 
 function ColumnsSlideView({ slide }: { slide: ColumnsSlide }): React.JSX.Element {
   return (
-    <div className="flex flex-col h-full p-4 md:p-8 overflow-y-auto" style={{ containerType: 'inline-size' }}>
+    <div className="flex flex-col h-full px-5 py-4 md:p-8 overflow-y-auto" style={{ containerType: 'inline-size' }}>
       <h2
         className="text-white mb-6 shrink-0"
         style={{
@@ -311,7 +311,7 @@ function SplitSlideView({ slide, componentMap }: { slide: SplitSlide; componentM
 
   if (isMobile) {
     return (
-      <div className="flex flex-col h-full p-4 overflow-y-auto">
+      <div className="flex flex-col h-full px-5 py-4 overflow-y-auto">
         <h2
           className="text-white mb-4 shrink-0"
           style={{
@@ -399,7 +399,7 @@ function SplitSlideView({ slide, componentMap }: { slide: SplitSlide; componentM
 function BlankSlideView({ slide, componentMap }: { slide: BlankSlide; componentMap?: BlankSlideComponentMap }): React.JSX.Element {
   const Component = slide.componentId ? componentMap?.[slide.componentId] : undefined
   return (
-    <div className="flex flex-col h-full p-4 md:p-8">
+    <div className="flex flex-col h-full px-5 py-4 md:p-8">
       <h2
         className="text-white mb-4 shrink-0"
         style={{
@@ -421,7 +421,7 @@ function TocSlideView({ slide, onNavigate }: { slide: TocSlide; onNavigate?: (in
   const CX = 150
   const CY = 150
   return (
-    <div className="flex flex-col h-full p-4 md:p-8 relative process-dot-grid">
+    <div className="flex flex-col h-full px-5 py-4 md:p-8 relative process-dot-grid">
       {/* Corner brackets */}
       <div className="absolute top-3 left-3 w-3 h-3 border-t border-l border-white/10" />
       <div className="absolute top-3 right-3 w-3 h-3 border-t border-r border-white/10" />
@@ -565,7 +565,7 @@ function DualVideoSlideView({ slide }: { slide: DualVideoSlide }): React.JSX.Ele
   const isMobile = useIsMobile()
   const radius = isMobile ? 12 : 24
   return (
-    <div className="flex flex-col h-full p-4 md:p-8">
+    <div className="flex flex-col h-full px-5 py-4 md:p-8">
       <h2
         className="text-white mb-6 shrink-0"
         style={{
@@ -625,7 +625,7 @@ function SectionsSplitSlideView({ slide }: { slide: SectionsSplitSlide }): React
 
   if (isMobile) {
     return (
-      <div className="flex flex-col h-full p-4 overflow-y-auto">
+      <div className="flex flex-col h-full px-5 py-4 overflow-y-auto">
         <h2
           className="text-white mb-4 shrink-0"
           style={{
