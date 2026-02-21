@@ -38,6 +38,9 @@ import { IntentToInterfaceGraphic } from './IntentToInterfaceGraphic'
 import { BrandTensionGraphic } from './BrandTensionGraphic'
 import { BrandLayersGraphic } from './BrandLayersGraphic'
 import { AnonymousOnboardingGraphic } from './AnonymousOnboardingGraphic'
+import { EvolvingShapesGraphic } from './EvolvingShapesGraphic'
+import { ColdOutreachGraphic } from './ColdOutreachGraphic'
+import { LunchbreakPrinciplesGraphic } from './LunchbreakPrinciplesGraphic'
 
 const COMPONENT_MAP = {
   'pigeon-layers': PigeonLayersSlide,
@@ -72,6 +75,9 @@ const COMPONENT_MAP = {
   'brand-tension': BrandTensionGraphic,
   'brand-layers': BrandLayersGraphic,
   'anonymous-onboarding': AnonymousOnboardingGraphic,
+  'evolving-shapes': EvolvingShapesGraphic,
+  'cold-outreach': ColdOutreachGraphic,
+  'lunchbreak-principles': LunchbreakPrinciplesGraphic,
 }
 
 const PREVIEW_W = 360

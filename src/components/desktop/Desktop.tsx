@@ -20,7 +20,7 @@ export function Desktop(): React.JSX.Element {
           <div
             className="absolute inset-0 z-[0]"
             style={{
-              background: "url('/windows-xp-iconic-hill-pig6ry6jnkq40poq.jpg') center/cover no-repeat",
+              background: "url('/windows-xp-iconic-hill-pig6ry6jnkq40poq.webp') center/cover no-repeat",
             }}
           />
           {/* SVG noise grain overlay */}

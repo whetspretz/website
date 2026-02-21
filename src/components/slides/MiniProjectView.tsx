@@ -1,5 +1,6 @@
 import type { MiniProjectBlock } from '@/lib/slideTypes'
 import type { BlankSlideComponentMap } from './SlideViews'
+import { ShimmerImage } from '@/components/ui/ShimmerImage'
 
 interface MiniProjectViewProps {
   blocks: MiniProjectBlock[]
@@ -50,10 +51,11 @@ function BlockRenderer({ block, componentMap }: { block: MiniProjectBlock; compo
     case 'image':
       return (
         <div>
-          <img
+          <ShimmerImage
             src={block.src}
             alt={block.alt}
             className="w-full rounded-md"
+            loading="lazy"
             style={{ objectFit: 'cover' }}
           />
           {block.caption && (
@@ -75,10 +77,11 @@ function BlockRenderer({ block, componentMap }: { block: MiniProjectBlock; compo
         >
           {block.images.map((img, j) => (
             <div key={j}>
-              <img
+              <ShimmerImage
                 src={img.src}
                 alt={img.alt}
                 className="w-full rounded-md"
+                loading="lazy"
                 style={{ objectFit: 'cover' }}
               />
               {img.caption && (

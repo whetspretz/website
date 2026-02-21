@@ -43,6 +43,7 @@ export interface ImageSlide {
   imageSrc?: string
   imageAlt?: string
   videoSrc?: string
+  linkUrl?: string
   header?: RichParagraph
   caption?: RichParagraph
 }
@@ -121,7 +122,22 @@ export interface DualVideoSlide {
   caption?: string
 }
 
-export type Slide = IntroSlide | ImageSlide | ColumnsSlide | BlankSlide | SplitSlide | TimelineSlide | TitleSlide | TocSlide | QuoteSlide | DualVideoSlide
+export interface SectionItem {
+  label: string
+  text: RichParagraph
+}
+
+export interface SectionsSplitSlide {
+  type: 'sections-split'
+  title: string
+  imagePosition: 'left' | 'right'
+  imageSrc?: string
+  videoSrc?: string
+  imageAlt?: string
+  sections: SectionItem[]
+}
+
+export type Slide = IntroSlide | ImageSlide | ColumnsSlide | BlankSlide | SplitSlide | TimelineSlide | TitleSlide | TocSlide | QuoteSlide | DualVideoSlide | SectionsSplitSlide
 
 // --- Mini Project Block Types ---
 

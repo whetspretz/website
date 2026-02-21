@@ -32,7 +32,7 @@ export const ABOUT_SLIDES: Slide[] = [
         ' while I was there. Am I lucky? Hire me to find out ;)',
       ],
     ],
-    avatarSrc: '/about/avatar.png',
+    avatarSrc: '/about/avatar.webp',
   },
 
   {
@@ -77,18 +77,30 @@ export const ABOUT_SLIDES: Slide[] = [
     componentId: 'process',
   },
   {
+    type: 'blank',
+    title: 'What makes me a good Design Engineer:',
+    componentId: 'core-strengths',
+  },
+  // Slide 3 — Blank: ProcessFlowGraphic
+  {
+    type: 'blank',
+    title: 'My Design Engineering \'Execution\' Workflow',
+    componentId: 'process-flow',
+  },
+  {
     type: 'image',
     title: 'Work culture Contributions',
-    imageSrc: '/about/culture.png',
+    imageSrc: '/about/culture.webp',
     imageAlt: 'My workspace setup',
     header: [
       'Cool shit I did for pride ',
-      { word: '(PRIDE SWAG)', popupImage: '/about/pride-extra.png' },
+      { word: '(PRIDE SWAG)', popupImage: '/about/pride-extra.webp' },
       ' and what I created for ',
-      { word: 'Interview Practicals', popupImage: '/about/practicals-ro.png' },
+      { word: 'Interview Practicals', popupImage: '/about/practicals-ro.webp' },
       '.',
     ],
   },
+  
   {
     type: 'columns',
     title: 'A little of my personal self',
@@ -106,7 +118,7 @@ export const ABOUT_SLIDES: Slide[] = [
         text: 'Favorite flavor is Passion Fruit.',
       },
       {
-        imageSrc: '/about/tiktok-me.png',
+        imageSrc: '/about/tiktok-me.webp',
         imageAlt: 'My tiktok',
         header: 'I Make Writing-Related Videos',
         text: 'Though I am less active now, I have still garnered over 160k followers across platforms.',
@@ -114,5 +126,9 @@ export const ABOUT_SLIDES: Slide[] = [
     ],
   },
 
-
+  {
+    type: 'blank',
+    title: 'What I\u2019m looking for next',
+    componentId: 'looking-for-next',
+  },
 ]

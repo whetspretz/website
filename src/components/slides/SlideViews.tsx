@@ -1,6 +1,8 @@
-import type { IntroSlide, ImageSlide, ColumnsSlide, BlankSlide, SplitSlide, TitleSlide, TocSlide, QuoteSlide, DualVideoSlide, Slide, InlineDividerStyle } from '@/lib/slideTypes'
+import type { IntroSlide, ImageSlide, ColumnsSlide, BlankSlide, SplitSlide, TitleSlide, TocSlide, QuoteSlide, DualVideoSlide, SectionsSplitSlide, Slide, InlineDividerStyle } from '@/lib/slideTypes'
 import { RichText } from './RichText'
 import { TimelineSlideView } from './TimelineSlide'
+import { ShimmerImage } from '@/components/ui/ShimmerImage'
+import { ShimmerVideo } from '@/components/ui/ShimmerVideo'
 
 export type BlankSlideComponentMap = Record<string, React.ComponentType>
 
@@ -72,15 +74,15 @@ function IntroSlideView({ slide }: { slide: IntroSlide }): React.JSX.Element {
   return (
     <div className="flex flex-col items-center justify-center h-full px-12 py-8">
       {slide.logoSrc && (
-        <img
-          src={slide.logoSrc}
-          alt={`${slide.title} logo`}
-          className="mb-6 object-contain"
-          style={{ maxHeight: 80, maxWidth: 300 }}
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = 'none'
-          }}
-        />
+        <div className="mb-6 shrink-0" style={{ maxHeight: 80, maxWidth: 300 }}>
+          <ShimmerImage
+            src={slide.logoSrc}
+            alt={`${slide.title} logo`}
+            className="object-contain"
+            style={{ maxHeight: 80, maxWidth: 300 }}
+            loading="lazy"
+          />
+        </div>
       )}
       {slide.avatarSrc && (
         <div
@@ -91,13 +93,11 @@ function IntroSlideView({ slide }: { slide: IntroSlide }): React.JSX.Element {
             border: '2px solid rgba(223, 255, 0, 0.3)',
           }}
         >
-          <img
+          <ShimmerImage
             src={slide.avatarSrc}
             alt={slide.title}
             className="w-full h-full object-cover"
-            onError={(e) => {
-              (e.target as HTMLImageElement).style.display = 'none'
-            }}
+            loading="lazy"
           />
         </div>
       )}
@@ -169,26 +169,31 @@ function ImageSlideView({ slide }: { slide: ImageSlide }): React.JSX.Element {
       <div
         className="flex-1 overflow-hidden min-h-0 flex items-center justify-center"
       >
-        {slide.videoSrc || isVideoSrc(slide.imageSrc) ? (
-          <video
-            src={slide.videoSrc ?? slide.imageSrc}
-            className="w-full h-full object-contain"
-            style={{ borderRadius: 24 }}
-            autoPlay
-            loop
-            muted
-            playsInline
-          />
-        ) : slide.imageSrc ? (
-          <img
-            src={slide.imageSrc}
-            alt={slide.imageAlt ?? ''}
-            className="w-full h-full object-contain"
-            onError={(e) => {
-              (e.target as HTMLImageElement).style.display = 'none'
-            }}
-          />
-        ) : null}
+        {(() => {
+          const media = slide.videoSrc || isVideoSrc(slide.imageSrc) ? (
+            <ShimmerVideo
+              src={slide.videoSrc ?? slide.imageSrc}
+              className="w-full h-full object-contain"
+              style={{ borderRadius: 24 }}
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          ) : slide.imageSrc ? (
+            <ShimmerImage
+              src={slide.imageSrc}
+              alt={slide.imageAlt ?? ''}
+              className="w-full h-full object-contain"
+              loading="lazy"
+            />
+          ) : null
+          return slide.linkUrl ? (
+            <a href={slide.linkUrl} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+              {media}
+            </a>
+          ) : media
+        })()}
       </div>
       {slide.header && (
         <h3
@@ -237,13 +242,11 @@ function ColumnsSlideView({ slide }: { slide: ColumnsSlide }): React.JSX.Element
                 background: 'rgba(255,255,255,0.03)',
               }}
             >
-              <img
+              <ShimmerImage
                 src={col.imageSrc}
                 alt={col.imageAlt}
                 className="w-full h-full object-cover"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).style.display = 'none'
-                }}
+                loading="lazy"
               />
             </div>
             <div className="columns-slide-text">
@@ -283,7 +286,7 @@ function SplitSlideView({ slide, componentMap }: { slide: SplitSlide; componentM
           {Component ? (
             <Component />
           ) : slide.videoSrc || isVideoSrc(slide.imageSrc) ? (
-            <video
+            <ShimmerVideo
               src={slide.videoSrc ?? slide.imageSrc}
               className="w-full h-full object-contain"
               style={{ borderRadius: 12 }}
@@ -293,13 +296,11 @@ function SplitSlideView({ slide, componentMap }: { slide: SplitSlide; componentM
               playsInline
             />
           ) : slide.imageSrc ? (
-            <img
+            <ShimmerImage
               src={slide.imageSrc}
               alt={slide.imageAlt ?? ''}
               className="w-full h-full object-contain"
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = 'none'
-              }}
+              loading="lazy"
             />
           ) : null}
         </div>
@@ -521,7 +522,7 @@ function DualVideoSlideView({ slide }: { slide: DualVideoSlide }): React.JSX.Ele
       </h2>
       <div className="flex-1 min-h-0 overflow-hidden dual-video-grid">
         <div className="dual-video-cell">
-          <video
+          <ShimmerVideo
             src={slide.leftSrc}
             style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 24 }}
             autoPlay
@@ -536,7 +537,7 @@ function DualVideoSlideView({ slide }: { slide: DualVideoSlide }): React.JSX.Ele
           )}
         </div>
         <div className="dual-video-cell">
-          <video
+          <ShimmerVideo
             src={slide.rightSrc}
             style={{ width: '100%', height: '100%', objectFit: 'contain', borderRadius: 24 }}
             autoPlay
@@ -563,6 +564,69 @@ function DualVideoSlideView({ slide }: { slide: DualVideoSlide }): React.JSX.Ele
   )
 }
 
+function SectionsSplitSlideView({ slide }: { slide: SectionsSplitSlide }): React.JSX.Element {
+  return (
+    <div className="flex flex-col h-full p-8" style={{ containerType: 'inline-size' }}>
+      <div
+        className="split-slide-grid"
+        style={{ flexDirection: slide.imagePosition === 'left' ? 'row' : 'row-reverse' }}
+      >
+        <div className="split-slide-image overflow-hidden flex items-center justify-center">
+          {slide.videoSrc || isVideoSrc(slide.imageSrc) ? (
+            <ShimmerVideo
+              src={slide.videoSrc ?? slide.imageSrc}
+              className="w-full h-full object-contain"
+              style={{ borderRadius: 12 }}
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          ) : slide.imageSrc ? (
+            <ShimmerImage
+              src={slide.imageSrc}
+              alt={slide.imageAlt ?? ''}
+              className="w-full h-full object-contain"
+              loading="lazy"
+            />
+          ) : null}
+        </div>
+        <div className={`split-slide-text ${slide.imagePosition === 'left' ? 'pl-6 pr-10' : 'pl-10 pr-6'}`}>
+          <h2
+            className="text-white mb-5"
+            style={{
+              fontFamily: "'Clash Display', Georgia, serif",
+              fontSize: 'clamp(1.5rem, 4vw, 2.4rem)',
+              fontWeight: 500,
+              lineHeight: 1.1,
+            }}
+          >
+            {slide.title}
+          </h2>
+          <div className="flex flex-col gap-5">
+            {slide.sections.map((section, i) => (
+              <div key={i}>
+                <p
+                  className="text-white font-mono font-bold mb-1"
+                  style={{ fontSize: '0.8rem', letterSpacing: '0.02em' }}
+                >
+                  {section.label}
+                </p>
+                <p
+                  className="text-white/70 font-mono"
+                  style={{ fontSize: '0.8rem', lineHeight: 1.7 }}
+                >
+                  <RichText paragraph={section.text} />
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 export function SlideContent({ slide, componentMap, onNavigate }: { slide: Slide; componentMap?: BlankSlideComponentMap; onNavigate?: (index: number) => void }): React.JSX.Element {
   switch (slide.type) {
     case 'intro':
@@ -585,5 +649,7 @@ export function SlideContent({ slide, componentMap, onNavigate }: { slide: Slide
       return <BlankSlideView slide={slide} componentMap={componentMap} />
     case 'dual-video':
       return <DualVideoSlideView slide={slide} />
+    case 'sections-split':
+      return <SectionsSplitSlideView slide={slide} />
   }
 }

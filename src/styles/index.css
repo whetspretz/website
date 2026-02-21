@@ -830,3 +830,35 @@ html, body, #root {
 .chat-to-interface-dot {
   animation: chatToInterfaceDotFlow 1.8s ease-in-out infinite;
 }
+
+/* ── Shimmer skeleton loader ── */
+.shimmer-skeleton {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-placeholder {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: inherit;
+  z-index: 1;
+}
+
+.shimmer-placeholder::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 50%,
+    transparent 100%
+  );
+  animation: shimmerSweep 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmerSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}

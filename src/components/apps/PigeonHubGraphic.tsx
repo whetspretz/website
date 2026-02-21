@@ -164,7 +164,7 @@ export function PigeonHubGraphic(): React.JSX.Element {
             className="pigeon-hub-glow-circle"
           />
           <image
-            href="/projects/pigeon/pigeon-logo.png"
+            href="/projects/pigeon/pigeon-logo.webp"
             x={BIRD_CX - BIRD_R + 2}
             y={BIRD_CY - BIRD_R + 2}
             width={(BIRD_R - 2) * 2}

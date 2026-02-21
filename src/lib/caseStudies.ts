@@ -34,7 +34,7 @@ export type CaseStudyEntry = CaseStudy | MiniProject | SectionDivider
  * Case studies data.
  *
  * Images go in public/projects/<slug>/
- * Reference them as "/projects/<slug>/filename.png"
+ * Reference them as "/projects/<slug>/filename.webp"
  */
 export const CASE_STUDIES: CaseStudyEntry[] = [
 
@@ -45,7 +45,8 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
     tag: 'Reading app',
     year: '2025-2026',
     description: 'Book discovery for readers, by readers.',
-    hero: '/projects/shelfspace/hero-shelf.png',
+    hero: '/projects/shelfspace/hero-shelf.webp',
+    locked: true,
     slides: [
       /* ===================================
    Shelfspace
@@ -85,7 +86,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'The current ecosystem',
         imagePosition: 'right',  // or 'left'
-        imageSrc: '/projects/shelfspace/comparison.png',
+        imageSrc: '/projects/shelfspace/comparison.webp',
         imageAlt: 'The current landscape of books apps.',
         bullets: [
           `Goodreads is aleep at the wheel. It's great at tracking books, but weak at understanding taste. It treats reading as a flat activity feed—ratings, reviews, and yearly goals—rather than a signal of why someone liked a book. Five-star ratings collapse nuance, social graphs are noisy, and recommendations optimize for popularity over alignment. The result is a platform that's excellent at cataloging what you've read, but not at helping you discover what you'll actually love next.  `,
@@ -98,7 +99,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'We talked to friends, mutuals and followers on Booktok (I made a videos/stories to engage), and tested our ideas with friends quickily.',
-        imageSrc: '/projects/shelfspace/background-research.png',
+        imageSrc: '/projects/shelfspace/background-research.webp',
         imageAlt: 'Goals visualization',
         caption: 'Insight: Users want personalized, taste-driven discovery and meaningful connections around books, potentially even more with strangers who share their taste than with friends who don\'t.',
       },
@@ -139,7 +140,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Embedded in the name, it drives our vision.',
         imagePosition: 'left',
-        imageSrc: '/projects/shelfspace/logo_spacing.png',
+        imageSrc: '/projects/shelfspace/logo_spacing.webp',
         bullets: [
           'A nod to the Myspace era: inspired by the Top 8, we imagined a “top shelf” of books that signals taste and becomes the foundation for a living taste graph.',
           'Shelves are personal and proud: what you put on display at home says something about you.',
@@ -150,7 +151,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'What does a shelf mean on a screen?',
-        imageSrc: '/projects/shelfspace/exploration-otherapps.png',
+        imageSrc: '/projects/shelfspace/exploration-otherapps.webp',
         imageAlt: 'App comparison',
         caption: 'The UX of what a shelf could be is wide. At it\'s heart, digitally, it\'s a collection of books. That\'s lists, groupings, or associations.',
       },
@@ -161,14 +162,14 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'I kept coming back to bookshelves.',
-        imageSrc: '/projects/shelfspace/our_experience.png',
+        imageSrc: '/projects/shelfspace/our_experience.webp',
         imageAlt: 'App comparison',
         caption: 'How might we recreate the magic of a bookshelf without being literal or cliche?.',
       },
       {
         type: 'image',
         title: 'No one has done \'shelves\' right.',
-        imageSrc: '/projects/shelfspace/ugg-shelves.png',
+        imageSrc: '/projects/shelfspace/ugg-shelves.webp',
         imageAlt: 'Ugly shelves',
         caption: 'It\'s a threading of the needle to make this work.',
       },
@@ -178,7 +179,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Shelves become the backbone of a person\'s profile.',
         imagePosition: 'right',  // or 'left'
-        imageSrc: '/projects/shelfspace/home-angle.png',
+        imageSrc: '/projects/shelfspace/home-angle.webp',
         imageAlt: 'Screenshot description',
         bullets: [
           `The shelf behaves like a real bookcase. You browse spines, pull a book forward on hover, read the jacket on click, and dive deeper only when you're ready to commit.`,
@@ -192,7 +193,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Shelf discovery allows for a visual experience that encourages discovery.',
-        imageSrc: '/projects/shelfspace/home-friend-shelf.png',
+        imageSrc: '/projects/shelfspace/home-friend-shelf.webp',
         imageAlt: 'Ugly shelves',
         caption: 'Balancing Maximalism with Minimalism. ',
       },
@@ -201,7 +202,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Shelves as a growth loop.',
         imagePosition: 'left',
-        imageSrc: '/projects/shelfspace/insta_shelves.png',
+        imageSrc: '/projects/shelfspace/insta_shelves.webp',
         bullets: [
           'A reader\'s 2026 mixed tape.',
           'Visually appealing.',
@@ -225,7 +226,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Every single research participant mentioned switching reading moods between books and wanting to browse by vibe/emotion rather than genre.',
-        imageSrc: '/projects/shelfspace/mood-research-disc.png',
+        imageSrc: '/projects/shelfspace/mood-research-disc.webp',
         imageAlt: 'User research',
         caption: 'We talked to all of the people we tested our prototypes with, and asked how they pick their next read.',
       },
@@ -233,7 +234,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Most book apps confuse identity with inventory.',
         imagePosition: 'left',
-        imageSrc: '/projects/shelfspace/mood-other-apps.png',
+        imageSrc: '/projects/shelfspace/mood-other-apps.webp',
         bullets: [ 
           'Genre explains what a book is, not why it resonates.',
           'Feeds optimize for popularity, not personal intent.',
@@ -246,7 +247,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'A closer look.',
-        imageSrc: '/projects/shelfspace/mood-explore-2.png',
+        imageSrc: '/projects/shelfspace/mood-explore-2.webp',
         imageAlt: 'Design exploration',
         caption: 'This approach feels too expected. Not strong enough of a solution.',
       },
@@ -254,7 +255,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'We took a sharper eye at our archetype motivations.',
         imagePosition: 'left',
-        imageSrc: '/projects/shelfspace/mood-motivations.png',
+        imageSrc: '/projects/shelfspace/mood-motivations.webp',
         bullets: [
           'Wonder: Get lost in another world.',
           'Puzzles: Solve puzzles and twists.',
@@ -281,21 +282,21 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Designs',
-        imageSrc: '/projects/shelfspace/moodread-home.png',
+        imageSrc: '/projects/shelfspace/moodread-home.webp',
         imageAlt: 'Phone screen.',
         caption: 'Readers are met with a path to discover via mood, or search shelves that fit their tastes.',
       },
       {
         type: 'image',
         title: 'Designs',
-        imageSrc: '/projects/shelfspace/mood3.png',
+        imageSrc: '/projects/shelfspace/mood3.webp',
         imageAlt: 'Phone screen.',
         caption: 'As selections are made, the orb changes color.',
       },
       {
         type: 'image',
         title: 'Designs',
-        imageSrc: '/projects/shelfspace/moodfinal.png',
+        imageSrc: '/projects/shelfspace/moodfinal.webp',
         imageAlt: 'Phone screen.',
         caption: 'Readers are brought to the discover tab with a mood set.',
       },
@@ -306,7 +307,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'From interviews and behavior patterns:',
         imagePosition: 'left',
-        imageSrc: '/projects/shelfspace/bookdeets-research-quotes.png',
+        imageSrc: '/projects/shelfspace/bookdeets-research-quotes.webp',
         bullets: [ 
           'Readers don\’t (fully) trust aggregate ratings.',
           'They skim reviews looking for someone like them.',
@@ -331,7 +332,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'How might we design a book page that answers: “Will I like this?”',
         imagePosition: 'left',
-        imageSrc: '/projects/shelfspace/bookdeets_workshop.png',
+        imageSrc: '/projects/shelfspace/bookdeets_workshop.webp',
         bullets: [ 
           'Trust mapping: what we think based on interviews and high-valued reviews on other apps.',
         ],
@@ -353,48 +354,48 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'How we handled information hierarchy.',
         imagePosition: 'left',
-        imageSrc: '/projects/shelfspace/bookdeets_arch.png',
+        imageSrc: '/projects/shelfspace/bookdeets_arch.webp',
         bullets: [ 
           '',
         ],
       },
       { type: 'image', title: 'Exploring what this could look like.', videoSrc: '/projects/shelfspace/bookdeets_wires.mp4', },
-      { type: 'image', title: 'The full page.', videoSrc: '/projects/shelfspace/bookdeets_scroll.mov', },
+      { type: 'image', title: 'The full page.', videoSrc: '/projects/shelfspace/bookdeets_scroll.mp4', },
       {
         type: 'image',
         title: 'Top of the page.',
-        imageSrc: '/projects/shelfspace/bookdeets_reasoning.png',
+        imageSrc: '/projects/shelfspace/bookdeets_reasoning.webp',
         imageAlt: 'Book details reasoning.',
       },
       {
         type: 'image',
         title: 'Midway of page.',
-        imageSrc: '/projects/shelfspace/bookdeets_reasoning2.png',
+        imageSrc: '/projects/shelfspace/bookdeets_reasoning2.webp',
         imageAlt: 'Book details reasoning.',
       },
       {
         type: 'image',
         title: 'Bottom of page.',
-        imageSrc: '/projects/shelfspace/bookdeets_reasoning3.png',
+        imageSrc: '/projects/shelfspace/bookdeets_reasoning3.webp',
         imageAlt: 'Book details reasoning.',
       },
       {
         type: 'image',
         title: 'Visual candy.',
-        imageSrc: '/projects/shelfspace/bookdeets_reasoning-backgrounds.png',
+        imageSrc: '/projects/shelfspace/bookdeets_reasoning-backgrounds.webp',
         imageAlt: 'Book details reasoning.',
       },
       {
         type: 'image',
         title: 'Rating a book.',
-        imageSrc: '/projects/shelfspace/bookdeets_rateabook.png',
+        imageSrc: '/projects/shelfspace/bookdeets_rateabook.webp',
         imageAlt: 'Rating a book.',
       },
       {
         type: 'split',
         title: 'Early signs of success.',
         imagePosition: 'left',
-        imageSrc: '/projects/shelfspace/bookdeets-results.png',
+        imageSrc: '/projects/shelfspace/bookdeets-results.webp',
         bullets: [ 
           'High save-to-shelf rate. (baseline 5%)',
           'Fast time-to-save.',
@@ -439,21 +440,21 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Delight and voice.',
-        imageSrc: '/projects/shelfspace/onboarding_inter.png',
+        imageSrc: '/projects/shelfspace/onboarding_inter.webp',
         imageAlt: 'Delight design.',
         caption: 'If Goodreads data is uploaded, we offer feedback in our voice along with spinning books at random from your history.',
       },
       {
         type: 'image',
         title: 'Pick your top 7',
-        imageSrc: '/projects/shelfspace/Onboarding_top7.png',
+        imageSrc: '/projects/shelfspace/Onboarding_top7.webp',
         imageAlt: 'Delight design.',
         caption: 'This is a little bit intentional friction that: 1. Teaches users to build shelves. 2. Gives us weighted book data. 3. Immediate personalization.  ',
       },
       {
         type: 'image',
         title: 'Your taste Archetype',
-        imageSrc: '/projects/shelfspace/onboarding-archetype.png',
+        imageSrc: '/projects/shelfspace/onboarding-archetype.webp',
         imageAlt: 'Taste Archetype.',
         caption: 'Based on a reader\'s reading hiustory and top 7 books, we are able to discern an archetype for them. ',
       },
@@ -461,7 +462,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'All Archetypes',
-        imageSrc: '/projects/shelfspace/archetypes.png',
+        imageSrc: '/projects/shelfspace/archetypes.webp',
         imageAlt: 'Delight design.',
         caption: 'All of the archetypes illustrated. ',
       },
@@ -469,14 +470,14 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'More revealed about the reader',
-        imageSrc: '/projects/shelfspace/onboarding_final4.png',
+        imageSrc: '/projects/shelfspace/onboarding_final4.webp',
         imageAlt: 'Reader reveals.',
         caption: 'All of the archetypes illustrated. ',
       },   
       {
         type: 'image',
         title: 'Recommended shelves made of their books.',
-        imageSrc: '/projects/shelfspace/onboarding_finalshelves.png',
+        imageSrc: '/projects/shelfspace/onboarding_finalshelves.webp',
         imageAlt: 'Recommended shelves.',
         caption: 'Get them started with a full digital bookcase.',
       },
@@ -484,7 +485,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'We solve cold start by:',
         imagePosition: 'left',
-        imageSrc: '/projects/shelfspace/myshelves.png',
+        imageSrc: '/projects/shelfspace/myshelves.webp',
         bullets: [ 
           'Importing Goodreads (if available).',
           'Anchoring on 7 emotional favorites.',
@@ -505,16 +506,17 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
     kind: 'project',
     slug: 'pigeon',
     title: 'Pigeon AI',
-    tag: 'ai trading agent',
+    tag: 'AI agent harness / The \'Openclaw\' or \'Cursor\' for traders',
     year: '2025-2026',
     description: 'I designed the end-to-end experience for a chat-based research + trading agent that turns messy, real-world intent ("buy X", "what\'s happening today", "move funds") into safe, verifiable actions across chains and venues\u2014without making users learn new interfaces.',
-    hero: '/projects/pigeon/hero-pigeon.png',
+    hero: '/projects/pigeon/hero-pigeon.webp',
+    locked: true,
     slides: [
       {
         type: 'intro',
         title: 'Pigeon',
         subtitle: [
-          ' The first agentic wallet that can talk, code, research, and trade from anywhere.',
+          ' The first agentic wallet that can talk, code, research, and trade from anywhere. The \'Cursor\' of trading.',
         ],
         meta: [
           { label: 'When', value: '2025-present' },
@@ -524,7 +526,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         tags: ['Product Design', 'Experience Design', 'Frontend'],
         dividers: { afterSubtitle: 'rainbow' },
         avatarSrc: '',
-        logoSrc: '/projects/pigeon/pigeon-logo.png',
+        logoSrc: '/projects/pigeon/pigeon-logo.webp',
       },
       {
         type: 'toc',
@@ -554,7 +556,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Discussed and experienced by everyone on the team',
         imagePosition: 'right',
-        imageSrc: '/projects/pigeon/brainstorm1.png',
+        imageSrc: '/projects/pigeon/brainstorm1.webp',
         imageAlt: 'Team brainstorm session',
         bullets: [
           'Keeping track of current market trends in one tab, dexscreener in another, gpt in a third, and a terminal in a fourth',
@@ -578,7 +580,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'AI was not smart enough, and it only made slop.',
-        imageSrc: '/projects/pigeon/pigeon-wrong-example.png',
+        imageSrc: '/projects/pigeon/pigeon-wrong-example.webp',
         imageAlt: 'App mockup',
         caption: 'When Pigeon was but a baby AI, it couldn\'t even tell me what was in the wallet it made for me.',
       },
@@ -601,7 +603,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'For example',
-        imageSrc: '/projects/pigeon/pigeon-poly-example.png',
+        imageSrc: '/projects/pigeon/pigeon-poly-example.webp',
         imageAlt: 'App mockup',
         caption: 'Pigeon quickily executing a sell-off of one of my Polymarket bets. Fast, quick, no fuss.',
       },
@@ -618,7 +620,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Although chat-based trading isn\’t new (Bonkbot, Bankr, etc.), AI trading via natural language was still novel.',
         imagePosition: 'left',
-        imageSrc: '/projects/pigeon/onboarding_old.png',
+        imageSrc: '/projects/pigeon/onboarding_old.webp',
         bullets: [ 
           'What we heard from users: ',
           '"What do I do?"',
@@ -631,7 +633,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Early data showed:',
         imagePosition: 'right',
-        imageSrc: '/projects/pigeon/onboarding_old.png',
+        imageSrc: '/projects/pigeon/onboarding_old.webp',
         bullets: [ 
           'High first-session drop-off.',
           'Low reengagement.',
@@ -648,14 +650,14 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Intro part 1',
-        imageSrc: '/projects/pigeon/onboarding_pigeonpt1.png',
+        imageSrc: '/projects/pigeon/onboarding_pigeonpt1.webp',
         imageAlt: 'Onboarding screen 1',
         caption: '3 core changes.',
       },
       {
         type: 'image',
         title: 'Intro part 2',
-        imageSrc: '/projects/pigeon/onboarding_part2.png',
+        imageSrc: '/projects/pigeon/onboarding_part2.webp',
         imageAlt: 'Onboarding screen 2',
         caption: 'Easy path to more information.',
       },
@@ -667,7 +669,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'What a message might look like.',
-        imageSrc: '/projects/pigeon/Dynamic-engagement.png',
+        imageSrc: '/projects/pigeon/Dynamic-engagement.webp',
         imageAlt: 'Onboarding message',
       },
       { type: 'quote', text: 'We let the pigeons out of the coup!', attribution: 'They have free autonomy to reengage users how they see fit, on a timeline we set.' },
@@ -681,7 +683,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Early signs of success.',
         imagePosition: 'left',
-        imageSrc: '/projects/pigeon/onboarding_results.png',
+        imageSrc: '/projects/pigeon/onboarding_results.webp',
         bullets: [ 
           'Day one messages up 13% ⬆️ (in first week)',
           'Users who created an automation were 2x to stay active by day 14 ⬆️',
@@ -727,25 +729,25 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Where are we now?',
-        imageSrc: '/projects/pigeon/branding_logoalone.png',
+        imageSrc: '/projects/pigeon/branding_logoalone.webp',
         imageAlt: 'Pigeon logo',
       },
       {
         type: 'image',
         title: 'Prior options.',
-        imageSrc: '/projects/pigeon/logo-exploration-1.png',
+        imageSrc: '/projects/pigeon/logo-exploration-1.webp',
         imageAlt: 'Pigeon logo',
       },
       {
         type: 'image',
         title: 'Prior options.',
-        imageSrc: '/projects/pigeon/logo-exploration-2.png',
+        imageSrc: '/projects/pigeon/logo-exploration-2.webp',
         imageAlt: 'Pigeon logo',
       },
       {
         type: 'image',
         title: 'Prior options.',
-        imageSrc: '/projects/pigeon/logo-exploration-3.png',
+        imageSrc: '/projects/pigeon/logo-exploration-3.webp',
         imageAlt: 'Pigeon logo',
       },
       {
@@ -756,7 +758,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'I riffed off the globe.',
-        imageSrc: '/projects/pigeon/logo-exploration-4.png',
+        imageSrc: '/projects/pigeon/logo-exploration-4.webp',
         imageAlt: 'Pigeon logo',
       },
       {
@@ -771,19 +773,19 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Pigeon NFTs growth hack (Digimon theme).',
-        imageSrc: '/projects/pigeon/pigeonNFTs.png',
+        imageSrc: '/projects/pigeon/pigeonNFTs.webp',
         imageAlt: 'Pigeon NFT',
       },
       {
         type: 'image',
         title: 'Polybattle: 5 agents chat with Pigeon and compete on earnings.',
-        imageSrc: '/projects/pigeon/polybattle.png',
+        imageSrc: '/projects/pigeon/polybattle.webp',
         imageAlt: 'Polybattle',
       },
       {
         type: 'image',
         title: 'Reskinning Pigeon Code.',
-        imageSrc: '/projects/pigeon/pigeon_code.png',
+        imageSrc: '/projects/pigeon/pigeon_code.webp',
         imageAlt: 'Pigeon code',
       },
       { type: 'title', title: 'Pigeon Terminal', caption: 'How design could affect trust.' },
@@ -833,7 +835,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
     tag: 'Social / Zero-knowledge proofs',
     year: '2023',
     description: 'A brief one-liner about this project.',
-    hero: '/projects/ketl/ketl-hero.png',
+    hero: '/projects/ketl/ketl-hero.webp',
     locked: true,
     slides: [
       {
@@ -850,7 +852,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         tags: ['Product Design', 'Experience Design', 'Branding'],
         dividers: { afterSubtitle: 'rainbow' },
         avatarSrc: '',
-        logoSrc: '/projects/ketl/ketl_logo.png',
+        logoSrc: '/projects/ketl/ketl_logo.webp',
       },
   
       {
@@ -873,7 +875,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'ketl runs on a difficult promise of proving you belong without revealing who you are.',
         imagePosition: 'right',
-        imageSrc: '/projects/pigeon/pigeonNFTs.png',
+        imageSrc: '/projects/pigeon/pigeonNFTs.webp',
         imageAlt: 'Pigeon NFT',
         bullets: [
           'Real-name networks are performative, reputation-constrained, and surface-level. (LinkedIn, Fishbowl...)',
@@ -885,7 +887,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Why This Matters',
         imagePosition: 'left',
-        imageSrc: '/projects/pigeon/pigeonNFTs.png',
+        imageSrc: '/projects/pigeon/pigeonNFTs.webp',
         imageAlt: 'Pigeon NFT',
         bullets: [
           'Founders and VCs can share real experiences (fundraising, deal dynamics, operator mistakes) without the performative pressure of real-name platforms.',
@@ -991,7 +993,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'There had been other explorations.',
-        imageSrc: '/projects/ketl/oldlogos.png',
+        imageSrc: '/projects/ketl/oldlogos.webp',
         imageAlt: 'ketllogos',
       },
       {
@@ -1007,19 +1009,19 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Our mascot. (the orb motif had represented \'zk proofs\' for us in the past). ',
-        imageSrc: '/projects/ketl/the-mascot.png',
+        imageSrc: '/projects/ketl/the-mascot.webp',
         imageAlt: 'ketllogos',
       },
       {
         type: 'image',
         title: 'How we come across in outward-facing media. ',
-        imageSrc: '/projects/ketl/slide-template14-1.png',
+        imageSrc: '/projects/ketl/slide-template14-1.webp',
         imageAlt: 'ketllogos',
       },
       {
         type: 'image',
         title: 'How we come across in outward-facing media Pt 2. ',
-        imageSrc: '/projects/ketl/slide-template14.png',
+        imageSrc: '/projects/ketl/slide-template14.webp',
         imageAlt: 'ketllogos',
       },
       {
@@ -1033,7 +1035,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Access to content via clean typography. ',
-        imageSrc: '/projects/ketl/type-clarity.png',
+        imageSrc: '/projects/ketl/type-clarity.webp',
         imageAlt: 'ketlscreen',
       },
       {
@@ -1044,26 +1046,26 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Badges to instill a sense of identity. ',
-        imageSrc: '/projects/ketl/badges.png',
+        imageSrc: '/projects/ketl/badges.webp',
         imageAlt: 'ketlscreen',
       },
       {
         type: 'image',
         title: 'Your role embedded everywhere you go. ',
-        imageSrc: '/projects/ketl/role-label.png',
+        imageSrc: '/projects/ketl/role-label.webp',
         imageAlt: 'ketlscreen',
       },
       { type: 'quote', text: 'Proof.', attribution: 'Build a foundation.' },
       {
         type: 'image',
         title: 'Everyone is verified. ',
-        imageSrc: '/projects/ketl/verify-yourself.png',
+        imageSrc: '/projects/ketl/verify-yourself.webp',
         imageAlt: 'ketlscreen',
       },
       {
         type: 'image',
         title: 'Content with value. ',
-        imageSrc: '/projects/ketl/ketl-bank.png',
+        imageSrc: '/projects/ketl/ketl-bank.webp',
         imageAlt: 'ketlscreen',
       },
       {
@@ -1074,7 +1076,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Transparent entanglment ledger. ',
-        imageSrc: '/projects/ketl/entanglement.png',
+        imageSrc: '/projects/ketl/entanglement.webp',
         imageAlt: 'ketlscreen',
       },
       { type: 'quote', text: 'Questions before continuing?', attribution: 'Next, we\'ll talk about some anonymous features.' },
@@ -1104,7 +1106,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Onboaridng wires to break it down. ',
-        imageSrc: '/projects/ketl/onboaridng_wires.png',
+        imageSrc: '/projects/ketl/onboaridng_wires.webp',
         imageAlt: 'ketlscreen',
       },
       {
@@ -1120,14 +1122,14 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'While there are a lot of moving pieces, we keep decisions and user experience simple. ',
-        videoSrc: '/projects/ketl/simple-onboarding.MOV',
+        videoSrc: '/projects/ketl/simple-onboarding.mp4',
       },
       { type: 'quote', text: 'Shake to shadow.', attribution: 'Building IRL incognito.' },
       {
         type: 'split',
         title: 'Shake to hide identity.',
         imagePosition: 'right',
-        videoSrc: '/projects/ketl/shaketoshad.mov',
+        videoSrc: '/projects/ketl/shaketoshad.mp4',
         bullets: [
           'You can shake your phone to hide your username and details.',
           'It\'s fast under pressure. It\'s memorable. Satisfying.',
@@ -1153,14 +1155,14 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Zk-verification can help a digital community thrive. ',
-        imageSrc: '/projects/ketl/socialengage.mov',
+        imageSrc: '/projects/ketl/socialengage.mp4',
         imageAlt: 'ketlscreen',
       },
       {
         type: 'split',
         title: 'Where the design worked.',
         imagePosition: 'right',
-        videoSrc: '/projects/ketl/shaketoshad.mov',
+        videoSrc: '/projects/ketl/shaketoshad.mp4',
         bullets: [
           'Users understood verification signals (insight from talking to users).',
           'The environment felt serious and moderated (no racist tirads or inappropriate content).',
@@ -1172,7 +1174,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Where the design fell short.',
         imagePosition: 'left',
-        videoSrc: '/projects/ketl/shaketoshad.mov',
+        videoSrc: '/projects/ketl/shaketoshad.mp4',
         bullets: [
           'Verification introduces unavoidable friction (sign-ups were slow coming. Testing with users showed many stresses).',
           'Pseudonymity increases cognitive overhead (not every new person we spoke to understood ketl immediately).',
@@ -1183,7 +1185,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'The tradeoff.',
         imagePosition: 'right',
-        videoSrc: '/projects/ketl/shaketoshad.mov',
+        videoSrc: '/projects/ketl/shaketoshad.mp4',
         bullets: [
           'ketl\’s design intentionally optimized for conversation quality per user and not raw user growth velocity.',
         ],
@@ -1192,7 +1194,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Signals of product design fit.',
         imagePosition: 'left',
-        videoSrc: '/projects/ketl/shaketoshad.mov',
+        videoSrc: '/projects/ketl/shaketoshad.mp4',
         bullets: [
           'Despite growth friction, qualitative feedback was strong among the target audience.',
           'Users consistently responded to the credibility of verified cohorts.',
@@ -1202,14 +1204,14 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'This indicated the experience was landing correctly for the intended user.',
-        imageSrc: '/projects/ketl/praise.png',
+        imageSrc: '/projects/ketl/praise.webp',
         imageAlt: 'ketlscreen',
       },
       {
         type: 'split',
         title: 'Design lessons.',
         imagePosition: 'left',
-        videoSrc: '/projects/ketl/shaketoshad.mov',
+        videoSrc: '/projects/ketl/shaketoshad.mp4',
         bullets: [
           'Trust systems behave differently from engagement systems.',
           'Some friction is protective, not harmful.',
@@ -1234,14 +1236,14 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
     tag: 'Socialfi',
     year: '2024',
     description: 'A brief one-liner about this project.',
-    hero: '/projects/ketl/ketl-hero.png',
+    hero: '/projects/lunchbreak/hero-lunch.png',
     locked: true,
     slides: [
       {
         type: 'intro',
         title: 'Lunchbreak',
         subtitle: [
-          'A pseudonymous social network for founders and VCs.',
+          'The first socialFi app that\’s also an expert and influencer marketplace.',
         ],
         meta: [
           { label: 'When', value: '2024' },
@@ -1251,7 +1253,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         tags: ['Product Design', 'Experience Design', 'Branding'],
         dividers: { afterSubtitle: 'rainbow' },
         avatarSrc: '',
-        logoSrc: '/projects/ketl/ketl_logo.png',
+        logoSrc: '/projects/lunchbreak/small_lunchbreak.gif',
       },
   
       {
@@ -1259,64 +1261,277 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         title: 'Contents',
         entries: [
           { label: 'Context', slideIndex: 2 },
-          { label: 'Idea to product', slideIndex: 7 },
-          { label: 'How branding weaves through the porduct.', slideIndex: 15 },
-          { label: 'Life of the rich and anonymous', slideIndex: 39 },
-          { label: 'Results & lessons learned', slideIndex: 53 },
-      
+          { label: 'Product Iteration & Evolution', slideIndex: 6 },
+          { label: 'Branding', slideIndex: 13 },
+          { label: 'Core Screens: Design Rapid Fire', slideIndex: 26 },
 
         ],
       },
-      { type: 'title', title: 'Professional networks force a tradeoff...', caption: 'Use your real name → credibility. Stay anonymous → honesty.' },
-      { type: 'quote', text: 'ketl asks, \'what if we could do both?\'.', attribution: 'Have honest conversations without the reputational risk.' },
-    ],
-  },
-
-
-
-  /* ===================================
-   PX Workshop
-   =================================== */
-
-  {
-    kind: 'project',
-    slug: 'px-workshop',
-    title: 'Ro Mobile App',
-    tag: 'Design Thinking Workshop',
-    year: 'Aug 2020',
-    description: 'A brief one-liner about this project.',
-    hero: '',
-    slides: [
+      { type: 'title', title: 'Context', caption: '' },
       {
-        type: 'intro',
-        title: 'Patient Experience Workshop to uncover Mobile JTBDs',
-        subtitle: ['Placeholder \u2014 add your case study copy here.'],
-        avatarSrc: '/projects/project-delta/hero.png',
+        type: 'split',
+        title: 'Cold outreach is broken.',
+        imagePosition: 'left',
+        componentId: 'cold-outreach',
+        bullets: [
+          'Inboxes are flooded',
+          'Warm intros are gatekept.',
+          'High-signal people are overwhelmed',
+        ],
+        caption: 'What if access to attention was priced transparently?',
       },
-    ],
-  },
-
-    /* ===================================
-   Ro Checkin
-   =================================== */
-
-   {
-    kind: 'project',
-    slug: 'px-check-in',
-    title: 'Ro Patient Check-in',
-    tag: 'Design Thinking Workshop',
-    year: 'Aug 2020',
-    description: 'A brief one-liner about this project.',
-    hero: '',
-    slides: [
       {
-        type: 'intro',
-        title: 'Patient Experience Workshop to uncover Mobile JTBDs',
-        subtitle: ['Placeholder \u2014 add your case study copy here.'],
-        avatarSrc: '/projects/project-delta/hero.png',
+        type: 'split',
+        title: 'Enter Lunchbreak, the SocialFi network + expert marketplace.',
+        imagePosition: 'right',
+        imageSrc: '/projects/lunchbreak/welcome.png',
+        imageAlt: 'lunchbreakdesign',
+        bullets: [
+          'Set prices for replies and calls',
+          'Monetize their inbound demand.',
+          'Back people they believe in when you buy \'seats\' at their lunch table.',
+          'Earn through network effects',
+        ],
+        caption: 'It\’s a financialized attention layer.',
       },
+      { type: 'quote', text: 'Lunchbreak believes that attention is the new scarce resource.', attribution: '', },
+      { type: 'title', title: 'Product Iteration & Evolution', caption: '' },
+      {
+        type: 'split',
+        title: 'The Product Didn\’t Start Here. It morphed into many shapes.',
+        imagePosition: 'right',
+        videoSrc: '/projects/lunchbreak/initial_brainstorm.mp4',
+        bullets: [
+          'Social network.',
+          'Expert marketplace',
+          'Creator monetization tool',
+          'Professional graph',
+        ],
+        caption: 'Each only solved a part of the problem.',
+      },
+      { type: 'quote', text: 'Through iteration and brainstorming over 2 weeks, we reframed the product as SocialFi infrastructure.', attribution: '', },
+      {
+        type: 'image',
+        title: 'I explored in parallel over those 2 weeks. (Day 1-3)',
+        videoSrc: '/projects/lunchbreak/week1-2.mp4',
+        caption: 'Scorched earth discovery. Playing out ideas to show others and gather feedback.',
+      },
+      {
+        type: 'image',
+        title: 'Day 4-7',
+        videoSrc: '/projects/lunchbreak/week2-2.mp4',
+        caption: 'We touched base daily to review and give feedback.',
+      },
+      {
+        type: 'image',
+        title: 'Day 7-14',
+        videoSrc: '/projects/lunchbreak/week2.5-2.mp4',
+        caption: 'We even spoke to users in our coworking space to come into our office and give feedback. Much of this moved exploration away from ideas like \'top 8 colleagues\' ',
+      },
+      {
+        type: 'split',
+        title: 'How this shaped design.',
+        imagePosition: 'right',
+        imageSrc: '/projects/lunchbreak/changedthedesign.png',
+        imageAlt: 'lunchbreakdesign',
+        bullets: [
+          'Rapid iteration and testing allowed us to pivot ideas quickly and gather feedback (no wasted tears over something we could grow attached to).',
+          'Through these mixings of ideas, a brand emerged from the chaos.',
+          'We didn\'t settle on the first thing I made.',
+        ],
+        caption: 'Speed is king. Feedback kept us grounded.',
+      },
+     
+      { type: 'title', title: 'Branding', caption: '' },
+      {
+        type: 'split',
+        title: 'Lunchbreak lives in an awkward but interesting space.',
+        imagePosition: 'left',
+        videoSrc: '/projects/lunchbreak/redchair.mp4',
+        bullets: [
+          'A professional network.',
+          'A SocialFi product.',
+          'A messaging tool.',
+        ],
+        caption: 'The brand needed to feel credible enough for money, but modern enough for network effects.',
+      },
+      {
+        type: 'blank',
+        title: 'Design Principles.',
+        componentId: 'lunchbreak-principles',
+      },
+      { type: 'quote', text: 'Visual assets.', attribution: '', },
+      {
+        type: 'split',
+        title: 'Lunchbreak logo.',
+        imagePosition: 'left',
+        imageSrc: '/projects/lunchbreak/logolunch.png',
+        imageAlt: 'lunchbreakdesign',
+        bullets: [
+          'Initials of the product.',
+          'Signiture-like mark, but refined for a professional nature.',
+          'A quirky typeface. DX-Rigraf (indie font felt appropriate). Break intentionally slanted.',
+        ],
+      },
+      {
+        type: 'image',
+        title: 'Seats.',
+        imageSrc: '/projects/lunchbreak/seats.png',
+        imageAlt: 'lunchbreakdesign',
+        caption: 'Nostalgic. Speaks to the anme of lunchbreak). Piercings to show it\'s edgy (dang, that sounds cringe written out lol)',
+      },
+      {
+        type: 'image',
+        title: 'The signiture.',
+        imageSrc: '/projects/lunchbreak/signiture.png',
+        imageAlt: 'lunchbreakdesign',
+        caption: 'Adds humanity and fun to an otherwise expected profile (we aren\'t reinventing the wheel with profiles).',
+      },
+      {
+        type: 'image',
+        title: '3d assets',
+        imageSrc: '/projects/lunchbreak/vouched.png',
+        imageAlt: 'lunchbreakdesign',
+        caption: 'Unconventional landing.', 
+      },
+      {
+        type: 'image',
+        title: 'Stickers',
+        videoSrc: '/projects/lunchbreak/sticker.mp4',
+        caption: 'Unconventional landing.',
+      },
+      {
+        type: 'image',
+        title: 'The landing page.',
+        videoSrc: '/projects/lunchbreak/landingpage.mp4',
+        caption: 'Unconventional landing.',
+      },
+      {
+        type: 'image',
+        title: 'I even wrote a script for a video and worked with my cousin to create it.',
+        imageSrc: '/projects/lunchbreak/video_post.webp',
+        imageAlt: 'lunchbreakdesign',
+        linkUrl: 'https://x.com/heylunchbreak/status/1825555695611339142',
+        caption: 'Click the image to view it',
+      },
+      {
+        type: 'image',
+        title: 'The interface can be expressive.',
+        videoSrc: '/projects/lunchbreak/expresive.mp4',
+        caption: 'The interface can take influence from all of this.', 
+      },
+      {
+        type: 'image',
+        title: 'The interface can be simple and refined.',
+        imageSrc: '/projects/lunchbreak/messages1.png',
+        imageAlt: 'lunchbreakdesign',
+        caption: 'It can be tame.', 
+      },
+      { type: 'title', title: 'Core Screens: Design Rapid Fire', caption: '' },
+      {
+        type: 'sections-split',
+        title: 'Onboarding',
+        imagePosition: 'left',  // or 'right'
+        videoSrc: '/projects/lunchbreak/onboarding-mapping.mp4',
+        sections: [
+          { label: 'Problem', text: 'New users were landing in Lunchbreak without immediately grasping the core value: that access and responses are priced. Early flows felt like a generic social signup, creating confusion and drop-off before users experienced the economic loop.' },
+          { label: 'Goal', text: 'Collapse time-to-understanding and get users to their first meaningful action (set a price, send a paid message, or back a profile) as quickly as possible. Make the “priced attention” model obvious within the first session.' },
+          { label: 'Outcome', text: 'We clarified the product mental model earlier in the flow and reduced first-session friction.' },
+        ],
+      },
+      {
+        type: 'image',
+        title: 'The old flow we launched with.',
+        imageSrc: '/projects/lunchbreak/onboarding_flow.png',
+        imageAlt: 'lunchbreakdesign',
+      },
+      {
+        type: 'image',
+        title: 'The new flow part 1.',
+        imageSrc: '/projects/lunchbreak/bondoardingnew1.png',
+        imageAlt: 'lunchbreakdesign',
+      },
+      {
+        type: 'image',
+        title: 'The new flow part 2.',
+        imageSrc: '/projects/lunchbreak/bondoardingnew2.png',
+        imageAlt: 'lunchbreakdesign',
+      },
+      {
+        type: 'sections-split',
+        title: 'Progressive Web App',
+        imagePosition: 'right',  // or 'right'
+        imageSrc: '/projects/lunchbreak/progressiveweb.png',
+        imageAlt: 'onboarding',
+        sections: [
+          { label: 'Problem', text: 'Lunchbreak runs as a Progressive Web App, which meant users had to manually add the site to their home screen — a high-friction, unfamiliar step. Most users don\’t naturally complete this flow, creating drop-off before they experienced the product as a native-like app.' },
+          { label: 'Goal', text: 'Reduce friction and cognitive load around installation by clearly guiding users through the “Add to Home Screen” flow and reinforcing why it\’s worth the extra step..' },
+          { label: 'Outcome', text: 'We simplified the install path with contextual prompts and clearer affordances, making the behavior feel intentional rather than technical. More users successfully saved Lunchbreak to their home screen, improving return behavior and making the product feel more app-like in daily use.' },
+        ],
+      },
+      {
+        type: 'sections-split',
+        title: 'Messaging',
+        imagePosition: 'right',  // or 'right'
+        imageSrc: '/projects/lunchbreak/message-screen.png',
+        imageAlt: 'onboarding',
+        sections: [
+          { label: 'Problem', text: 'Charging for messages introduces immediate user friction and skepticism. If the flow feels too transactional, users hesitate to send. If it feels too casual, the value of paid access becomes unclear. We needed to normalize paid messaging without making it feel like spam or pay-to-play.' },
+          { label: 'Goal', text: 'Make the value exchange obvious and trustworthy at the moment of send. Users should instantly understand what they\’re paying for, what response to expect, and why it\’s worth it — all without slowing down the conversation flow.' },
+          { label: 'Outcome', text: 'By clarifying pricing, response guarantees, and timing at the point of action, we reduced hesitation around paid outreach. Messaging felt more intentional and professional, helping users treat paid messages as high-signal access rather than cold DMs.' },
+        ],
+      },
+      {
+        type: 'image',
+        title: 'Message examples',
+        imageSrc: '/projects/lunchbreak/buy-message.png',
+        imageAlt: 'lunchbreakdesign',
+  
+      },
+      {
+        type: 'sections-split',
+        title: 'Tradable profiles',
+        imagePosition: 'left',  // or 'right'
+        imageSrc: '/projects/lunchbreak/profiletrack.png',
+        imageAlt: 'onboarding',
+        sections: [
+          { label: 'Problem', text: 'Lunchbreak\’s core mechanic treats access to people as something you can back and price — but standard social profiles didn\’t communicate that mental model. Users still read profiles as static identity pages, not dynamic assets whose value moves with demand.' },
+          { label: 'Goal', text: 'Reframe the profile to feel like a living market surface: make pricing, supporter activity, and seat dynamics immediately legible so users understand they\’re evaluating — and potentially backing — an asset, not just viewing a bio.' },
+          { label: 'Outcome', text: 'By foregrounding price signals, supporter graphs, and seat availability, profiles shifted from passive identity pages to active market surfaces. Users more quickly understood the economic model, increasing confidence in buying seats and reinforcing the network\’s financialized behavior loop.' },
+        ],
+      },
+      {
+        type: 'sections-split',
+        title: 'Design handoff',
+        imagePosition: 'right',  // or 'right'
+        videoSrc: '/projects/lunchbreak/handoff.mp4',
+        sections: [
+          { label: 'Problem', text: 'As the product evolved quickly, design-to-engineering handoff risked becoming fragmented. Without strong structure, small inconsistencies in spacing, components, and states could compound — slowing builds and creating avoidable back-and-forth.' },
+          { label: 'Goal', text: 'Create a handoff system that was fast, unambiguous, and scalable. Ensure engineers could implement confidently without constant clarification by organizing work in Figma around a clear, reusable design system.' },
+          { label: 'Outcome', text: 'By systematizing components, states, and specs in Figma, handoff became significantly smoother and more predictable. Engineers could move faster with fewer questions, visual consistency improved across surfaces, and the team spent less time resolving design debt during implementation.' },
+        ],
+      },
+      {
+        type: 'sections-split',
+        title: 'Home + Discovery',
+        imagePosition: 'left',  // or 'right'
+        imageSrc: '/projects/lunchbreak/directory.png',
+        imageAlt: 'onboarding',
+        sections: [
+          { label: 'Problem', text: 'Users were landing in the product without clear next steps. Two high-value actions — sharing their message link (to drive inbound demand) and discovering seats to buy (to drive engagement) — were buried or disconnected, slowing early momentum.' },
+          { label: 'Goal', text: 'Make the home surface action-oriented. Prioritize quick distribution (share your link) and high-intent exploration (find seats worth buying) so users could immediately participate in the network\’s core loops.' },
+          { label: 'Outcome', text: 'We elevated share and discovery into first-class actions on the home screen, reducing time-to-first meaningful action. Users more quickly activated the supply side (inbound messages) while simultaneously increasing seat exploration and network engagement.' },
+        ],
+      },
+
+
+      { type: 'title', title: 'Fin', caption: 'Questions?' },
+  
     ],
   },
+
+
+
 
 
   /* ===================================
@@ -1326,79 +1541,8 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
   { kind: 'divider', label: 'Misc' },
 
 
-  {
-    kind: 'project',
-    slug: 'design-engineering-process',
-    title: 'How I Approach Design Engineering',
-    tag: 'Process',
-    year: '2026',
-    description: 'My design engineering process and the tools that power it.',
-    hero: '',
-    slides: [
-      // Slide 0 — Intro
-      
-      { type: 'title', title: 'The process, tools, and philosophy behind bridging design and code.', caption: '2026' },
-
-      // Slide 1 — Quote: the tension
-   
-      // Slide 2 — Split: what design engineering is
-      {
-        type: 'split',
-        title: 'My Design Engineering core:',
-        imagePosition: 'left',
-        componentId: 'core-strengths',
-        bullets: [
-          '1. I can specify good taste to an AI. (15 years UX/Visual)',
-          '2. I can know what the user wants.(15 years of UX Research/testing)',
-          '3. I can adapt fluidly to team processes.',
-          'This means I ship tasteful, production-quality interfaces users want... not just mockups.',
-        ],
-      },
-      // Slide 3 — Blank: ProcessFlowGraphic
-      {
-        type: 'blank',
-        title: 'My Design Engineering \'Execution\' Workflow',
-        componentId: 'process-flow',
-      },
-    
-      // Slide 4 — Title: The Toolkit
-    ],
-  },
 
 
-  {
-    kind: 'mini',
-    slug: 'Alto App Vision Prototype',
-    title: 'Alto App Vision Prototype',
-    tag: 'test',
-    year: '2026',
-    description: 'A test mini project to verify the scrollable page works.',
-    blocks: [
-      { type: 'heading', title: 'This is a mini project', subtitle: 'A scrollable page with mixed content blocks' },
-      { type: 'text', content: 'This is a paragraph of text. Mini projects render as scrollable pages instead of slideshows. You can mix images, text, headings, and custom components freely.' },
-      { type: 'heading', title: 'Image Examples' },
-      { type: 'image', src: '/projects/shelfspace/moodring-img.webp', alt: 'Test image', caption: 'A full-width image with caption.' },
-      { type: 'text', content: 'Below is a 2-up image grid:' },
-      {
-        type: 'image-grid',
-        columns: 2,
-        images: [
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid image 1', caption: 'First image' },
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid image 2', caption: 'Second image' },
-        ],
-      },
-      { type: 'text', content: 'And a 3-up image grid:' },
-      {
-        type: 'image-grid',
-        columns: 3,
-        images: [
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 1' },
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 2' },
-          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 3' },
-        ],
-      },
-    ],
-  },
 
 
   {
@@ -1444,6 +1588,51 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
 ]
 
 export const TRASH_ENTRIES: CaseStudyEntry[] = [
+ 
+ 
+   /* ===================================
+   PX Workshop
+   =================================== */
+
+   {
+    kind: 'project',
+    slug: 'px-workshop',
+    title: 'Ro Mobile App',
+    tag: 'Design Thinking Workshop',
+    year: 'Aug 2020',
+    description: 'A brief one-liner about this project.',
+    hero: '',
+    slides: [
+      {
+        type: 'intro',
+        title: 'Patient Experience Workshop to uncover Mobile JTBDs',
+        subtitle: ['Placeholder \u2014 add your case study copy here.'],
+        avatarSrc: '/projects/project-delta/hero.webp',
+      },
+    ],
+  },
+
+    /* ===================================
+   Ro Checkin
+   =================================== */
+
+   {
+    kind: 'project',
+    slug: 'px-check-in',
+    title: 'Ro Patient Check-in',
+    tag: 'Design Thinking Workshop',
+    year: 'Aug 2020',
+    description: 'A brief one-liner about this project.',
+    hero: '',
+    slides: [
+      {
+        type: 'intro',
+        title: 'Patient Experience Workshop to uncover Mobile JTBDs',
+        subtitle: ['Placeholder \u2014 add your case study copy here.'],
+        avatarSrc: '/projects/project-delta/hero.webp',
+      },
+    ],
+  },
   {
     kind: 'mini',
     slug: 'WeWork: User Intents',
@@ -1544,6 +1733,40 @@ export const TRASH_ENTRIES: CaseStudyEntry[] = [
     kind: 'mini',
     slug: 'test-mini',
     title: 'WeWork App IA',
+    tag: 'test',
+    year: '2026',
+    description: 'A test mini project to verify the scrollable page works.',
+    blocks: [
+      { type: 'heading', title: 'This is a mini project', subtitle: 'A scrollable page with mixed content blocks' },
+      { type: 'text', content: 'This is a paragraph of text. Mini projects render as scrollable pages instead of slideshows. You can mix images, text, headings, and custom components freely.' },
+      { type: 'heading', title: 'Image Examples' },
+      { type: 'image', src: '/projects/shelfspace/moodring-img.webp', alt: 'Test image', caption: 'A full-width image with caption.' },
+      { type: 'text', content: 'Below is a 2-up image grid:' },
+      {
+        type: 'image-grid',
+        columns: 2,
+        images: [
+          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid image 1', caption: 'First image' },
+          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid image 2', caption: 'Second image' },
+        ],
+      },
+      { type: 'text', content: 'And a 3-up image grid:' },
+      {
+        type: 'image-grid',
+        columns: 3,
+        images: [
+          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 1' },
+          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 2' },
+          { src: '/projects/shelfspace/moodring-img.webp', alt: 'Grid 3' },
+        ],
+      },
+    ],
+  },
+
+  {
+    kind: 'mini',
+    slug: 'Alto App Vision Prototype',
+    title: 'Alto App Vision Prototype',
     tag: 'test',
     year: '2026',
     description: 'A test mini project to verify the scrollable page works.',

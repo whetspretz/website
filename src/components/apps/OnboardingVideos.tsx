@@ -1,6 +1,8 @@
+import { ShimmerVideo } from '@/components/ui/ShimmerVideo'
+
 const VIDEOS = [
-  '/projects/shelfspace/1_onboarding.MOV',
-  '/projects/shelfspace/3_onboarding.MOV',
+  '/projects/shelfspace/1_onboarding.mp4',
+  '/projects/shelfspace/3_onboarding.mp4',
 ]
 
 export function OnboardingVideos(): React.JSX.Element {
@@ -12,7 +14,7 @@ export function OnboardingVideos(): React.JSX.Element {
           className="h-full overflow-hidden"
           style={{ borderRadius: 24 }}
         >
-          <video
+          <ShimmerVideo
             src={src}
             autoPlay
             loop
