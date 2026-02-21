@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { useDesktop } from '@/hooks/useDesktop'
+import { useIsMobile } from '@/hooks/useIsMobile'
 import { WindowTitleBar } from '@/components/window/WindowTitleBar'
 import { WindowControlsContext } from '@/lib/WindowControlsContext'
 import type { TitleExtra } from '@/lib/WindowControlsContext'
@@ -41,6 +42,7 @@ function getHandleStyle(dir: ResizeDir): React.CSSProperties {
 
 export function Window({ windowState, title, children }: WindowProps): React.JSX.Element {
   const { dispatch, focusWindow } = useDesktop()
+  const isMobile = useIsMobile()
   const [onTitleClick, setOnTitleClick] = useState<(() => void) | undefined>(undefined)
   const [titleExtra, setTitleExtra] = useState<TitleExtra | undefined>(undefined)
   const windowControls = useMemo(() => ({ setOnTitleClick, setTitleExtra }), [])
@@ -214,6 +216,39 @@ export function Window({ windowState, title, children }: WindowProps): React.JSX
   const vy = Math.max(TASKBAR_H, windowState.position.y + dragOffset.y + resizeOffset.dy)
   const vw = Math.max(MIN_W, windowState.size.width + resizeOffset.dw)
   const vh = Math.max(MIN_H, windowState.size.height + resizeOffset.dh)
+
+  if (isMobile) {
+    return (
+      <div
+        className="fixed inset-0 flex flex-col"
+        style={{
+          zIndex: windowState.zIndex,
+          background: '#1a1a1a',
+          animation: 'windowOpen 0.2s ease-out',
+        }}
+        onMouseDown={() => focusWindow(windowState.id)}
+      >
+        <WindowTitleBar
+          title={title}
+          isDragging={false}
+          onTitleClick={onTitleClick}
+          titleExtra={titleExtra}
+          onClose={() => dispatch({ type: 'CLOSE_WINDOW', windowId: windowState.id })}
+          onExpand={() => {}}
+          onMouseDown={() => {}}
+          disableDrag
+        />
+        <div
+          className="flex-1 overflow-y-auto p-4"
+          style={{ color: '#ffffff', fontSize: '0.85rem', lineHeight: 1.6 }}
+        >
+          <WindowControlsContext.Provider value={windowControls}>
+            {children}
+          </WindowControlsContext.Provider>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div

@@ -1,5 +1,6 @@
 import { useCallback } from 'react'
 import { useDesktop } from '@/hooks/useDesktop'
+import { useIsMobile } from '@/hooks/useIsMobile'
 import { usePaintings } from '@/lib/PaintingsContext'
 import { DesktopIcon } from '@/components/desktop/DesktopIcon'
 import {
@@ -25,6 +26,7 @@ function PaintingThumbnail({ dataUrl }: { dataUrl: string }): React.JSX.Element 
 
 export function DesktopIconGrid(): React.JSX.Element {
   const { openApp } = useDesktop()
+  const isMobile = useIsMobile()
   const { paintings, setViewingId, removePainting } = usePaintings()
 
   const leftIcons: { id: AppId; icon: React.ReactNode; label: string; hint?: React.ReactNode }[] = [
@@ -62,6 +64,40 @@ export function DesktopIconGrid(): React.JSX.Element {
     }
     return false
   }, [removePainting])
+
+  if (isMobile) {
+    const allIcons = [
+      ...leftIcons,
+      doItForHer,
+      { id: 'terminal' as AppId, icon: <TerminalIcon />, label: 'terminal' },
+      ...rightIcons,
+    ]
+
+    return (
+      <div className="absolute bottom-14 left-0 right-0 z-[5] px-6">
+        <div className="grid grid-cols-4 gap-y-2 gap-x-2 justify-items-center">
+          {allIcons.map(item => (
+            <DesktopIcon
+              key={item.id}
+              icon={item.icon}
+              label={item.label}
+              onClick={() => handleClick(item.id)}
+              iconId={item.id}
+            />
+          ))}
+          {paintings.map(p => (
+            <DesktopIcon
+              key={p.id}
+              icon={<PaintingThumbnail dataUrl={p.dataUrl} />}
+              label={p.name}
+              onClick={() => handlePaintingClick(p.id)}
+              onDragEnd={(dropPos) => handlePaintingDragEnd(p.id, dropPos)}
+            />
+          ))}
+        </div>
+      </div>
+    )
+  }
 
   return (
     <>

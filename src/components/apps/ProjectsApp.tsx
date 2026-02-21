@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import { createPortal } from 'react-dom'
+import { useIsMobile } from '@/hooks/useIsMobile'
 import { CASE_STUDIES } from '@/lib/caseStudies'
 import type { CaseStudy, MiniProject } from '@/lib/caseStudies'
 import { PasswordGate } from './PasswordGate'
@@ -92,6 +93,7 @@ const PREVIEW_W = 360
 const PREVIEW_H = 240
 
 export function ProjectsApp(): React.JSX.Element {
+  const isMobile = useIsMobile()
   const [activeSlug, setActiveSlug] = useState<string | null>(null)
   const [unlocked, setUnlocked] = useState(false)
   const { setOnTitleClick, setTitleExtra } = useWindowControls()
@@ -220,32 +222,41 @@ export function ProjectsApp(): React.JSX.Element {
           <div
             key={entry.slug}
             onClick={() => setActiveSlug(entry.slug)}
-            onMouseMove={hero ? (e) => handleMouseMove(e, hero) : undefined}
-            onMouseLeave={hero ? handleMouseLeave : undefined}
-            className="flex items-center gap-3 py-3 cursor-pointer hover:bg-white/5 transition-colors px-2 -mx-2"
+            onMouseMove={!isMobile && hero ? (e) => handleMouseMove(e, hero) : undefined}
+            onMouseLeave={!isMobile && hero ? handleMouseLeave : undefined}
+            className="flex items-start gap-3 py-3 cursor-pointer hover:bg-white/5 transition-colors px-2 -mx-2"
             style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}
           >
-            {entry.kind === 'mini' ? (
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <rect x="3" y="2" width="10" height="12" rx="1" stroke="currentColor" strokeWidth="1.5" className="text-white" />
-                <line x1="5" y1="5" x2="11" y2="5" stroke="currentColor" strokeWidth="1" className="text-white" />
-                <line x1="5" y1="8" x2="11" y2="8" stroke="currentColor" strokeWidth="1" className="text-white" />
-                <line x1="5" y1="11" x2="9" y2="11" stroke="currentColor" strokeWidth="1" className="text-white" />
-              </svg>
-            ) : (
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <rect x="2" y="4" width="12" height="10" stroke={folderColor} strokeWidth="1.5" />
-                <rect x="2" y="3" width="6" height="3" stroke={folderColor} strokeWidth="1" />
-              </svg>
-            )}
-            <span className="text-white flex-1">{entry.title}</span>
-            {entry.locked && (
-              <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="text-white/40 shrink-0">
-                <rect x="3" y="8" width="10" height="7" rx="1" stroke="currentColor" strokeWidth="1.5" />
-                <path d="M5 8V5a3 3 0 0 1 6 0v3" stroke="currentColor" strokeWidth="1.5" fill="none" />
-              </svg>
-            )}
-            <span className="text-white" style={{ fontSize: '0.65rem' }}>
+            <div className="mt-0.5 shrink-0">
+              {entry.kind === 'mini' ? (
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <rect x="3" y="2" width="10" height="12" rx="1" stroke="currentColor" strokeWidth="1.5" className="text-white" />
+                  <line x1="5" y1="5" x2="11" y2="5" stroke="currentColor" strokeWidth="1" className="text-white" />
+                  <line x1="5" y1="8" x2="11" y2="8" stroke="currentColor" strokeWidth="1" className="text-white" />
+                  <line x1="5" y1="11" x2="9" y2="11" stroke="currentColor" strokeWidth="1" className="text-white" />
+                </svg>
+              ) : (
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <rect x="2" y="4" width="12" height="10" stroke={folderColor} strokeWidth="1.5" />
+                  <rect x="2" y="3" width="6" height="3" stroke={folderColor} strokeWidth="1" />
+                </svg>
+              )}
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2">
+                <span className="text-white truncate">{entry.title}</span>
+                {entry.locked && (
+                  <svg width="12" height="12" viewBox="0 0 16 16" fill="none" className="text-white/40 shrink-0">
+                    <rect x="3" y="8" width="10" height="7" rx="1" stroke="currentColor" strokeWidth="1.5" />
+                    <path d="M5 8V5a3 3 0 0 1 6 0v3" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                  </svg>
+                )}
+              </div>
+              <span className="block md:hidden text-white/50" style={{ fontSize: '0.6rem' }}>
+                {entry.tag}
+              </span>
+            </div>
+            <span className="hidden md:block text-white shrink-0" style={{ fontSize: '0.65rem' }}>
               {entry.tag}
             </span>
           </div>
@@ -256,8 +267,8 @@ export function ProjectsApp(): React.JSX.Element {
         If you'd like to see my old projects, check the trash bin
       </div>
 
-      {/* Hover preview — rendered via portal to escape window overflow */}
-      {hoveredHero && createPortal(
+      {/* Hover preview — rendered via portal to escape window overflow (desktop only) */}
+      {!isMobile && hoveredHero && createPortal(
         <div
           ref={previewRef}
           style={{

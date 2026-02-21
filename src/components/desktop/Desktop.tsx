@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useIsMobile } from '@/hooks/useIsMobile'
 import { CatProvider } from '@/lib/CatContext'
 import { DesktopProvider } from '@/lib/DesktopContext'
 import { PaintingsProvider } from '@/lib/PaintingsContext'
@@ -11,7 +12,8 @@ import { WindowManager } from '@/components/desktop/WindowManager'
 import { StickyNote } from '@/components/desktop/StickyNote'
 
 export function Desktop(): React.JSX.Element {
-  const [noteOpen, setNoteOpen] = useState(true)
+  const isMobile = useIsMobile()
+  const [noteOpen, setNoteOpen] = useState(() => window.innerWidth >= 768)
 
   return (
     <CatProvider>
@@ -48,11 +50,11 @@ export function Desktop(): React.JSX.Element {
           <DesktopIconGrid />
           <WindowManager />
           <CatOverlay />
-          {/* Sticky note */}
-          {noteOpen && <StickyNote onClose={() => setNoteOpen(false)} />}
+          {/* Sticky note — desktop only */}
+          {!isMobile && noteOpen && <StickyNote onClose={() => setNoteOpen(false)} />}
           {/* Spinning stamp */}
           <div
-            className="fixed flex items-center justify-center z-[3] cursor-pointer"
+            className="hidden md:flex fixed items-center justify-center z-[3] cursor-pointer"
             style={{
               bottom: '3.5rem',
               right: '3rem',

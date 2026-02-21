@@ -6,7 +6,7 @@ export function HeroText(): React.JSX.Element {
   const hasCats = cats.length > 0 && !cats[0]?.vanishing
 
   return (
-    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
+    <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1] pb-32 md:pb-0">
       <div className="flex flex-col items-center">
         <h1
           className="text-ink relative flex flex-col items-center select-none"

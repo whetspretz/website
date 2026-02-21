@@ -30,13 +30,15 @@ function desktopReducer(state: DesktopState, action: DesktopAction): DesktopStat
       // Clamp size/position to viewport
       const vpW = window.innerWidth
       const vpH = window.innerHeight
+      const isMobileVp = vpW < 768
       const pad = 8
       const taskbarH = 40
 
-      // Projects opens expanded (full viewport with 24px margin)
-      const expanded = action.appId === 'projects' || action.appId === 'about'
-      const margin = 24
-      const topOffset = taskbarH + margin
+      // Mobile: all windows fullscreen
+      // Desktop: projects/about expanded, others use defaults
+      const expanded = isMobileVp || action.appId === 'projects' || action.appId === 'about'
+      const margin = isMobileVp ? 0 : 24
+      const topOffset = isMobileVp ? 0 : taskbarH + margin
       const width = expanded ? vpW - margin * 2 : Math.min(app.defaultSize.width, vpW - pad * 2)
       const height = expanded ? vpH - topOffset - margin : Math.min(app.defaultSize.height, vpH - taskbarH - pad * 2)
       const x = expanded ? margin : Math.max(pad, Math.min(app.defaultPosition.x, vpW - width - pad))

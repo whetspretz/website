@@ -20,26 +20,28 @@ export function Taskbar(): React.JSX.Element {
       {/* Left side: logo + open window buttons */}
       <div className="flex items-center gap-3">
         <MWLogo />
-        {openWindows.map(win => (
-          <button
-            key={win.id}
-            onClick={() => focusWindow(win.id)}
-            className="font-mono text-white/70 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer transition-colors"
-            style={{
-              fontSize: '0.65rem',
-              letterSpacing: '0.05em',
-              padding: '0.2rem 0.6rem',
-              lineHeight: 1,
-            }}
-          >
-            {APP_REGISTRY[win.appId].windowTitle}
-          </button>
-        ))}
+        <div className="hidden md:flex items-center gap-3">
+          {openWindows.map(win => (
+            <button
+              key={win.id}
+              onClick={() => focusWindow(win.id)}
+              className="font-mono text-white/70 hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 cursor-pointer transition-colors"
+              style={{
+                fontSize: '0.65rem',
+                letterSpacing: '0.05em',
+                padding: '0.2rem 0.6rem',
+                lineHeight: 1,
+              }}
+            >
+              {APP_REGISTRY[win.appId].windowTitle}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Right side: contact + battery + clock */}
       <div className="flex items-center gap-4">
-        <div className="flex items-center gap-2">
+        <div className="hidden md:flex items-center gap-2">
           <span
             className="inline-block rounded-full"
             style={{
@@ -69,7 +71,8 @@ export function Taskbar(): React.JSX.Element {
               lineHeight: 1,
             }}
           >
-            slide into my DMs
+            <span className="hidden md:inline">slide into my DMs</span>
+            <span className="md:hidden">DM me</span>
           </button>
           {copied && (
             <span
@@ -80,7 +83,7 @@ export function Taskbar(): React.JSX.Element {
             </span>
           )}
         </div>
-        <div className="flex items-center gap-1.5">
+        <div className="hidden md:flex items-center gap-1.5">
           <div
             className="relative"
             style={{ width: 20, height: 10, border: '1px solid rgba(255,255,255,0.5)', borderRadius: 2 }}

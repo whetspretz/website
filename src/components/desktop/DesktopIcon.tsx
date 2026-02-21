@@ -73,7 +73,7 @@ export function DesktopIcon({ icon, label, onClick, iconId, hint, onDragEnd }: D
       </span>
       {hint && (
         <span
-          className="absolute left-full top-1/2 -translate-y-1/2 ml-0.5 whitespace-nowrap font-mono text-ink hint-nudge pointer-events-none"
+          className="hidden md:block absolute left-full top-1/2 -translate-y-1/2 ml-0.5 whitespace-nowrap font-mono text-ink hint-nudge pointer-events-none"
           style={{ fontSize: '0.65rem', letterSpacing: '0.04em' }}
         >
           {hint}

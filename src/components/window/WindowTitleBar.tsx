@@ -3,6 +3,7 @@ import type { TitleExtra } from '@/lib/WindowControlsContext'
 interface WindowTitleBarProps {
   title: string
   isDragging: boolean
+  disableDrag?: boolean
   onTitleClick?: () => void
   titleExtra?: TitleExtra
   onClose: () => void
@@ -10,12 +11,12 @@ interface WindowTitleBarProps {
   onMouseDown: (e: React.MouseEvent) => void
 }
 
-export function WindowTitleBar({ title, isDragging, onTitleClick, titleExtra, onClose, onExpand, onMouseDown }: WindowTitleBarProps): React.JSX.Element {
+export function WindowTitleBar({ title, isDragging, disableDrag, onTitleClick, titleExtra, onClose, onExpand, onMouseDown }: WindowTitleBarProps): React.JSX.Element {
   return (
     <div
-      className="h-9 flex justify-between items-center px-4 select-none"
+      className="h-10 md:h-9 flex justify-between items-center px-4 select-none"
       style={{
-        cursor: isDragging ? 'grabbing' : 'grab',
+        cursor: disableDrag ? 'default' : isDragging ? 'grabbing' : 'grab',
         background: '#222',
         borderBottom: '1px solid rgba(255,255,255,0.06)',
       }}
@@ -50,7 +51,7 @@ export function WindowTitleBar({ title, isDragging, onTitleClick, titleExtra, on
             e.stopPropagation()
             onExpand()
           }}
-          className="w-3.5 h-3.5 rounded-full border border-white/20 bg-transparent cursor-pointer transition-all duration-200 hover:bg-green-500 hover:border-green-500 flex items-center justify-center"
+          className="hidden md:flex w-3.5 h-3.5 rounded-full border border-white/20 bg-transparent cursor-pointer transition-all duration-200 hover:bg-green-500 hover:border-green-500 items-center justify-center"
           style={{ fontSize: 0, lineHeight: 0 }}
           aria-label="Expand window"
         >
@@ -64,7 +65,7 @@ export function WindowTitleBar({ title, isDragging, onTitleClick, titleExtra, on
             e.stopPropagation()
             onClose()
           }}
-          className="w-3.5 h-3.5 rounded-full border border-white/20 bg-transparent cursor-pointer transition-all duration-200 hover:bg-red-500 hover:border-red-500 flex items-center justify-center"
+          className="w-5 h-5 md:w-3.5 md:h-3.5 rounded-full border border-white/20 bg-transparent cursor-pointer transition-all duration-200 hover:bg-red-500 hover:border-red-500 flex items-center justify-center"
           style={{ fontSize: 0, lineHeight: 0 }}
           aria-label="Close window"
         >
