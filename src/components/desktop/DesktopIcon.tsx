@@ -66,7 +66,7 @@ export function DesktopIcon({ icon, label, onClick, iconId, hint, onDragEnd }: D
         {icon}
       </div>
       <span
-        className="font-mono text-ink font-semibold"
+        className="font-mono text-ink font-semibold text-center"
         style={{ fontSize: '0.7rem', letterSpacing: '0.02em' }}
       >
         {label}
