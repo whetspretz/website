@@ -65,11 +65,11 @@ export function WindowTitleBar({ title, isDragging, disableDrag, onTitleClick, t
             e.stopPropagation()
             onClose()
           }}
-          className="w-5 h-5 md:w-3.5 md:h-3.5 rounded-full border border-white/20 bg-transparent cursor-pointer transition-all duration-200 hover:bg-red-500 hover:border-red-500 flex items-center justify-center"
+          className="w-5 h-5 md:w-3.5 md:h-3.5 rounded-full border border-white/40 md:border-white/20 bg-white/10 md:bg-transparent cursor-pointer transition-all duration-200 hover:bg-red-500 hover:border-red-500 flex items-center justify-center"
           style={{ fontSize: 0, lineHeight: 0 }}
           aria-label="Close window"
         >
-          <svg width="7" height="7" viewBox="0 0 7 7" className="opacity-0 group-hover:opacity-100">
+          <svg width="7" height="7" viewBox="0 0 7 7" className="opacity-100 md:opacity-0 md:group-hover:opacity-100">
             <line x1="1" y1="1" x2="6" y2="6" stroke="currentColor" strokeWidth="1.5" />
             <line x1="6" y1="1" x2="1" y2="6" stroke="currentColor" strokeWidth="1.5" />
           </svg>
