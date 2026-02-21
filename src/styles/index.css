@@ -188,6 +188,8 @@ html, body, #root {
 .columns-slide-grid {
   display: flex;
   gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .columns-slide-item {
