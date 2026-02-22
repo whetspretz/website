@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-
 const M_POINTS: [number, number][] = [[1, 19], [1, 3], [10, 13], [19, 3], [19, 19]]
 const W_POINTS: [number, number][] = [[1, 3], [5, 19], [10, 7], [15, 19], [19, 3]]
 const DEPTH_X = 2.5
@@ -54,11 +53,12 @@ export function MWLogo(): React.JSX.Element {
       height="26"
       viewBox="-1 0 24 24"
       fill="none"
+      onClick={() => window.location.reload()}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{
         display: 'block',
-        cursor: 'default',
+        cursor: 'pointer',
         filter: hovered ? 'drop-shadow(0 0 8px rgba(223,255,0,0.3))' : 'none',
         transform: `rotate(${wiggleAngle}deg)`,
         transition: hovered ? 'filter 200ms ease' : 'filter 200ms ease, transform 300ms ease',

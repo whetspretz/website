@@ -23,6 +23,7 @@ export type DesktopAction =
   | { type: 'FOCUS_WINDOW'; windowId: string }
   | { type: 'MOVE_WINDOW'; windowId: string; position: { x: number; y: number } }
   | { type: 'RESIZE_WINDOW'; windowId: string; size: { width: number; height: number }; position?: { x: number; y: number } }
+  | { type: 'CLOSE_ALL_WINDOWS' }
 
 export interface DesktopContextValue {
   state: DesktopState

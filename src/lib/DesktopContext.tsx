@@ -94,6 +94,8 @@ function desktopReducer(state: DesktopState, action: DesktopAction): DesktopStat
         ),
       }
     }
+    case 'CLOSE_ALL_WINDOWS':
+      return { ...initialState }
     default:
       return state
   }
