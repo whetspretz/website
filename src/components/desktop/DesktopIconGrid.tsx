@@ -13,6 +13,7 @@ import {
   WritingIcon,
   PaintIcon,
   HeartIcon,
+  ResumeIcon,
 } from '@/components/desktop/RetroIcons'
 import type { AppId } from '@/lib/desktopTypes'
 
@@ -47,6 +48,13 @@ export function DesktopIconGrid(): React.JSX.Element {
 
   const handleClick = (id: AppId): void => {
     openApp(id)
+  }
+
+  const handleResumeDownload = (): void => {
+    const a = document.createElement('a')
+    a.href = '/Matt_Whetsell_Resume.pdf'
+    a.download = 'Matt_Whetsell_Resume.pdf'
+    a.click()
   }
 
   const handlePaintingClick = (paintingId: string): void => {
@@ -85,6 +93,11 @@ export function DesktopIconGrid(): React.JSX.Element {
               iconId={item.id}
             />
           ))}
+          <DesktopIcon
+            icon={<ResumeIcon />}
+            label="resume"
+            onClick={handleResumeDownload}
+          />
           {paintings.map(p => (
             <DesktopIcon
               key={p.id}
@@ -143,6 +156,12 @@ export function DesktopIconGrid(): React.JSX.Element {
           label="terminal"
           onClick={() => handleClick('terminal')}
           iconId="terminal"
+        />
+        {/* Resume download icon below Do T for her */}
+        <DesktopIcon
+          icon={<ResumeIcon />}
+          label="resume"
+          onClick={handleResumeDownload}
         />
         {/* Remaining icons in right column only */}
         {rightIcons.map(item => (

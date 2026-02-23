@@ -170,6 +170,22 @@ export function HeartIcon({ size = 48 }: IconProps): React.JSX.Element {
   )
 }
 
+export function ResumeIcon({ size = 48 }: IconProps): React.JSX.Element {
+  return (
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* Paper body with folded corner */}
+      <path d="M10 4 H32 L38 10 V44 H10 Z" stroke="currentColor" strokeWidth="2.5" className="icon-fill" fill="white" strokeLinejoin="round" />
+      {/* Corner fold */}
+      <path d="M32 4 V10 H38" stroke="currentColor" strokeWidth="2" fill="none" strokeLinejoin="round" />
+      {/* Download arrow */}
+      <line x1="24" y1="18" x2="24" y2="34" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+      <polyline points="18,29 24,35 30,29" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+      {/* Base line */}
+      <line x1="16" y1="38" x2="32" y2="38" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  )
+}
+
 export function TrashIcon({ size = 48 }: IconProps): React.JSX.Element {
   return (
     <svg width={size} height={size} viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
