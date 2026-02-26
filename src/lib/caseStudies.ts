@@ -1606,6 +1606,14 @@ export const TRASH_ENTRIES: TrashEntry[] = [
   },
   {
     kind: 'trash-item',
+    slug: 'pride-erg',
+    title: 'Pride ERGs',
+    tag: 'Work Culture',
+    year: '2017',
+    pdfSrc: '/trash/pride-erg.pdf',
+  },
+  {
+    kind: 'trash-item',
     slug: 'alto-vision',
     title: 'Alto App Vision Prototype',
     tag: 'Prototype (not case study)',
@@ -1668,13 +1676,6 @@ export const TRASH_ENTRIES: TrashEntry[] = [
     year: '2020',
     pdfSrc: '/trash/ro-icon-kit.pdf',
   },
-  {
-    kind: 'trash-item',
-    slug: 'pride-erg',
-    title: 'Pride ERGs',
-    tag: 'Work Culture',
-    year: '2017',
-    pdfSrc: '/trash/pride-erg.pdf',
-  },
+
 
 ]
