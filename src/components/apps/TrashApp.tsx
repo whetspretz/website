@@ -8,7 +8,7 @@ export function TrashApp(): React.JSX.Element {
     <div className="font-mono">
       <div className="flex items-center justify-between mb-4 pb-3" style={{ borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
         <span className="text-white uppercase" style={{ fontSize: '0.6rem', letterSpacing: '0.1em' }}>
-          Recovered Files
+          Older Projects
         </span>
         <span className="text-white" style={{ fontSize: '0.6rem' }}>
           {items.length} items
