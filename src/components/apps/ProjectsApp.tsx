@@ -224,7 +224,7 @@ export function ProjectsApp(): React.JSX.Element {
               target="_blank"
               rel="noopener noreferrer"
               className="block mt-3 rounded-lg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-              style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}
+              style={{ maxWidth: 280, borderBottom: '1px solid rgba(255,255,255,0.04)' }}
             >
               <img
                 src={entry.image}
