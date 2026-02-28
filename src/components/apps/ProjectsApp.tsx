@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import { useIsMobile } from '@/hooks/useIsMobile'
 import { CASE_STUDIES } from '@/lib/caseStudies'
-import type { CaseStudy, MiniProject } from '@/lib/caseStudies'
+import type { CaseStudy, MiniProject, ExternalProject } from '@/lib/caseStudies'
 import { PasswordGate } from './PasswordGate'
 import { Slideshow } from '@/components/slides/Slideshow'
 import { MiniProjectView } from '@/components/slides/MiniProjectView'
@@ -214,6 +214,25 @@ export function ProjectsApp(): React.JSX.Element {
                 {entry.label}
               </span>
             </div>
+          )
+        }
+        if (entry.kind === 'external') {
+          return (
+            <a
+              key={entry.slug}
+              href={entry.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block mt-3 rounded-lg overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
+              style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}
+            >
+              <img
+                src={entry.image}
+                alt={entry.title}
+                className="w-full"
+                style={{ display: 'block' }}
+              />
+            </a>
           )
         }
         const hero = entry.kind === 'project' ? entry.hero : ''

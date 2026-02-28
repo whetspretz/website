@@ -28,6 +28,16 @@ export interface MiniProject {
   locked?: boolean
 }
 
+export interface ExternalProject {
+  kind: 'external'
+  slug: string
+  title: string
+  tag: string
+  year: string
+  image: string
+  href: string
+}
+
 export interface TrashItem {
   kind: 'trash-item'
   slug: string
@@ -37,7 +47,7 @@ export interface TrashItem {
   pdfSrc: string
 }
 
-export type CaseStudyEntry = CaseStudy | MiniProject | SectionDivider
+export type CaseStudyEntry = CaseStudy | MiniProject | ExternalProject | SectionDivider
 export type TrashEntry = TrashItem | SectionDivider
 
 /**
@@ -1543,8 +1553,15 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
 
   { kind: 'divider', label: 'Misc' },
 
-
-
+  {
+    kind: 'external',
+    slug: 'design-sprinter',
+    title: 'Design Sprinter',
+    tag: 'Design Sprints Without Coworkers',
+    year: '2025',
+    image: '/misc/design-sprinter-cover.png',
+    href: 'https://github.com/whetspretz/design-sprinter',
+  },
 
 
 
@@ -1604,7 +1621,7 @@ export const TRASH_ENTRIES: TrashEntry[] = [
     year: 'Aug 2021',
     pdfSrc: '/trash/ro-mobile-app.pdf',
   },
-  {
+    {
     kind: 'trash-item',
     slug: 'pride-erg',
     title: 'Pride ERGs',
