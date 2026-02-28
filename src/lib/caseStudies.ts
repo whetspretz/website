@@ -1551,7 +1551,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
    END OF CASE STUDIES
    =================================== */
 
-  { kind: 'divider', label: 'Misc' },
+  { kind: 'divider', label: 'Claude Skills & Plugins' },
 
   {
     kind: 'external',
@@ -1563,6 +1563,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
     href: 'https://github.com/whetspretz/design-sprinter',
   },
 
+  { kind: 'divider', label: 'Misc' },
 
 
   {
