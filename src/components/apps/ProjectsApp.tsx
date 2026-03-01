@@ -1,6 +1,7 @@
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react'
 import { createPortal } from 'react-dom'
 import { useIsMobile } from '@/hooks/useIsMobile'
+import { useDesktop } from '@/hooks/useDesktop'
 import { CASE_STUDIES } from '@/lib/caseStudies'
 import type { CaseStudy, MiniProject } from '@/lib/caseStudies'
 import { PasswordGate } from './PasswordGate'
@@ -94,13 +95,18 @@ const PREVIEW_H = 240
 
 export function ProjectsApp(): React.JSX.Element {
   const isMobile = useIsMobile()
+  const { state: { showHidden } } = useDesktop()
   const [activeSlug, setActiveSlug] = useState<string | null>(null)
   const [unlocked, setUnlocked] = useState(false)
   const { setOnTitleClick, setTitleExtra } = useWindowControls()
   const goToSlideRef = useRef<((index: number) => void) | null>(null)
-  const projects = CASE_STUDIES.filter((e): e is CaseStudy => e.kind === 'project')
+  const visibleEntries = useMemo(() =>
+    CASE_STUDIES.filter(e => !('hidden' in e && e.hidden) || showHidden),
+    [showHidden],
+  )
+  const projects = visibleEntries.filter((e): e is CaseStudy => e.kind === 'project')
   const activeStudy = projects.find(s => s.slug === activeSlug)
-  const activeMini = CASE_STUDIES.find((e): e is MiniProject => e.kind === 'mini' && e.slug === activeSlug)
+  const activeMini = visibleEntries.find((e): e is MiniProject => e.kind === 'mini' && e.slug === activeSlug)
 
   // Hover preview state
   const [hoveredHero, setHoveredHero] = useState<string | null>(null)
@@ -196,10 +202,10 @@ export function ProjectsApp(): React.JSX.Element {
           Case Studies
         </span>
         <span className="text-white" style={{ fontSize: '0.6rem' }}>
-          {CASE_STUDIES.filter(e => e.kind !== 'divider').length} items
+          {visibleEntries.filter(e => e.kind !== 'divider').length} items
         </span>
       </div>
-      {CASE_STUDIES.map((entry, i) => {
+      {visibleEntries.map((entry, i) => {
         if (entry.kind === 'divider') {
           return (
             <div

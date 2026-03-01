@@ -15,6 +15,7 @@ export interface DesktopState {
   windows: WindowState[]
   nextZIndex: number
   activeWindowId: string | null
+  showHidden: boolean
 }
 
 export type DesktopAction =
@@ -24,6 +25,7 @@ export type DesktopAction =
   | { type: 'MOVE_WINDOW'; windowId: string; position: { x: number; y: number } }
   | { type: 'RESIZE_WINDOW'; windowId: string; size: { width: number; height: number }; position?: { x: number; y: number } }
   | { type: 'CLOSE_ALL_WINDOWS' }
+  | { type: 'REVEAL_HIDDEN' }
 
 export interface DesktopContextValue {
   state: DesktopState
@@ -31,6 +33,7 @@ export interface DesktopContextValue {
   openApp: (appId: AppId) => void
   closeWindow: (windowId: string) => void
   focusWindow: (windowId: string) => void
+  revealHidden: () => void
 }
 
 export const DesktopContext = createContext<DesktopContextValue | null>(null)

@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
+import { useDesktop } from '@/hooks/useDesktop'
 
 // ── ASCII art pool (3-5 lines each) ──
 const ASCII_ART: string[] = [
@@ -118,6 +119,7 @@ function Prompt({ command, children }: { command?: string; children?: React.Reac
 }
 
 export function TerminalApp(): React.JSX.Element {
+  const { revealHidden } = useDesktop()
   const [lines, setLines] = useState<Line[]>(INITIAL_LINES)
   const [input, setInput] = useState('')
   const [riddleActive, setRiddleActive] = useState(false)
@@ -162,6 +164,11 @@ export function TerminalApp(): React.JSX.Element {
 
     const newLines: Line[] = [{ type: 'prompt', content: input }]
 
+    // Easter egg: silently reveal hidden projects
+    if (cmd === 'summonfiles') {
+      revealHidden()
+    }
+
     if (cmd === 'riddle me') {
       const arts = pickRandom(ASCII_ART, 3, lastArtsRef.current)
       lastArtsRef.current = arts
@@ -185,7 +192,7 @@ export function TerminalApp(): React.JSX.Element {
 
     setLines(prev => [...prev, ...newLines])
     setInput('')
-  }, [input, riddleActive])
+  }, [input, riddleActive, revealHidden])
 
   return (
     <div

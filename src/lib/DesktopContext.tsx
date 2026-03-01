@@ -7,6 +7,7 @@ const initialState: DesktopState = {
   windows: [],
   nextZIndex: 10,
   activeWindowId: null,
+  showHidden: false,
 }
 
 function desktopReducer(state: DesktopState, action: DesktopAction): DesktopState {
@@ -96,6 +97,8 @@ function desktopReducer(state: DesktopState, action: DesktopAction): DesktopStat
     }
     case 'CLOSE_ALL_WINDOWS':
       return { ...initialState }
+    case 'REVEAL_HIDDEN':
+      return { ...state, showHidden: true }
     default:
       return state
   }
@@ -116,8 +119,12 @@ export function DesktopProvider({ children }: { children: React.ReactNode }): Re
     dispatch({ type: 'FOCUS_WINDOW', windowId })
   }, [])
 
+  const revealHidden = useCallback((): void => {
+    dispatch({ type: 'REVEAL_HIDDEN' })
+  }, [])
+
   return (
-    <DesktopContext value={{ state, dispatch, openApp, closeWindow, focusWindow }}>
+    <DesktopContext value={{ state, dispatch, openApp, closeWindow, focusWindow, revealHidden }}>
       {children}
     </DesktopContext>
   )
