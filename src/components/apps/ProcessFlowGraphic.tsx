@@ -207,8 +207,8 @@ export function ProcessFlowGraphic(): React.JSX.Element {
             x={isVertical ? 150 : 500}
             y={isVertical ? 16 : 26}
             textAnchor="middle"
-            fill="rgba(255,255,255,0.25)"
-            fontSize="9"
+            fill="rgba(255,255,255,0.45)"
+            fontSize="11"
             fontFamily="'JetBrains Mono', monospace"
             letterSpacing="0.15em"
           >

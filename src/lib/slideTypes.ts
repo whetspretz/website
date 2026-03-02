@@ -148,6 +148,8 @@ export interface SectionsSplitSlide {
 
 export type Slide = IntroSlide | ImageSlide | ColumnsSlide | BlankSlide | SplitSlide | TextSplitSlide | TimelineSlide | TitleSlide | TocSlide | QuoteSlide | DualVideoSlide | SectionsSplitSlide
 
+export type HideableSlide = Slide & { hidden?: boolean }
+
 // --- Mini Project Block Types ---
 
 export interface MiniImageBlock {

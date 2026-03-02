@@ -1,6 +1,6 @@
 export type { AnnotatedWord, RichSegment, RichParagraph, ColumnItem, IntroSlide, ImageSlide, ColumnsSlide, BlankSlide } from './slideTypes'
-export type { Slide as AboutSlide } from './slideTypes'
-import type { Slide } from './slideTypes'
+export type { HideableSlide as AboutSlide } from './slideTypes'
+import type { HideableSlide } from './slideTypes'
 
 /**
  * About slideshow data.
@@ -8,7 +8,7 @@ import type { Slide } from './slideTypes'
  * Images go in public/about/
  * Reference them as "/about/filename.png"
  */
-export const ABOUT_SLIDES: Slide[] = [
+export const ABOUT_SLIDES: HideableSlide[] = [
   {
     type: 'intro',
     title: 'Matt (some just call me whets) Whetsell',
@@ -131,5 +131,51 @@ export const ABOUT_SLIDES: Slide[] = [
     type: 'blank',
     title: 'What I\u2019m looking for next',
     componentId: 'looking-for-next',
+  },
+
+  // Hidden slides — revealed by summonfiles easter egg
+  {
+    type: 'text-split',
+    title: 'Why Doctronic?',
+    titlePosition: 'left',
+    bullets: [
+      '1. Value: I have personally seen the value in what you\'re doing. ',
+      '2. Close to home: I\'ve endured 18 years of our miserable healthcare system.',
+      '3. Bold: Pushing the narrative of AI in healthcare. ',
+    ],
+    hidden: true,
+  },
+  {
+    type: 'text-split',
+    title: 'How I work in fast-paced environments',
+    titlePosition: 'left',
+    bullets: [
+      '1. Remain fluid: design process that is rigid breaks. (WeWork evolving / BWL no meetings) ',
+      '2. Know when to \'heft the sails\' (embrace the shifting winds of a startup).',
+      '3. Example: The design sprint Claude plugin I released today.',
+    ],
+    hidden: true,
+  },
+  {
+    type: 'text-split',
+    title: 'How I balance speed vs. craft',
+    titlePosition: 'right',
+    bullets: [
+      '1. Everywhere I\'ve worked, I\'ve been told by others that I\'m the fastest designer they\'ve worked with (scorched earth). I lean into that. After 14 years of designing, that gap/deficit shrinks. (WeWork)',
+      '2. Build systems and investments. Invest in something I will use again. (DS / Storybook)',
+      '3. Example: Shelfspace Storybook so others can build designs from a shared source of truth.',
+    ],
+    hidden: true,
+  },
+  {
+    type: 'text-split',
+    title: 'Designing for a broad consumer base',
+    titlePosition: 'right',
+    bullets: [
+      '1. Exclusive vs inclusive design: people want to feel connected or a part of something. So it\'s not just about designing what is vanilla, but designing for what appeals to the middle of your audience. (Think Notion)',
+      '2. Craft = trust (basic won\'t cut it)',
+      '3. Example: Ro vs its sub brands (Roman / Rory / etc...) ',
+    ],
+    hidden: true,
   },
 ]

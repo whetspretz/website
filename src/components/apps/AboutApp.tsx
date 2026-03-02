@@ -1,4 +1,6 @@
+import { useMemo } from 'react'
 import { ABOUT_SLIDES } from '@/lib/aboutSlides'
+import { useDesktop } from '@/hooks/useDesktop'
 import { ProcessSlide } from './ProcessSlide'
 import { CoreStrengthsGraphic } from './CoreStrengthsGraphic'
 import { ProcessFlowGraphic } from './ProcessFlowGraphic'
@@ -13,5 +15,10 @@ const COMPONENT_MAP = {
 }
 
 export function AboutApp(): React.JSX.Element {
-  return <Slideshow slides={ABOUT_SLIDES} componentMap={COMPONENT_MAP} />
+  const { state: { showHidden } } = useDesktop()
+  const visibleSlides = useMemo(
+    () => ABOUT_SLIDES.filter(s => !s.hidden || showHidden),
+    [showHidden],
+  )
+  return <Slideshow slides={visibleSlides} componentMap={COMPONENT_MAP} />
 }
