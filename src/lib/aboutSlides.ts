@@ -172,7 +172,7 @@ export const ABOUT_SLIDES: HideableSlide[] = [
     title: 'Designing for a broad consumer base',
     titlePosition: 'right',
     bullets: [
-      '1. Exclusive vs inclusive design: people want to feel connected or a part of something. So it\'s not just about designing what is vanilla, but designing for what appeals to the middle of your audience. (Think Notion)',
+      '1. Exclusive vs inclusive design: people want to feel connected or a part of something. So it\'s not just about designing what is vanilla, but designing for what appeals to the middle of your audience. (Think WeWork)',
       '2. Craft = trust (basic won\'t cut it)',
       '3. Example: Ro vs its sub brands (Roman / Rory / etc...) ',
     ],
