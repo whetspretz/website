@@ -4,12 +4,12 @@ const SECTIONS = [
     body: "I'm looking for an IC role where design and engineering are fully blended and the best idea ships fastest, regardless of title. With 15 years across product, brand, and front end \u2014 now working as a design engineer with Claude Code \u2014 I'm most energized when I can move fluidly from concept to production: designing systems, writing UI, shaping motion and copy, and vibe-coding prototypes into real product.",
   },
   {
-    header: 'Builder-Dense, Low-Ceremony Teams',
-    body: "I thrive in environments where everyone contributes directly to the product. Projects like Shelfspace \u2014 where PM, engineering, and design all actively produce code \u2014 feel like the future: high ownership, fast iteration, and shared momentum over rigid role boundaries.",
+    header: 'Frontier-Pushing Work',
+    body: "I want to work on something interesting \u2014 a product or problem that brings a genuinely new perspective. Whether it\u2019s rethinking how people interact with AI, reimagining a broken industry, or building tools that didn\u2019t exist a year ago, I\u2019m drawn to teams that are pushing into uncharted territory rather than optimizing what already works.",
   },
   {
-    header: 'Expanding the Design Frontier',
-    body: "I'm excited to push beyond traditional design workflows and help invent new ways of building software. I'm looking for a team of deeply hands-on builders where I can apply my range (design, front end, motion, copy, and AI-assisted development) to create products that couldn't exist under older, more siloed models.",
+    header: 'Small-Team, High-Autonomy Culture',
+    body: "Even inside a larger company, I do my best work in small, autonomous teams with real ownership. I\u2019m looking for a founding designer role \u2014 or something early enough that I can help shape the product, the culture, and the design practice as it grows. High trust, low bureaucracy, and the freedom to move fast.",
   },
 ]
 

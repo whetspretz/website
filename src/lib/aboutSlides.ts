@@ -76,16 +76,17 @@ export const ABOUT_SLIDES: Slide[] = [
     title: 'My approach as an individual contributor',
     componentId: 'process',
   },
-  {
-    type: 'blank',
-    title: 'What makes me a good Design Engineer:',
-    componentId: 'core-strengths',
-  },
+
   // Slide 3 — Blank: ProcessFlowGraphic
   {
     type: 'blank',
     title: 'My Design Engineering \'Execution\' Workflow',
     componentId: 'process-flow',
+  },
+  {
+    type: 'blank',
+    title: 'What makes me a good Design Engineer:',
+    componentId: 'core-strengths',
   },
   {
     type: 'image',
