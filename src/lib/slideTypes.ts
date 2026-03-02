@@ -72,6 +72,14 @@ export interface SplitSlide {
   caption?: RichParagraph
 }
 
+export interface TextSplitSlide {
+  type: 'text-split'
+  title: string
+  titlePosition: 'left' | 'right'
+  bullets: RichParagraph[]
+  caption?: RichParagraph
+}
+
 export interface TimelineEntry {
   label: string
   sublabel?: string
@@ -110,6 +118,7 @@ export interface QuoteSlide {
   type: 'quote'
   text: string
   attribution?: string
+  caption?: string
 }
 
 export interface DualVideoSlide {
@@ -137,7 +146,7 @@ export interface SectionsSplitSlide {
   sections: SectionItem[]
 }
 
-export type Slide = IntroSlide | ImageSlide | ColumnsSlide | BlankSlide | SplitSlide | TimelineSlide | TitleSlide | TocSlide | QuoteSlide | DualVideoSlide | SectionsSplitSlide
+export type Slide = IntroSlide | ImageSlide | ColumnsSlide | BlankSlide | SplitSlide | TextSplitSlide | TimelineSlide | TitleSlide | TocSlide | QuoteSlide | DualVideoSlide | SectionsSplitSlide
 
 // --- Mini Project Block Types ---
 

@@ -1,5 +1,5 @@
 import { useIsMobile } from '@/hooks/useIsMobile'
-import type { IntroSlide, ImageSlide, ColumnsSlide, BlankSlide, SplitSlide, TitleSlide, TocSlide, QuoteSlide, DualVideoSlide, SectionsSplitSlide, Slide, InlineDividerStyle } from '@/lib/slideTypes'
+import type { IntroSlide, ImageSlide, ColumnsSlide, BlankSlide, SplitSlide, TextSplitSlide, TitleSlide, TocSlide, QuoteSlide, DualVideoSlide, SectionsSplitSlide, Slide, InlineDividerStyle } from '@/lib/slideTypes'
 import { RichText } from './RichText'
 import { TimelineSlideView } from './TimelineSlide'
 import { ShimmerImage } from '@/components/ui/ShimmerImage'
@@ -163,7 +163,7 @@ function IntroSlideView({ slide }: { slide: IntroSlide }): React.JSX.Element {
               key={i}
               className="font-mono text-white/60 px-3 py-1 rounded-full"
               style={{
-                fontSize: '0.65rem',
+                fontSize: '0.75rem',
                 letterSpacing: '0.04em',
                 border: '1px solid rgba(255,255,255,0.12)',
                 background: 'rgba(255,255,255,0.04)',
@@ -244,7 +244,7 @@ function ImageSlideView({ slide }: { slide: ImageSlide }): React.JSX.Element {
       {slide.caption && (
         <p
           className="text-white/60 text-center mt-3 font-mono"
-          style={{ fontSize: '0.65rem' }}
+          style={{ fontSize: '0.75rem' }}
         >
           <RichText paragraph={slide.caption} />
         </p>
@@ -339,7 +339,7 @@ function SplitSlideView({ slide, componentMap }: { slide: SplitSlide; componentM
           ))}
         </ul>
         {slide.caption && (
-          <p className="text-white/60 font-mono mt-4" style={{ fontSize: '0.65rem' }}>
+          <p className="text-white/60 font-mono mt-4" style={{ fontSize: '0.75rem' }}>
             <RichText paragraph={slide.caption} />
           </p>
         )}
@@ -385,7 +385,7 @@ function SplitSlideView({ slide, componentMap }: { slide: SplitSlide; componentM
           {slide.caption && (
             <p
               className="text-white/60 font-mono mt-4"
-              style={{ fontSize: '0.65rem' }}
+              style={{ fontSize: '0.75rem' }}
             >
               <RichText paragraph={slide.caption} />
             </p>
@@ -525,7 +525,7 @@ function TitleSlideView({ slide }: { slide: TitleSlide }): React.JSX.Element {
       {slide.caption && (
         <p
           className="text-white/60 text-center font-mono mt-6"
-          style={{ fontSize: '0.7rem', letterSpacing: '0.1em' }}
+          style={{ fontSize: '0.8rem', letterSpacing: '0.1em' }}
         >
           {slide.caption}
         </p>
@@ -552,9 +552,17 @@ function QuoteSlideView({ slide }: { slide: QuoteSlide }): React.JSX.Element {
       {slide.attribution && (
         <p
           className="text-white/60 text-center font-mono mt-6"
-          style={{ fontSize: '0.7rem', letterSpacing: '0.1em' }}
+          style={{ fontSize: '0.8rem', letterSpacing: '0.1em' }}
         >
           {slide.attribution}
+        </p>
+      )}
+      {slide.caption && (
+        <p
+          className="text-white/60 text-center font-mono mt-4"
+          style={{ fontSize: '0.75rem' }}
+        >
+          {slide.caption}
         </p>
       )}
     </div>
@@ -587,7 +595,7 @@ function DualVideoSlideView({ slide }: { slide: DualVideoSlide }): React.JSX.Ele
             playsInline
           />
           {slide.leftCaption && (
-            <p className="text-white/50 text-center font-mono mt-2 shrink-0" style={{ fontSize: '0.65rem' }}>
+            <p className="text-white/50 text-center font-mono mt-2 shrink-0" style={{ fontSize: '0.75rem' }}>
               {slide.leftCaption}
             </p>
           )}
@@ -602,7 +610,7 @@ function DualVideoSlideView({ slide }: { slide: DualVideoSlide }): React.JSX.Ele
             playsInline
           />
           {slide.rightCaption && (
-            <p className="text-white/50 text-center font-mono mt-2 shrink-0" style={{ fontSize: '0.65rem' }}>
+            <p className="text-white/50 text-center font-mono mt-2 shrink-0" style={{ fontSize: '0.75rem' }}>
               {slide.rightCaption}
             </p>
           )}
@@ -610,12 +618,99 @@ function DualVideoSlideView({ slide }: { slide: DualVideoSlide }): React.JSX.Ele
       </div>
       {slide.caption && (
         <p
-          className="text-white/50 text-center font-mono mt-3 shrink-0"
-          style={{ fontSize: '0.65rem' }}
+          className="text-white/60 text-center font-mono mt-3 shrink-0"
+          style={{ fontSize: '0.75rem' }}
         >
           {slide.caption}
         </p>
       )}
+    </div>
+  )
+}
+
+function TextSplitSlideView({ slide }: { slide: TextSplitSlide }): React.JSX.Element {
+  const isMobile = useIsMobile()
+
+  if (isMobile) {
+    return (
+      <div className="flex flex-col h-full px-5 py-4 overflow-y-auto">
+        <h2
+          className="text-white mb-6 shrink-0"
+          style={{
+            fontFamily: "'Author', Georgia, serif",
+            fontSize: 'clamp(1.6rem, 5vw, 2.8rem)',
+            fontWeight: 500,
+            lineHeight: 1.1,
+          }}
+        >
+          {slide.title}
+        </h2>
+        <ul className="flex flex-col gap-4 list-none p-0 m-0">
+          {slide.bullets.map((bullet, i) => (
+            <li
+              key={i}
+              className="text-white/70 font-mono flex gap-2.5"
+              style={{ fontSize: '0.95rem', lineHeight: 1.8 }}
+            >
+              <span className="text-white/30 shrink-0 select-none" aria-hidden="true">-</span>
+              <span><RichText paragraph={bullet} /></span>
+            </li>
+          ))}
+        </ul>
+        {slide.caption && (
+          <p className="text-white/60 font-mono mt-4" style={{ fontSize: '0.75rem' }}>
+            <RichText paragraph={slide.caption} />
+          </p>
+        )}
+      </div>
+    )
+  }
+
+  return (
+    <div className="flex flex-col h-full p-8" style={{ containerType: 'inline-size' }}>
+      <div
+        className="split-slide-grid"
+        style={{ flexDirection: slide.titlePosition === 'left' ? 'row' : 'row-reverse' }}
+      >
+        <div
+          className="split-slide-image flex items-center justify-center"
+          style={{ paddingLeft: slide.titlePosition === 'left' ? 40 : 0, paddingRight: slide.titlePosition === 'right' ? 40 : 0 }}
+        >
+          <h2
+            className="text-white"
+            style={{
+              fontFamily: "'Author', Georgia, serif",
+              fontSize: 'clamp(2rem, 5vw, 3.5rem)',
+              fontWeight: 500,
+              lineHeight: 1.1,
+            }}
+          >
+            {slide.title}
+          </h2>
+        </div>
+        <div className={`split-slide-text ${slide.titlePosition === 'left' ? 'pl-6 pr-10' : 'pl-10 pr-6'}`}>
+          <ul className="flex flex-col gap-4 list-none p-0 m-0">
+            {slide.bullets.map((bullet, i) => (
+              <li
+                key={i}
+                className="text-white/70 font-mono flex gap-2.5"
+                style={{ fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)', lineHeight: 1.8 }}
+              >
+                <span className="text-white/30 shrink-0 select-none" aria-hidden="true">-</span>
+                <span><RichText paragraph={bullet} /></span>
+              </li>
+            ))}
+          </ul>
+          {slide.caption && (
+            <p
+              className="text-white/60 font-mono mt-4"
+              style={{ fontSize: '0.75rem' }}
+            >
+              <RichText paragraph={slide.caption} />
+            </p>
+          )}
+        </div>
+      </div>
     </div>
   )
 }
@@ -751,6 +846,8 @@ export function SlideContent({ slide, componentMap, onNavigate }: { slide: Slide
       return <ColumnsSlideView slide={slide} />
     case 'split':
       return <SplitSlideView slide={slide} componentMap={componentMap} />
+    case 'text-split':
+      return <TextSplitSlideView slide={slide} />
     case 'timeline':
       return <TimelineSlideView slide={slide} />
     case 'title':

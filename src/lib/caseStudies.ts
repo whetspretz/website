@@ -1559,7 +1559,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
     tag: 'Retention / Healthcare UX',
     year: '2020-2021',
     description: 'Proactive prescription check-ins to improve member retention at Ro.',
-    hero: '/projects/rx-checkin/hero.webp',
+    hero: '/projects/rx-checkin/hero-ro.webp',
     locked: true,
     hidden: true,
     slides: [
@@ -1568,7 +1568,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'intro',
         title: 'RX Check-ins',
         subtitle: [
-          'The only touchpoint members have with their providers is after the onboarding experience and through the provider chat functionality in the Ro account. However, there is little context today provided to members in which situations to enter the physician chat for, except through the doctor check-in email sent through email today:',
+          'Members currently have only two touchpoints with their providers: after onboarding and through the provider chat within their Ro account. However, outside of the doctor check-in email, members receive little guidance on when or why they should initiate a physician chat.',
         ],
         meta: [
           { label: 'When', value: 'Dec 2020 & Feb 2021' },
@@ -1596,9 +1596,9 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
 
       // --- Slide 3: Goals ---
       {
-        type: 'split',
+        type: 'text-split',
         title: 'Goals',
-        imagePosition: 'left',
+        titlePosition: 'left',
         bullets: [
           '01/ Identify and mitigate treatment-related reasons for churn in early life.',
           '02/ Introduce or reintroduce members to their provider, especially those who completed an async visit, to remind them of this resource throughout their treatment journey.',
@@ -1608,20 +1608,12 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
 
       // --- Slide 4: Problem statements ---
       {
-        type: 'sections-split',
+        type: 'text-split',
         title: 'Problem statements',
-        imagePosition: 'left',
-        imageSrc: '/projects/rx-checkin/problem-statements-1.webp',
-        imageAlt: 'Problem statements context',
-        sections: [
-          {
-            label: 'Systems',
-            text: 'There\'s no way to store structured data about patient <> provider interactions outside of the TR and plan framework that exists today. Clinical notes are only added when a plan is created.',
-          },
-          {
-            label: 'Member',
-            text: 'Members are not made aware of how to contact their physicians to resolve the problems they might be facing with their treatment.',
-          },
+        titlePosition: 'left',
+        bullets: [
+          'Systems: There\'s no way to store structured data about patient <> provider interactions outside of the TR and plan framework that exists today. Clinical notes are only added when a plan is created.',
+          'Member: Members are not made aware of how to contact their physicians to resolve the problems they might be facing with their treatment.',
         ],
       },
 
@@ -1629,6 +1621,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'quote',
         text: 'If we\'re able to proactively identify and remediate treatment concerns throughout the treatment journey, members are more likely to continue engaging with and getting treatment through Ro.',
+        caption: 'Hypothesis', 
       },
 
       // --- Slide 6: Team brainstorm ---
@@ -1636,7 +1629,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Team brainstorm',
         imagePosition: 'right',
-        imageSrc: '/projects/rx-checkin/brainstorm.webp',
+        imageSrc: '/projects/rx-checkin/team-brainstorm.webp',
         imageAlt: 'Team brainstorm board',
         bullets: [
           'How might we identify and remediate main treatment pain points throughout a patient\'s treatment journey to get them on a path to treatment success?',
@@ -1648,7 +1641,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Mapping out the flow',
-        imageSrc: '/projects/rx-checkin/flow-map.webp',
+        imageSrc: '/projects/rx-checkin/mapout.webp',
         imageAlt: 'RX check-in user flow diagram',
         caption: 'RX check-in user journey mapped across Discovery, Decide, Visit, and Outcome + follow up stages for both User and Provider perspectives.',
       },
@@ -1658,7 +1651,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Early ideas that failed testing',
         imagePosition: 'right',
-        imageSrc: '/projects/rx-checkin/early-ideas.webp',
+        imageSrc: '/projects/rx-checkin/early-explorations.webp',
         imageAlt: 'Early check-in UI concepts that failed testing',
         bullets: [
           'All on one page: A single-page form approach with all questions visible at once.',
@@ -1672,7 +1665,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Final flow + designs',
-        imageSrc: '/projects/rx-checkin/final-flow.webp',
+        imageSrc: '/projects/rx-checkin/finalflow-pahse1.webp',
         imageAlt: 'Complete final flow with all screen designs',
         caption: 'Complete user flow mapped across Discovery, Decide, Visit, Outcome + follow up, and Doctor message stages with all screen designs.',
       },
@@ -1691,7 +1684,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Visit — Successful variant (90% CR)',
         imagePosition: 'right',
-        imageSrc: '/projects/rx-checkin/visit-success.webp',
+        imageSrc: '/projects/rx-checkin/thevisit.webp',
         imageAlt: 'Successful check-in visit variant with card selection',
         bullets: [
           'Three-option card selection: "Better than expected", "It\'s as expected", "It\'s not going as expected, or there is something wrong".',
@@ -1701,50 +1694,31 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         caption: 'This variant achieved 90% completion rate.',
       },
 
-      // --- Slide 12: Side effects ---
-      {
-        type: 'image',
-        title: 'Side effects',
-        imageSrc: '/projects/rx-checkin/side-effects.webp',
-        imageAlt: 'Side effects reporting UI with Yes/No selection',
-        caption: 'Binary Yes/No selection with icons. Conditional text area appears on Yes selection. Progressive disclosure keeps the flow lightweight. CTA: "Thanks, one more question".',
-      },
-
+   
       // --- Slide 13: Failed variant ---
       {
         type: 'image',
         title: 'Failed variant (82% CR)',
-        imageSrc: '/projects/rx-checkin/visit-failed.webp',
+        imageSrc: '/projects/rx-checkin/thevisit2.webp',
         imageAlt: 'Failed slider-based check-in variant',
         caption: 'Slider-based approach with three emoji states: Not well, It\'s okay, Great. While functional, the slider underperformed the card-based variant by 8 percentage points (82% vs 90% CR).',
       },
-
-      // --- Slide 14: Results ---
+         // --- Slide 12: Side effects ---
       {
-        type: 'sections-split',
-        title: 'Results',
-        imagePosition: 'left',
-        sections: [
-          {
-            label: '4% ^',
-            text: 'For monthly users in the December cohort, M1 retention was 57% for control vs. 59% for treatment (4% relative lift at 99% confidence). These cohorts include both OTC and Rx plan.',
-          },
-          {
-            label: 'Titration +',
-            text: '7% of plans that have gone through the RX check-in have titrated compared to 3% of the broader Rx plan population.',
-          },
-        ],
+        type: 'image',
+        title: 'Side effects',
+        imageSrc: '/projects/rx-checkin/sideeffects.webp',
+        imageAlt: 'Side effects reporting UI with Yes/No selection',
+        caption: 'Binary Yes/No selection with icons. Conditional text area appears on Yes selection. Progressive disclosure keeps the flow lightweight. CTA: "Thanks, one more question".',
       },
-
       // --- Slide 15: Titration ---
       {
         type: 'image',
         title: 'Titration',
-        imageSrc: '/projects/rx-checkin/titration.webp',
+        imageSrc: '/projects/rx-checkin/Titration.webp',
         imageAlt: 'Update your treatment screen with options',
         caption: '"Update your treatment?" screen with three options: shipment frequency, talk to doctor about changes, or no changes. Selection state with checkmark and "Submit your check-in" CTA.',
       },
-
       // --- Slide 16: Completed ---
       {
         type: 'image',
@@ -1754,14 +1728,27 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         caption: 'Loading state: "Sending to your provider or nurse practitioner." Confirmation: "Submitted! They will respond to you within 24-48hrs." with Done CTA.',
       },
 
+      
+      // --- Slide 14: Results ---
+      {
+        type: 'text-split',
+        title: 'Results',
+        titlePosition: 'left',
+        bullets: [
+          'For monthly users in the December cohort, M1 retention was 57% for control vs. 59% for treatment (4% relative lift at 99% confidence). These cohorts include both OTC and Rx plan.',
+          '7% of plans that have gone through the RX check-in have titrated compared to 3% of the broader Rx plan population.',
+        ],
+      },
+      
+
       // --- Slide 17: Section 2 Title ---
       { type: 'title', title: 'Phase 2 iteration' },
 
       // --- Slide 18: Phase 2 intro ---
       {
-        type: 'split',
+        type: 'text-split',
         title: 'Phase 2',
-        imagePosition: 'left',
+        titlePosition: 'left',
         bullets: [
           '01/ [Based on clinical audit] Members were given the chance to voice side effects and be counseled through them by their providers.',
           '02/ [Based on plan change data] Members were given the chance to discuss titration with their providers and get on treatments better suited for them.',
@@ -1775,7 +1762,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Phase 2 Design Sprint',
         imagePosition: 'right',
-        imageSrc: '/projects/rx-checkin/sprint-plan.webp',
+        imageSrc: '/projects/rx-checkin/phase2sprint.webp',
         imageAlt: 'Design sprint session plan with Pre read, Session 1, and Session 2',
         bullets: [
           'Pre read: Data on initial launch, condition/conversion/device/user breakdowns, patient perspective, provider perspective.',
@@ -1802,12 +1789,25 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         imageAlt: 'Day 2 journey mapping and storyboarding sessions',
         caption: 'Journey mapping and storyboarding sessions — mapping patient touchpoints across timelines for multiple conditions.',
       },
+      // --- Slide 23: Patient journey storyboarding ---
+      {
+        type: 'image',
+        title: 'Patient journey storyboarding',
+        imageSrc: '/projects/rx-checkin/day2b.webp',
+        imageAlt: 'Patient journey storyboard for skincare nightly defense',
+        caption: 'Storyboarding patient journeys by condition (e.g. skincare nightly defense) — mapping touchpoints from M0 through W3 with check-in timing, personalization tags, and expectation-setting moments.',
+      },
+
+
+
+
+
 
       // --- Slide 22: Problem statements Phase 2 ---
       {
-        type: 'split',
+        type: 'text-split',
         title: 'Problem statements',
-        imagePosition: 'left',
+        titlePosition: 'left',
         bullets: [
           '01/ Members are offered treatment changes, but no alternative treatment options exist on the Ro platform for some conditions.',
           '02/ Current question structure requires additional provider / patient back and forth to understand the "why" behind requested changes or treatment sentiment.',
@@ -1817,20 +1817,12 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         caption: 'There have also been problems, both on the patient and provider side, that have been unearthed by the release of this feature:',
       },
 
-      // --- Slide 23: Patient journey storyboarding ---
-      {
-        type: 'image',
-        title: 'Patient journey storyboarding',
-        imageSrc: '/projects/rx-checkin/storyboard.webp',
-        imageAlt: 'Patient journey storyboard for skincare nightly defense',
-        caption: 'Storyboarding patient journeys by condition (e.g. skincare nightly defense) — mapping touchpoints from M0 through W3 with check-in timing, personalization tags, and expectation-setting moments.',
-      },
-
+      
       // --- Slide 24: Goals Phase 2 ---
       {
-        type: 'split',
+        type: 'text-split',
         title: 'Goals',
-        imagePosition: 'left',
+        titlePosition: 'left',
         bullets: [
           '01/ Ensure we\'re asking members the right questions at the right time for their specific condition.',
           '02/ Increase quality of care provided to members by applying feedback/learning from V1 (e.g. built in follow ups, structured side effect reporting).',
@@ -1843,7 +1835,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'New check-in',
         imagePosition: 'right',
-        imageSrc: '/projects/rx-checkin/new-checkin.webp',
+        imageSrc: '/projects/rx-checkin/newcheckin.webp',
         imageAlt: 'New check-in flows checklist and Ed check-in journey timeline',
         bullets: [
           'Flows completed: ED Rx Check, Plenity Rx Checkin, Hair Loss Rx Checkin, Skincare Rx Checkin, PE Rx Checkin.',
