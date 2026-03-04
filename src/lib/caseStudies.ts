@@ -1799,10 +1799,6 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       },
 
 
-
-
-
-
       // --- Slide 22: Problem statements Phase 2 ---
       {
         type: 'text-split',
@@ -1857,6 +1853,15 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
           '03/ Structured data.',
         ],
         caption: 'Updated check-in visit with condition-specific questions, e.g. weight management goals: losing weight, feeling healthier overall, seeing changes in body, having clothes fit better, having fewer cravings.',
+      },
+      {
+        type: 'text-split',
+        title: 'Results',
+        titlePosition: 'left',
+        bullets: [
+          '2-10% relative lift at 99% confidence (based on medication). These cohorts include both OTC and Rx plan.',
+          '9% of plans that have gone through the RX check-in have titrated compared to 3% of the broader Rx plan population.',
+        ],
       },
 
     ],
