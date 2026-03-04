@@ -93,7 +93,7 @@ const COMPONENT_MAP = {
 }
 
 const PREVIEW_W = 360
-const PREVIEW_H = 240
+const PREVIEW_H = 480
 
 export function ProjectsApp(): React.JSX.Element {
   const isMobile = useIsMobile()
