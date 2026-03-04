@@ -469,10 +469,10 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
       {
         type: 'image',
         title: 'Pick your top 7',
-        imageSrc: '/projects/shelfspace/Onboarding_top7.webp',
-        imageAlt: 'Delight design.',
+        videoSrc: '/projects/shelfspace/onboarding-top7.mp4', 
         caption: 'This is a little bit intentional friction that: 1. Teaches users to build shelves. 2. Gives us weighted book data. 3. Immediate personalization.  ',
       },
+      
       {
         type: 'image',
         title: 'Your taste Archetype',
