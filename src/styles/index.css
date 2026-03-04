@@ -764,6 +764,23 @@ html, body, #root {
   animation: overwhelmedPulse 4s ease-in-out infinite;
 }
 
+/* Engagement decline chart */
+@keyframes engagementDraw {
+  0% { stroke-dashoffset: 400; }
+  100% { stroke-dashoffset: 0; }
+}
+@keyframes engagementAreaFade {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.engagement-draw-line {
+  animation: engagementDraw 2s ease-out forwards;
+}
+.engagement-area-fade {
+  opacity: 0;
+  animation: engagementAreaFade 1.5s ease-out 0.8s forwards;
+}
+
 /* ===================================
    TAMAGOTCHI SPARKLE
    =================================== */

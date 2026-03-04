@@ -47,6 +47,7 @@ import { WhyThisMattersGraphic } from './WhyThisMattersGraphic'
 import { DesignLessonsGraphic } from './DesignLessonsGraphic'
 import { ZkPromiseGraphic } from './ZkPromiseGraphic'
 import { UnderConstructionGraphic } from './UnderConstructionGraphic'
+import { EngagementDeclineGraphic } from './EngagementDeclineGraphic'
 
 const COMPONENT_MAP = {
   'pigeon-layers': PigeonLayersSlide,
@@ -88,6 +89,7 @@ const COMPONENT_MAP = {
   'design-lessons': DesignLessonsGraphic,
   'zk-promise': ZkPromiseGraphic,
   'under-construction': UnderConstructionGraphic,
+  'engagement-decline': EngagementDeclineGraphic,
 }
 
 const PREVIEW_W = 360

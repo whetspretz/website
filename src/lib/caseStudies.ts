@@ -655,8 +655,8 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         type: 'split',
         title: 'Early data showed:',
         imagePosition: 'right',
-        imageSrc: '/projects/pigeon/onboarding_old.webp',
-        bullets: [ 
+        componentId: 'engagement-decline',
+        bullets: [
           'High first-session drop-off.',
           'Low reengagement.',
           'Confusion before first executed trade.',
@@ -710,7 +710,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
           'Day one messages up 13% ⬆️ (in first week)',
           'Users who created an automation were 2x to stay active by day 14 ⬆️',
           'Overall retention at day 14 up, but cohort remains flat by day 30.',
-          'Trade volume remained consistent with growth. (users are creating automations for research or non-trades).',
+          'Trade volume remained somewhat flat with growth. (users are creating automations for research or non-trades).',
         ],
         caption: 'Early signal that this boosted early retention and automation creation, but more work needs to be had at increasing trade volume.',
       },
