@@ -201,7 +201,12 @@ function ImageSlideView({ slide }: { slide: ImageSlide }): React.JSX.Element {
         {slide.title}
       </h2>
       <div
-        className="flex-1 overflow-hidden min-h-0 flex items-center justify-center"
+        className="flex-1 overflow-hidden min-h-0 flex items-center justify-center rounded-2xl"
+        style={
+          (slide.videoSrc || isVideoSrc(slide.imageSrc))
+            ? { background: 'radial-gradient(ellipse at center, rgba(255,255,255,0.04) 0%, transparent 70%)' }
+            : undefined
+        }
       >
         {(() => {
           const media = slide.videoSrc || isVideoSrc(slide.imageSrc) ? (
