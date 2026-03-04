@@ -111,7 +111,7 @@ export const CASE_STUDIES: CaseStudyEntry[] = [
         imageSrc: '/projects/shelfspace/comparison.webp',
         imageAlt: 'The current landscape of books apps.',
         bullets: [
-          `Goodreads is aleep at the wheel. It's great at tracking books, but weak at understanding taste. It treats reading as a flat activity feed—ratings, reviews, and yearly goals—rather than a signal of why someone liked a book. Five-star ratings collapse nuance, social graphs are noisy, and recommendations optimize for popularity over alignment. The result is a platform that's excellent at cataloging what you've read, but not at helping you discover what you'll actually love next.  `,
+          `Goodreads is asleep at the wheel. It's great at tracking books, but weak at understanding taste. It treats reading as a flat activity feed—ratings, reviews, and yearly goals—rather than a signal of why someone liked a book. Five-star ratings collapse nuance, social graphs are noisy, and recommendations optimize for popularity over alignment. The result is a platform that's excellent at cataloging what you've read, but not at helping you discover what you'll actually love next.  `,
           `Booktok has been a boon for the book community, but it's also an echo chamber by design of the algorithm.`,
           'Fable is focused on book clubs.',
           'Storygraph is the next best thing, but it feels like a chore and a spreadsheet.',
