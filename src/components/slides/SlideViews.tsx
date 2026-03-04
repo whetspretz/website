@@ -208,7 +208,7 @@ function ImageSlideView({ slide }: { slide: ImageSlide }): React.JSX.Element {
             <ShimmerVideo
               src={slide.videoSrc ?? slide.imageSrc}
               className="w-full h-full object-contain"
-              style={{ borderRadius: 24 }}
+              style={{ borderRadius: 32, boxShadow: '0 8px 40px rgba(0,0,0,0.5), 0 2px 12px rgba(0,0,0,0.3)' }}
               autoPlay
               loop
               muted
