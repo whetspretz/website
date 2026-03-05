@@ -41,21 +41,6 @@ export function Taskbar(): React.JSX.Element {
 
       {/* Right side: contact + battery + clock */}
       <div className="flex items-center gap-4">
-        <div className="hidden md:flex items-center gap-2">
-          <span
-            className="inline-block rounded-full"
-            style={{
-              width: 8,
-              height: 8,
-              background: '#dfff00',
-              boxShadow: '0 0 6px #dfff00',
-              animation: 'pulse-dot 1.5s ease-in-out infinite',
-            }}
-          />
-          <span className="font-mono text-white" style={{ fontSize: '0.6rem', letterSpacing: '0.05em' }}>
-            available for work
-          </span>
-        </div>
         <div className="relative">
           <button
             onClick={() => {
