@@ -632,6 +632,10 @@ html, body, #root {
 }
 
 .timeline-present-dot {
+  /* Without fill-box, scale() resolves against the whole viewBox and the dot
+     swings away from the block it belongs to. */
+  transform-box: fill-box;
+  transform-origin: center;
   animation: iconPulse 3s ease-in-out infinite;
 }
 

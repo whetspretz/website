@@ -306,6 +306,18 @@ export function TimelineSlideView({ slide }: { slide: TimelineSlide }): React.JS
               const w = Math.max(x2 - x1, 20)
               const isPresent = !entry.endYear
 
+              // JetBrains Mono advances ~0.6em per glyph. Short stints (a few
+              // months) produce blocks narrower than their own label, so drop
+              // the label above the block instead of letting it spill over the
+              // neighbouring entry.
+              const labelSize = w > 60 ? 11 : 9
+              const labelW = entry.label.length * labelSize * 0.6
+              const labelFits = labelW + 10 <= w
+              const labelX = labelFits
+                ? x1 + w / 2
+                : Math.min(Math.max(x1 + w / 2, labelW / 2), svgW - labelW / 2)
+              const labelY = labelFits ? blockY + blockH / 2 + 4 : blockY - 10
+
               return (
                 <g
                   key={i}
@@ -324,13 +336,25 @@ export function TimelineSlideView({ slide }: { slide: TimelineSlide }): React.JS
                     className="transition-all duration-200"
                   />
 
+                  {/* Leader from an outside label down to its block */}
+                  {!labelFits && (
+                    <line
+                      x1={labelX}
+                      y1={blockY - 7}
+                      x2={x1 + w / 2}
+                      y2={blockY}
+                      stroke={isActive ? 'rgba(255,255,255,0.4)' : 'rgba(255,255,255,0.15)'}
+                      strokeWidth={0.8}
+                    />
+                  )}
+
                   {/* Label */}
                   <text
-                    x={x1 + w / 2}
-                    y={blockY + blockH / 2 + 4}
+                    x={labelX}
+                    y={labelY}
                     textAnchor="middle"
                     fill={isActive ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.5)'}
-                    fontSize={w > 60 ? '11' : '9'}
+                    fontSize={labelSize}
                     fontWeight={isActive ? '700' : '400'}
                     fontFamily="'JetBrains Mono', monospace"
                     className="pointer-events-none transition-all duration-200"
